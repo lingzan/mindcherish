@@ -33,6 +33,7 @@
             line-height: 54px;
             font-size: 16px;
             color: rgba(0,0,0,.54);
+            background-color: #fff;
             border-bottom: 1px solid #f2f2f2; 
 
             i {

@@ -2,12 +2,14 @@
     <div id="app">
         <!-- <div id="main" :style="{width:'600px',height:'400px'}"></div> -->
         <router-view></router-view>
-        <Avatar type="expert" imgsize="40" /><Avatar />
+        <!-- <Avatar type="expert" imgsize="40" /><Avatar />
         <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
         <Clomun text='活动' ></Clomun>
         <Clomun text='收藏' iconClass="icon-xuanshang"><SwitchBtn /></Clomun>
-        <Clomun text='收藏' iconClass="icon-qianbao"></Clomun>
-    </div>
+        <Clomun text='收藏' iconClass="icon-qianbao"></Clomun> -->
+        <!-- <SubNav subnavs=[321,321312,321312,321,545,4554] /> -->
+    </div> 
+
 </template>
 
 <script>
@@ -15,6 +17,7 @@
 import Avatar from './components/avatar/user'
 import Clomun from './components/user/clomun'
 import SwitchBtn from './components/common/switchBtn'
+import SubNav from './components/nav/subnav'
 
 export default {
     name: 'app',
@@ -54,7 +57,7 @@ export default {
         //     }]
         // })
     },
-    components: { Avatar, Clomun, SwitchBtn }
+    components: { Avatar, Clomun, SwitchBtn, SubNav }
 }
 </script>
 
@@ -65,6 +68,7 @@ body,html {
     min-width: 320px;
     min-height: 100%;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 *{
     margin: 0;
@@ -76,10 +80,27 @@ body,html {
 .fr {
     float: right;
 }
+.clearfix:before {
+    content: '';
+    display: block;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    zoom: 1;
+    visibility: hidden;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: rgba(0,0,0,.87);
-    margin-top: 60px;
+    // margin-top: 60px;
 }
 </style>

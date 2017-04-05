@@ -10,7 +10,8 @@
         props: {
             type: '',
             imgsize: '',
-            imgUrl: ''
+            imgUrl: '',
+            imgClass: ''
         },
         computed: {
             imgUrls: function () {
@@ -39,8 +40,14 @@
                     }
                     break
                 }
-
-                return imgClass
+                console.log(this.imgClass)
+                if (this.imgClass) {
+                    var currentClass = {}
+                    currentClass[this.imgClass] = true
+                    return Object.assign({}, currentClass, imgClass)
+                } else {
+                    return imgClass
+                }
             },
             iconClassObject: function () {
                 return {

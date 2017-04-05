@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import User from '../views/user/index'
+import Center from '../views/user/center'
 
 Vue.use(Router)
 
@@ -8,8 +9,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'Hello',
-            component: Hello
+            name: 'User',
+            component: User
+        },
+        {
+            path: '/center',
+            name: 'Center',
+            component: Center
         }
     ]
 })
