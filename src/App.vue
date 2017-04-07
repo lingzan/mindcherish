@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style type="text/sass" lang="scss">
-@import url('//at.alicdn.com/t/font_ey75r7cln6axxbt9.css');
+@import url('//at.alicdn.com/t/font_r7obk83wp39dx6r.css');
 
 body,html {
     min-width: 320px;
@@ -89,7 +89,7 @@ body,html {
     display: block;
     clear: both;
     zoom: 1;
-    visibility: hidden;
+    overflow: hidden;
 }
 a {
     text-decoration: none;

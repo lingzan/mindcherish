@@ -1,13 +1,7 @@
 <template>
     <div class="operate clearfix">
-        <div class="operate-left fl">
-            <span>提问价</span>
-            <span>104 人get</span>
-        </div>
-        <div class="operate-right fr">
-            <span><i class="iconfont icon-thumbs-up"></i>39</span>
-            <span><i class="iconfont icon-thumbs-o-down"></i>39</span>
-        </div>
+        <div class="operate-left fl"><slot name="left">提问价 500 元<em> · </em>104 人技能已get</slot></div>
+        <div class="operate-right fr"><slot name="right"></slot></div>
     </div>
 </template>
 
@@ -29,6 +23,9 @@
 
         &-right {
             color: rgba(0,0,0,.25);
+            i {
+                color: rgba(0,0,0,.18);
+            }
         }
     }
 </style>

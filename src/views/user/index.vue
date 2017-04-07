@@ -1,22 +1,25 @@
 <template>
     <div class="user">
         <div class="user-box">
-            <Avatar imgsize="54" type="expert" img-class="user-box-left"/>
+            <Avatar imgsize="50" type="expert" img-class="user-box-left"/>
             <div class="user-box-right">
-                <p class="user-name">遇见了查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页</p>
+                <p class="user-name">笑嘻嘻</p>
                 <p class="user-desciption">查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页</p>
                 <i class="iconfont icon-dianjijinru"></i>
             </div>
         </div>
         <div class="user-box">
-            <SubImgNav subimg='[{"name":"钱包","icon":{"icon-qianbao":true},"url":"/"},{"name":"钱包","icon":{"icon-qianbao":true},"url":"/"},{"name":"钱包","icon":{"icon-qianbao":true},"url":"/"},{"name":"钱包","icon":{"icon-qianbao":true},"url":"/"}]' />
+            <SubImgNav subimg='[{"name":"钱包","icon":{"user-wallet":true},"url":"/center"},{"name":"优惠券","icon":{"user-sale":true},"url":"/"},{"name":"邀请","icon":"user-invite","url":"/"},{"name":"关注","icon":"user-focus","url":"/"}]' />
         </div>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
+        <Clomun text='认证成为智咖' iconClass="icon-Group" msgNum="32"><div class="user-identify">认证中</div></Clomun>
+        <Clomun text='草稿' iconClass="icon-caogao" msgNum="32"></Clomun>
+        <Clomun text='收藏' iconClass="icon-wodeshoucang" msgNum="32"></Clomun>
+        <Clomun text='提问' iconClass="icon-zhiwen" msgNum="32"></Clomun>
+        <Clomun text='悬赏' iconClass="icon-xuanshang" msgNum="32"></Clomun>
+        <Clomun text='活动' iconClass="icon-huodong1" msgNum="32"></Clomun>
+        <Clomun text='技能get' iconClass="icon-jinengget" msgNum="32"></Clomun>
+        <Clomun text='意见反馈' iconClass="icon-fankui" msgNum="32"></Clomun>
+        <Clomun text='设置' iconClass="icon-shezhi" msgNum="32"></Clomun>
     </div>
 </template>
 
@@ -54,6 +57,7 @@
 
 <style type="text/sass" lang="scss">
     .user {
+        padding-top: 10px;
         background-color: #f2f2f2;
         &-box {
             position: relative;
@@ -81,8 +85,11 @@
         }
         &-name {
             margin-top: 9px;
-            font-size: 15px;
             margin-right: 16px;
+            height: 15px;
+
+            line-height: 15px;
+            font-size: 15px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -94,6 +101,39 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        &-wallet {
+            background-image: url(../../assets/icon/icon-wallet.png);
+            background-size: contain;
+        }
+        &-sale {
+            background: url(../../assets/icon/icon-sale.png);
+            background-size: contain;
+        }
+        &-invite {
+            background: url(../../assets/icon/icon-invite.png);
+            background-size: contain;
+        }
+        &-focus {
+            background: url(../../assets/icon/icon-focus.png);
+            background-size: contain;
+        }
+
+        &-identify {
+            width: 59px;
+            height: 24px;
+            margin-top: 15px;
+
+            line-height: 24px;
+            font-size: 12px;
+            color: rgba(0,0,0,.38);
+            text-align: center;
+            vertical-align: center;
+
+            border-radius: 2px;
+            background-color: rgba(0,0,0, .05);
+            cursor: pointer;
         }
     }
 </style>

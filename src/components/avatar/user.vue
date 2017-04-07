@@ -26,8 +26,14 @@
                 case '54':
                     imgClass = { 'img-size-fifty-four': true }
                     break
+                case '50':
+                    imgClass = { 'img-size-fifty': true }
+                    break
                 case '40':
                     imgClass = { 'img-size-forty': true }
+                    break
+                case '36':
+                    imgClass = { 'img-size-thridty-six': true }
                     break
                 case '24':
                     imgClass = {
@@ -111,7 +117,15 @@
                 height: 14px;
             }
         }
+        &-size-fifty {
+            width: 50px;
+            height: 50px;
 
+            em {
+                width: 14px;
+                height: 14px;
+            }
+        }
         &-size-forty {
             width: 40px;
             height: 40px;
@@ -121,7 +135,15 @@
                 height: 12px;
             }
         }
+        &-size-thridty-six {
+            width: 36px;
+            height: 36px;
 
+            em {
+                width: 13px;
+                height: 13px;
+            }
+        }
         &-size-twenty-four {
             width: 24px;
             height: 24px;

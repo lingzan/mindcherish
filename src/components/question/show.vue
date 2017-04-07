@@ -8,7 +8,6 @@
 </template>
 
 <script>
-    import Avatar from '../../components/avatar/user'
     import Qa from '../../components/question/qa'
     import QuestionOperate from '../../components/question/operate'
     import User from '../../components/common/User'
@@ -36,7 +35,7 @@
                 }
             }
         },
-        components: { Avatar, Qa, QuestionOperate, User }
+        components: { Qa, QuestionOperate, User }
     }
 </script>
 

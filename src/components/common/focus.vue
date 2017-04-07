@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'subnav',
+        name: 'focus',
         props: {
             subnavs: ''
         },

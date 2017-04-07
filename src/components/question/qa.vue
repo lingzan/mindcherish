@@ -1,5 +1,5 @@
 <template>
-    <div class="qa clearfix">
+    <div class="qa clearfix" :class="qaClass">
         <div class="qa-left fl"><i class="iconfont icon-wenbenhuida"></i>5元查看</div>
         <div class="qa-right fr">273字</div>
     </div>
@@ -7,7 +7,10 @@
 
 <script>
     export default {
-        name: 'qa'
+        name: 'qa',
+        props: {
+            qaClass: ''
+        }
     }
 </script>
 
@@ -23,7 +26,9 @@
         background-color: #0af;
         color: #fff;
         cursor: pointer;
-
+        &-left,&-right {
+            height: 100%;
+        }
         i {
             font-size: 18px;
             margin-right: 3px;
