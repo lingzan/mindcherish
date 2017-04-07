@@ -1,6 +1,6 @@
 <template>
-    <div class="focus">
-        <i class="iconfont icon-guanzhu"></i>关注
+    <div class="focus" :class="focusClass">
+        <i class="iconfont icon-jiaguanzhujiahao2"></i>关注
     </div>
 </template>
 
@@ -8,16 +8,9 @@
     export default {
         name: 'focus',
         props: {
-            subnavs: ''
+            focusClass: ''
         },
         computed: {
-            sub: function () {
-                if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
-                    return JSON.parse(this.subnavs)
-                } else {
-                    return []
-                }
-            }
         }
     }
 </script>
@@ -27,12 +20,16 @@
         width: 60px;
         height: 25px;
 
-        color: #fff;
+        color: #0af;
+
+        line-height: 25px;
         text-align: center;
-        border: 1px solid #fff;
+        border: 1px solid #0af;
+        border-radius: 2px; 
+        background-color: #fff;
 
         i {
-            color: #fff;
+            color: #0af;
         }
    }
 </style>

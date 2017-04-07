@@ -5,12 +5,13 @@
             <p class="default-user-name">遇见了查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页</p>
             <p class="default-user-desciption">上海期货交易所<i> · </i>高级交易员</p>
         </div>
-        <slot></slot>
+        <slot><Focus focus-class="default-user-focus" ></Focus></slot>
     </div>
 </template>
 
 <script>
     import Avatar from '../../components/avatar/user'
+    import Focus from '../../components/common/focus'
 
     export default {
         name: 'subnav',
@@ -36,7 +37,7 @@
                 }
             }
         },
-        components: { Avatar }
+        components: { Avatar, Focus }
     }
 </script>
 
@@ -54,15 +55,18 @@
             
         }
         &-name {
-            font-size: 14px;
             height: 14px;
+            margin-right: 65px;
+
             line-height: 14px;
+            font-size: 14px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         &-desciption {
             margin-top: 5px;
+            margin-right: 65px;
             font-size: 14px;
             height: 14px;
             line-height: 14px;
@@ -70,6 +74,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
             color: rgba(0, 0, 0, 0.54);
+        }
+        &-focus {
+            position: absolute;
+            top: 50%;
+            right: 0;
+
+            transform: translateY(-50%);
         }
     }
 </style>
