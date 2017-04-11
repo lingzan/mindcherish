@@ -33,6 +33,8 @@
         .icon-thumbs-up {
             position: relative;
             top: 1px;
+
+            margin-right: 3px;
         }
         .mr20 {
             margin-right: 20px;

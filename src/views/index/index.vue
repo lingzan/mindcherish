@@ -1,27 +1,20 @@
 <template>
     <div class="index">
-        <QuestionModule ></QuestionModule>
-        <ArticleModule ></ArticleModule>
+        <SubNav :subnavs="subnavs"/>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import QuestionModule from '../../components/module/question'
-    import ArticleModule from '../../components/module/article'
-    import Focus from '../../components/common/focus'
-
     export default {
-        name: 'question-show',
-        props: {
-            subnavs: ''
-        },
+        name: 'index',
         data () {
             return {
             }
         },
         computed: {
         },
-        components: { QuestionModule, Focus, ArticleModule }
+        components: {}
     }
 </script>
 

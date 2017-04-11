@@ -14,8 +14,9 @@
         },
         computed: {
             sub: function () {
+                console.log(this.subnavs)
                 if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
-                    return JSON.parse(this.subnavs)
+                    return this.subnavs
                 } else {
                     return []
                 }
@@ -25,6 +26,12 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    a.router-link-active {
+        color: rgba(0,0,0,.87) !important;
+        li {
+            color: rgba(0,0,0,.87) !important;
+        }        
+    }
     .subnav {
         ul {
             display: flex;
