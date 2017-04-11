@@ -1,18 +1,17 @@
 <template>
-    <div class="indexFlow">
+    <div class="question">
         <QuestionModule ></QuestionModule>
-        <ArticleModule ></ArticleModule>
+        <!-- <ArticleModule ></ArticleModule> -->
     </div>
 </template>
 
 <script>
 
     import QuestionModule from '../../components/module/question'
-    import ArticleModule from '../../components/module/article'
-    import Focus from '../../components/common/focus'
+    // import ArticleModule from '../../components/module/article'
 
     export default {
-        name: 'index-flow',
+        name: 'question',
         data () {
             return {
                 subnavs: ['首页', '问答', '精选', '文章']
@@ -20,7 +19,7 @@
         },
         computed: {
         },
-        components: { QuestionModule, Focus, ArticleModule }
+        components: { QuestionModule }
     }
 </script>
 

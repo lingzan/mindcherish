@@ -6,15 +6,18 @@
 </template>
 
 <script>
+    import SubNav from '../../components/nav/subnav'
+
     export default {
         name: 'index',
         data () {
             return {
+                subnavs: [{'name': '首页', 'url': '/'}, {'name': '问答', 'url': '/question'}, {'name': '精选', 'url': '/specify'}, {'name': '文章', 'url': '/article'}]
             }
         },
         computed: {
         },
-        components: {}
+        components: { SubNav }
     }
 </script>
 
