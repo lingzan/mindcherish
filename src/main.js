@@ -17,6 +17,7 @@ axios.defaults.baseURL = 'http://test.mindcherish.com'
 // },(error) => {
 //     return Promise.reject(error)
 // })
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 

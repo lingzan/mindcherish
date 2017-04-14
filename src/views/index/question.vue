@@ -18,6 +18,12 @@
             }
         },
         computed: {
+            a: function () {
+                console.log(this)
+            }
+        },
+        mounted () {
+            console.log(this.$http.get('http://m.mindcherish.com/v1/article/lists?page=2&release_platform=mindcherish&rows=6&orderby=id'))
         },
         components: { QuestionModule }
     }
