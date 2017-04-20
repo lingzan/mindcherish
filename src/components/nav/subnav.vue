@@ -14,7 +14,6 @@
         },
         computed: {
             sub: function () {
-                console.log(this.subnavs)
                 if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
                     return this.subnavs
                 } else {

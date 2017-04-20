@@ -16,7 +16,7 @@
         computed: {
             sub: function () {
                 if (typeof this.subimg !== 'undefined' && this.subimg !== '') {
-                    return JSON.parse(this.subimg)
+                    return this.subimg
                 } else {
                     return []
                 }
