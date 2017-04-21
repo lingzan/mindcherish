@@ -2,7 +2,7 @@
     <div class="index">
         <SubNav :subnavs="subnavs"/>
         <router-view></router-view>
-        <SubImgNav :subimg="footernavs"/>  
+        <SubImgNav :subimg="footernavs" :subclass="subclass"/>  
     </div>
 </template>
 
@@ -15,11 +15,12 @@
         data () {
             return {
                 subnavs: [{'name': '首页', 'url': '/'}, {'name': '问答', 'url': '/question'}, {'name': '精选', 'url': '/specify'}, {'name': '文章', 'url': '/article'}],
+                subclass: 'index-subimg',
                 footernavs: [
-                    {'name': '钱包', 'icon': 'icon-tanzi3', 'url': ''},
-                    {'name': '优惠券', 'icon': 'icon-faxian', 'url': ''},
-                    {'name': '邀请', 'icon': 'icon-xaioxi2', 'url': ''},
-                    {'name': '关注', 'icon': 'icon-wode2', 'url': ''}
+                    {'name': '首页', 'icon': 'icon-tanzi3', 'url': ''},
+                    {'name': '发现', 'icon': 'icon-faxian', 'url': ''},
+                    {'name': '消息', 'icon': 'icon-xaioxi2', 'url': ''},
+                    {'name': '我的', 'icon': 'icon-wode2', 'url': '/user'}
                 ]
             }
         },
@@ -33,11 +34,19 @@
    .index {
         background: #f2f2f2;
         
+        &-subimg {
+            p {
+                color: rgba(0,0,0,.25);
+            }
+        }
         i {
+            width: auto;
+            height: auto;
+            font-size: 22px;
             color: rgba(0,0,0,.25);
         }
+
         .icon-tanzi3 {
-            color: rgba(0,0,0,.25);
         }
         .icon-faxian {
             

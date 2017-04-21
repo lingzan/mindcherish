@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="user-box">
-            <SubImgNav subimg='[{"name":"钱包","icon":{"user-wallet":true},"url":"/center"},{"name":"优惠券","icon":{"user-sale":true},"url":"/"},{"name":"邀请","icon":"user-invite","url":"/"},{"name":"关注","icon":"user-focus","url":"/"}]' />
+            <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
         </div>
         <Clomun text='认证成为智咖' iconClass="icon-Group" msgNum="32"><div class="user-identify">认证中</div></Clomun>
         <Clomun text='草稿' iconClass="icon-caogao" msgNum="32"></Clomun>
@@ -29,9 +29,7 @@
     import SubImgNav from '../../components/nav/subimgnav'
     export default {
         name: 'subnav',
-        props: {
-            subnavs: ''
-        },
+        props: {},
         data () {
             return {
                 usernav: [
@@ -39,7 +37,14 @@
                         icon: 'icon-yaowohuida',
                         name: '邀我回答'
                     }
-                ]
+                ],
+                subimgnavs: [
+                    {'name': '钱包', 'icon': 'user-wallet', 'url': '/center'},
+                    {'name': '优惠券', 'icon': 'user-sale', 'url': '/'},
+                    {'name': '邀请', 'icon': 'user-invite', 'url': '/'},
+                    {'name': '关注', 'icon': 'user-focus', 'url': '/'}
+                ],
+                subclass: 'user-subimg'
             }
         },
         computed: {
@@ -59,6 +64,11 @@
     .user {
         padding-top: 10px;
         background-color: #f2f2f2;
+        &-subimg {
+            p {
+                margin-top: 5px;
+            }
+        }
         &-box {
             position: relative;
             padding: 15px 16px;
