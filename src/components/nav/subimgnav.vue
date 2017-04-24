@@ -34,34 +34,32 @@
             display: flex;
             box-sizing: border-box;
             width:100%;
+            height: 100%;
 
             background: #fff;
 
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            
+            align-items: center;
+
             a {
                 display: block;
+                height: 100%;
                 flex: 1;
                 text-align: center;
             }
 
             li {
-                font-size: 12px;
+                height: 100%;
+                font-size: 0.75rem;
                 text-align: center;
-                
-                
-
-                // p {
-                //     margin-top: 5px;
-                // }
             }
         }
 
         i {
-            width: 36px;
-            height: 36px;
+            width: 2.25rem;
+            height: 2.25rem;
             margin: 0 auto;
             display: block;
         }

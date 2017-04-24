@@ -66,7 +66,7 @@
         background-color: #f2f2f2;
         &-subimg {
             p {
-                margin-top: 5px;
+                margin-top: 0.3125rem;
             }
         }
         &-box {

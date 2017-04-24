@@ -1,6 +1,6 @@
 <template>
     <div class="article-operate">
-        <Operate><span slot="left"><i class="iconfont icon-shoucang1"></i></span><span slot="right"><span class="mr20"><i class="iconfont icon-pinglun"></i>32</span><span><i class="iconfont icon-thumbs-up"></i>32</span></span></Operate>
+        <Operate><span slot="left"><i class="iconfont icon-shoucang1"></i></span><span slot="right"><router-link to='/comment' class="mr20"><i class="iconfont icon-pinglun"></i>32</router-link><span><i class="iconfont icon-thumbs-up"></i>32</span></span></Operate>
     </div>
 </template>
 
@@ -16,7 +16,10 @@
     .article-operate {
         width: 100%;
         font-size: 14px;
-
+        
+        a {
+           color: rgba(0,0,0,.25); 
+        }
         .icon-shoucang1 {
             margin-right: 3px;
             font-size: 14px;

@@ -64,6 +64,10 @@ export default {
 <style type="text/sass" lang="scss">
 @import url('//at.alicdn.com/t/font_r7obk83wp39dx6r.css');
 
+// @function pxTranformToRem($args) {
+//     @return ($args/16)+rem;
+// }
+
 body,html {
     min-width: 320px;
     min-height: 100%;
