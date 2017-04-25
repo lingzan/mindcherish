@@ -1,5 +1,6 @@
 <template>
     <div class="index">
+        <Search />
         <SubNav :subnavs="subnavs"/>
         <router-view></router-view>
         <SubImgNav :subimg="footernavs" :subclass="subclass"/>  
@@ -9,6 +10,7 @@
 <script>
     import SubNav from '../../components/nav/subnav'
     import SubImgNav from '../../components/nav/subimgnav'
+    import Search from '../../components/nav/searchnav'
 
     export default {
         name: 'index',
@@ -26,7 +28,7 @@
         },
         computed: {
         },
-        components: { SubNav, SubImgNav }
+        components: { SubNav, SubImgNav, Search }
     }
 </script>
 

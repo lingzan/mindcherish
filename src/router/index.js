@@ -1,18 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import User from '../views/user/index'
 import Center from '../views/user/center'
+
 import Index from '../views/index/index'
 import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/index/question'
 import Special from '../views/index/special'
 import Article from '../views/index/article'
+
 import Msg from '../views/msg/index'
-import Comment from '../views/comment/index'
-import CommentDetail from '../views/comment/detail'
 import MsgNotice from '../components/msg/notice'
 import MsgChat from '../components/msg/chat'
 import MsgAttention from '../components/msg/attention'
+
+import Comment from '../views/comment/index'
+import CommentDetail from '../views/comment/detail'
+
+import Search from '../views/search/index'
+
+import QuizWrite from '../views/quiz/write'
+import QuizDomain from '../views/quiz/domain'
+import QuizExpert from '../views/quiz/expert'
+import QuizAsk from '../views/quiz/ask'
 
 Vue.use(Router)
 
@@ -75,13 +86,38 @@ export default new Router({
         },
         {
             path: '/comment',
-            name: '/Comment',
+            name: 'Comment',
             component: Comment
         },
         {
             path: '/comment/detail',
-            name: '/CommentDetail',
+            name: 'CommentDetail',
             component: CommentDetail
+        },
+        {
+            path: '/search',
+            name: 'Search',
+            component: Search
+        },
+        {
+            path: '/quiz/write',
+            name: 'QuizWrite',
+            component: QuizWrite
+        },
+        {
+            path: '/quiz/domain',
+            name: 'QuizDomain',
+            component: QuizDomain
+        },
+        {
+            path: '/quiz/expert',
+            name: 'QuizExpert',
+            component: QuizExpert
+        },
+        {
+            path: '/quiz/ask',
+            name: 'QuizAsk',
+            component: QuizAsk
         }
     ]
 })
