@@ -63,7 +63,7 @@ export default {
 
 <style type="text/sass" lang="scss">
 @import url('//at.alicdn.com/t/font_6ia1rt154wxhto6r.css');
-
+@import url('./style/mixin.scss');
 // @function pxTranformToRem($args) {
 //     @return ($args/16)+rem;
 // }

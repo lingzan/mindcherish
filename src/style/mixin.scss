@@ -1,0 +1,7 @@
+@mixin text-overflow ($clomun) {
+    display: -webkit-box;
+    -webkit-line-clamp: $clomun;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
