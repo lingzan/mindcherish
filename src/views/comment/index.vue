@@ -1,23 +1,23 @@
 <template>
     <div class="comment">
-        <Clomun>
+        <Column>
             <div class="comment-text">
                 <p class="left">你好，能问你个问题吗,伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总 </p>
                 <span class="right"><i class="iconfont icon-thumbs-up"></i>32</span>
             </div>
             <p class="comment-content">这次百家我们请到了债券市场领域的顶级大小拿，大家可以到董老师的智咖页提问</p>
             <div class="comment-total">5分钟前<span> · </span>5条回复</div>
-        </Clomun>
+        </Column>
     </div>
 
 </template>
 
 <script>
-    import Clomun from '../../components/comment/clomun'
+    import Column from '../../components/comment/column'
 
     export default {
         name: 'comment',
-        components: { Clomun }
+        components: { Column }
     }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
-    <div class="comment-clomun clearfix">
-        <Avatar imgsize='40' type="expert" img-class="avatar"/>
-        <div class="comment-clomun-info">
+    <div class="default-column clearfix" :class="columnClass">
+        <router-link :to="columnUrl">
+            <Avatar :imgsize="columnImgSize" :type="columnType" img-class="avatar"/>
             <slot></slot>
-        </div>
+        </router-link>
     </div>
 </template>
 
@@ -11,10 +11,15 @@
     import Avatar from '../../components/avatar/user'
 
     export default {
-        name: 'comment-clomun',
+        name: 'default-column',
         data () {
-            return {
-            }
+            return {}
+        },
+        props: {
+            columnClass: '',
+            columnImgSize: '',
+            columnType: '',
+            columnUrl: ''
         },
         computed: {
         },
@@ -23,7 +28,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
-   .comment-clomun {
+   .default-column {
         padding:18px 16px;
         background-color: #fff;
         border-bottom: 1px solid #f2f2f2;
@@ -31,11 +36,6 @@
         .avatar {
             float: left;
         }
-
-        &-info {
-            min-height: 40px;
-            margin-left: 52px;
-            line-height: 24px;
-        }
+        
    }
 </style>

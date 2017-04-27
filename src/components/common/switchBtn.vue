@@ -1,11 +1,12 @@
 <template>
-    <input type="checkbox" class="default-switch-btn" @change="switchBtnStatus()" />
+    <input type="checkbox" class="default-switch-btn" :class="switchClass" @change="switchBtnStatus()" />
 </template>
 <script>
     export default {
         name: 'default-switch-btn',
         props: {
-            currentStatus: ''
+            currentStatus: '',
+            switchClass: ''
         },
         methods: {
             switchBtnStatus () {
@@ -21,7 +22,6 @@
         display: block;
         width: 40px;
         height: 24px;
-        float: right;
         
         -webkit-appearance: none;
         appearance:none;

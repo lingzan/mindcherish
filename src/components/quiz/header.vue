@@ -1,10 +1,11 @@
 <template>
     <div class="quiz-header">
         <div class="left">
-            <i class="iconfont icon-guanbi"></i>取消
+            <slot name="left"/>
+            <!-- <i class="iconfont icon-guanbi"></i>取消 -->
         </div>
         <div class="medium">{{title}}</div>
-        <div class="right active" @click="nextStep()">下一步</div>
+        <div class="right"><slot name="right" class="iconfo" /></div>
     </div>
 </template>
 

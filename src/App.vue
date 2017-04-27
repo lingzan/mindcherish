@@ -97,6 +97,7 @@ body,html {
 }
 a {
     text-decoration: none;
+    color: rgba(0,0,0,.87);
 }
 li {
     list-style: none;

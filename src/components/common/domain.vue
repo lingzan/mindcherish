@@ -4,6 +4,7 @@
             <div class="placeholder" v-if="(selectedData.length == 0)">选择领域（1-3）</div>
             <span @click="removeSelected(item)" v-for="item in selectedData">{{item.name}}</span>
         </div>
+        <!-- <DomainHeader :selectedData="selectedData" @click="removeSelected" /> -->
         <div class="default-domain-box">
             <ul class="default-domain-item level-one">
                 <li :class="{'active': filtersSelected(item.id)}" @click="clickSelect(item)" v-for="item in oneLevel">{{item.name}}<i></i></li>
@@ -19,6 +20,8 @@
 </template>
 
 <script>
+    import DomainHeader from '../../components/common/domainHeader'
+
     export default {
         name: 'default-domain',
         data () {
@@ -95,7 +98,8 @@
                     }
                 })
             }
-        }
+        },
+        components: {DomainHeader}
     }
 </script>
 

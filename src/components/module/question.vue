@@ -1,7 +1,9 @@
 <template>
     <div class="question-module">
         <slot><div class="clearfix question-module-header"><Avatar imgsize='20'img-class="question-module-avatar"/><span class="question-module-author">张昭 回答了问题</span> <span class="fr">7 分钟前</span></div></slot>
-        <p class="question-module-title">请问你觉得精神和灵魂是一回事吗，怎么如果不是的话有什么区别</p>
+        <router-link to="/question/detail">
+            <p class="question-module-title">请问你觉得精神和灵魂是一回事吗，怎么如果不是的话有什么区别</p>
+        </router-link>
         <Qa qa-class="question-module-content" />
         <QuestionOperate><span slot="left">提问价 500 元<em> · </em>104 人技能已get</span><span slot="right"><i class="iconfont icon-thumbs-up"></i>32<i class="iconfont icon-thumbs-down"></i>32</span></QuestionOperate>
     </div>

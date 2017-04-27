@@ -18,6 +18,15 @@ axios.defaults.baseURL = 'http://test.mindcherish.com'
 //     return Promise.reject(error)
 // })
 Vue.prototype.$http = axios
+Vue.directive('autotextarea', {
+    bind: function (el, binding, vnode) {
+        console.log(el, binding, vnode)
+        // let $this = document.(e.target.tagName)[0]
+        // $this.removeAttribute('style')
+        // $this.style.height = $this.scrollHeight + 'px'
+        // console.log($this.offsetHeight, $this.scrollTop, $this.scrollHeight, $this.style.height)
+    }
+})
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,9 @@
 <template>
     <div class="quiz-write">
-        <QuizHeader next="#/quiz/domain" title="1/50"/>
+        <QuizHeader next="#/quiz/domain" title="1/50">
+            <span slot="left"><i class="iconfont icon-fanhui" @click="back()"></i>返回</span>
+            <div slot="right" @click="nextStep()">下一步</div>
+        </QuizHeader>
         
         <div class="quiz-write-content">
             <textarea v-model="question" :class="{'active': question}" @input="changes($event)" placeholder="输入你的问题（10-100字）..."></textarea>
@@ -35,6 +38,12 @@
                 $this.removeAttribute('style')
                 $this.style.height = $this.scrollHeight + 'px'
                 console.log($this.offsetHeight, $this.scrollTop, $this.scrollHeight, $this.style.height)
+            },
+            back: function () {
+                this.$router.go(-1)
+            },
+            nextStep: function () {
+                window.location.href = '#quiz/domain'
             }
         },
         components: { Operate, QuizHeader }
@@ -51,43 +60,6 @@
     }
     .quiz-write {
         background: #f2f2f2;
-
-        &-header {
-            position: relative;
-            height: 51px;
-
-            line-height: 51px;
-            border-bottom: 1px solid #f2f2f2;
-            background-color: #fff;
-            text-align: center;
-            .left { 
-                position: absolute;
-                left: 16px;
-                top: 50%;
-
-                transform: translateY(-50%);
-
-                i {
-                    position: relative;
-                    top: -1px;
-                    margin-right: 9px;
-                    font-size: 12px;
-
-                }
-            }
-            .right {
-                position: absolute;
-                right: 16px;
-                top: 50%;
-
-                transform: translateY(-50%);
-                color: rgba(0, 0, 0, 0.25);
-
-                &.active {
-                    color: rgba(0, 0, 0, 0.87);
-                }
-            }
-        }
 
         &-content {
             padding: 16px;

@@ -7,6 +7,7 @@ import Center from '../views/user/center'
 import Index from '../views/index/index'
 import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/index/question'
+import QuestionDetail from '../views/question/detail'
 import Special from '../views/index/special'
 import Article from '../views/index/article'
 
@@ -53,6 +54,11 @@ export default new Router({
                 name: 'Article',
                 component: Article
             }]
+        },
+        {
+            path: '/question/detail',
+            name: 'QuestionDetail',
+            component: QuestionDetail
         },
         {
             path: '/center',
