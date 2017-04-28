@@ -35,7 +35,7 @@ export default new Router({
             name: 'Index',
             component: Index,
             children: [{
-                path: '',
+                path: '/',
                 name: 'IndexFlow',
                 component: IndexFlow
             },

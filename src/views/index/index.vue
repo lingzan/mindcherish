@@ -2,7 +2,9 @@
     <div class="index">
         <Search />
         <SubNav :subnavs="subnavs"/>
-        <router-view></router-view>
+        <router-view>
+            <div>12313132131</div>
+        </router-view>
         <SubImgNav :subimg="footernavs" :subclass="subclass"/>  
     </div>
 </template>
@@ -25,8 +27,6 @@
                     {'name': '我的', 'icon': 'icon-wode2', 'url': '/user'}
                 ]
             }
-        },
-        computed: {
         },
         components: { SubNav, SubImgNav, Search }
     }

@@ -1,5 +1,5 @@
 <template>
-    <div>32</div>
+    
 </template>
 
 <script>
@@ -9,5 +9,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
-    
+    .question-detail {
+        
+    }    
 </style>
