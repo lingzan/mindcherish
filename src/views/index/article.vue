@@ -18,6 +18,15 @@
         }),
         created () {
             this.$store.dispatch('getArticleList')
+            this.$store.dispatch('getArticleContent')
+            console.log(this.$store.state)
+        },
+        beforeRouteEnter: function (to, from, next) {
+            // transition.next()
+            // alert('l')
+            next(vm => {
+                console.log(vm)
+            })
         },
         components: { ArticleModule }
     }

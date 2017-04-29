@@ -2,7 +2,8 @@ import * as types from '../mutation-types'
 import article from '../../api/article'
 
 const state = {
-    article: []
+    article: [],
+    test: ''
 }
 
 const getters = {
@@ -14,12 +15,20 @@ const actions = {
         article.getArticleList(products => {
             commit(types.GET_ARTICLE_LIST, {products})
         })
+    },
+    getArticleContent ({ commit }) {
+        article.getArticleContent(test => {
+            commit(types.GET_ARTICLE_CONTENT, {test})
+        })
     }
 }
 
 const mutations = {
     [types.GET_ARTICLE_LIST] (state, { products }) {
         state.article = products
+    },
+    [types.GET_ARTICLE_CONTENT] (state, { test }) {
+        state.test = test
     }
 }
 

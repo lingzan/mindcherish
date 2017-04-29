@@ -3,13 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
+// import axios from 'axios'
 import store from './store/store'
 // import qs from 'qs'
 
-axios.defaults.timeout = 5000
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
-axios.defaults.baseURL = 'http://test.mindcherish.com'
+// axios.defaults.timeout = 5000
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+// axios.defaults.baseURL = 'http://test.mindcherish.com'
 
 // axios.interceptors.request.use((config) => {
 //     if (config.method === 'post') {
@@ -18,7 +18,7 @@ axios.defaults.baseURL = 'http://test.mindcherish.com'
 // },(error) => {
 //     return Promise.reject(error)
 // })
-Vue.prototype.$http = axios
+// Vue.prototype.$http = axios
 Vue.directive('autotextarea', {
     bind: function (el, binding, vnode) {
         console.log(el, binding, vnode)
