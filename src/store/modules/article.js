@@ -3,11 +3,13 @@ import article from '../../api/article'
 
 const state = {
     article: [],
-    test: ''
+    test: '',
+    scrollTop: 0
 }
 
 const getters = {
-    articleList: state => state.article
+    articleList: state => state.article,
+    getScrollTop: state => state.scrollTop
 }
 
 const actions = {
@@ -20,6 +22,9 @@ const actions = {
         article.getArticleContent(test => {
             commit(types.GET_ARTICLE_CONTENT, {test})
         })
+    },
+    setScrollTop ({ commit }, top) {
+        commit(types.SET_SCROLLTOP, top)
     }
 }
 
@@ -29,6 +34,9 @@ const mutations = {
     },
     [types.GET_ARTICLE_CONTENT] (state, { test }) {
         state.test = test
+    },
+    [types.SET_SCROLLTOP] (state, top) {
+        state.scrollTop = top
     }
 }
 

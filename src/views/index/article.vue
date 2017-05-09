@@ -14,19 +14,34 @@
             return {}
         },
         computed: mapGetters({
-            article: 'articleList'
+            article: 'articleList',
+            scrollTop: 'getScrollTop'
         }),
         created () {
-            this.$store.dispatch('getArticleList')
-            this.$store.dispatch('getArticleContent')
-            console.log(this.$store.state)
+            // console.log(this.$store.state)
+            // this.$store.dispatch('getArticleList')
+            // this.$store.dispatch('getArticleContent')
         },
         beforeRouteEnter: function (to, from, next) {
             // transition.next()
             // alert('l')
-            next(vm => {
-                console.log(vm)
-            })
+            if (from.path.indexOf('/comment') === -1) {
+                next(vm => {
+                    console.log('vm', vm.$store.state.c)
+                    vm.$store.dispatch('getArticleList')
+                    vm.$store.dispatch('getArticleContent')
+                })
+            } else {
+                next(vm => {
+                    console.log('scrollTop')
+                    document.body.scrollTop = vm.$store.state.c.scrollTop
+                })
+            }
+            console.log(to, from)
+        },
+        beforeRouteLeave: function (to, from, next) {
+            this.$store.dispatch('setScrollTop', document.body.scrollTop)
+            next()
         },
         components: { ArticleModule }
     }

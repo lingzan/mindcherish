@@ -23,6 +23,10 @@
         },
         computed: {
         },
+        methods: {
+        },
+        mounted: function () {
+        },
         components: { Avatar, Qa, QuestionOperate, User }
     }
 </script>
