@@ -1,7 +1,7 @@
 <template>
     <div class="subimgnav" :class="subclass">
         <ul>
-            <router-link :to="item.url" v-for="item in sub"><li><i class="iconfont" :class="item.icon"></i>
+            <router-link :to="item.url" v-for="item in sub" :key="item"><li><i class="iconfont" :class="item.icon"></i>
             <p>{{item.name}}</p></li></router-link>
         </ul>
     </div>

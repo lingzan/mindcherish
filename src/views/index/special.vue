@@ -1,6 +1,6 @@
 <template>
     <div class="special">
-        <Clomun v-for="i in 10">
+        <Clomun v-for="i in 10" :key="i">
             <div class="special-text">
                 <p class="title">你好，能问你个问题吗,你好，能问你个问题吗你好，能问你个问题吗事情是这... </p>
                 <p class="info">你好，能问你个问题吗,伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总 </p>

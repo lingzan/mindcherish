@@ -1,6 +1,6 @@
 <template>
     <div class="chat">
-        <Clomun v-for="i in 10">
+        <Clomun v-for="i in 10" :key="i">
             <div class="chat-text">
                 <p class="left">你好，能问你个问题吗,伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总 </p>
                 <time class="right time">3分钟前</time>

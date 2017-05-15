@@ -1,6 +1,6 @@
 <template>
     <div class="msg-attention">
-        <Clomun v-for="i in 10">
+        <Clomun v-for="i in 10" :key="i">
             <div class="msg-attention-text">
                 <p class="left">你好，能问你个问题吗,你好，能问你个问题吗你好，能问你个问题吗事情是这... </p>
                 <p class="left content">你好，能问你个问题吗,伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总 </p>

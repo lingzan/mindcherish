@@ -1,4 +1,5 @@
 import axios from 'axios'
+import token from './token'
 
 const ARTICLE_API = {
     lists: 'v1/article/lists',
@@ -20,12 +21,17 @@ const ARTICLE_API = {
         }
     }
 }
+export function _extends (...param) {
 
-export function fetch (url, method = 'GET') {
+}
+export function fetch (url, data, method = 'GET') {
+    console.log(token())
+    // let _data = ''
     return new Promise((resolve, reject) => {
         axios({
             method: method,
-            url: url
+            url: url,
+            data: data
         })
         .then((response) => {
             resolve(response.data)
@@ -39,7 +45,6 @@ export function fetch (url, method = 'GET') {
 export default {
     getArticleList (cb) {
         let promise = fetch(ARTICLE_API.lists)
-
         promise.then((res) => {
             cb(res)
         }, () => {
