@@ -1,13 +1,12 @@
 import md5 from 'md5'
-
+import * as config from './config.js'
 const token = function () {
-    let clientSecret = '8jYaPklBrD0xmmpyliOIwHmD6shw82id'
+    let clientSecret = config.clientSecret
     let randomStr = setRandomStr(4)
     let md5Str = md5(randomStr + clientSecret)
     let md5SubStr = md5Str.substr(0, 12)
-    let timeStr = (new Date() - randomStr).toString(16)
+    let timeStr = (parseInt(new Date().getTime() / 1000) - randomStr).toString(16)
     let tokenStr = reverseStr(randomStr + md5SubStr + timeStr)
-
     return tokenStr
 }
 
