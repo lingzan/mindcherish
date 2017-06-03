@@ -1,6 +1,5 @@
 import fetch from '../axios'
 
-console.log(fetch)
 const ARTICLE_API = {
     lists: 'v1/article/lists',
     get: {
@@ -24,6 +23,7 @@ const ARTICLE_API = {
 
 export default {
     getArticleList (cb) {
+        console.log(cb)
         let promise = fetch(ARTICLE_API.lists, {a: 1}, 'POST')
         promise.then((res) => {
             cb(res)

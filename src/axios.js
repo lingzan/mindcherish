@@ -1,11 +1,15 @@
 import axios from 'axios'
 import qs from 'qs'
 import token from './api/token'
+import store from './store/store'
+import * as types from './store/mutation-types'
 
 axios.defaults.timeout = 20000
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 
 axios.interceptors.request.use((config) => {
+    store.commit(types.AJAX_SEND)
+    console.log(store.state.d.loading)
     if (config.method === 'post') {
         config.data = qs.stringify(config.data)
     }
@@ -16,8 +20,9 @@ axios.interceptors.request.use((config) => {
 })
 
 axios.interceptors.response.use((res) => {
+    store.commit(types.AJAX_END)
+    console.log(store.state.d.loading)
     if (res.status !== 200) {
-        alert(res.data)
         return Promise.reject(res)
     }
     return Promise.resolve(res)
@@ -25,21 +30,19 @@ axios.interceptors.response.use((res) => {
     // alert('网络异常')
     return Promise.reject(error)
 })
-
 // 对象序列化
 export function objectSerialize (object) {
     let str = []
     if (typeof object === 'object') {
         for (let i in object) {
             str.push(i + '=' + object[i])
-            console.log(str)
         }
         str = str.join('&')
     }
     return str
 }
 
-export function fetch (url, data, method = 'GET') {
+export const fetch = (url, data, method = 'GET') => {
     return new Promise((resolve, reject) => {
         var options = {}
         const tokenArr = {
@@ -47,7 +50,6 @@ export function fetch (url, data, method = 'GET') {
             client_token: token()
         }
         const _data = Object.assign({}, data, tokenArr)
-
         if (method === 'POST') {
             options = {
                 method: method,
@@ -60,6 +62,7 @@ export function fetch (url, data, method = 'GET') {
                 url: url + '?' + objectSerialize(_data)
             }
         }
+
         axios(options)
         .then((response) => {
             resolve(response.data)
@@ -69,5 +72,4 @@ export function fetch (url, data, method = 'GET') {
         })
     })
 }
-
 export default fetch

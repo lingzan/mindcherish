@@ -7,3 +7,6 @@ export const ADD_ARTICLE = 'ADD_ARTICLE'
 export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST'
 export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS'
 export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE'
+
+export const AJAX_SEND = 'AJAX_SEND'
+export const AJAX_END = 'AJAX_END'
