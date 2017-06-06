@@ -1,6 +1,17 @@
 <template>
     <div class="article-operate">
-        <Operate><span slot="left"><i class="iconfont icon-shoucang1"></i></span><span slot="right"><router-link to='/comment' class="mr20"><i class="iconfont icon-pinglun"></i>32</router-link><span><i class="iconfont icon-thumbs-up"></i>32</span></span></Operate>
+        <Operate>
+                <span>104 浏览</span>
+                <span> · 309 赞</span>
+                <span> · 309 赞</span>
+                <span> · #黑色金属</span>
+                <span> · #黑色金属</span>
+                <span> · #黑色金属</span>
+                <span> · #黑色金属</span>
+                
+                <!-- <router-link to='/comment' class="mr20"><i class="iconfont icon-pinglun"></i>32</router-link>
+                <span><i class="iconfont icon-thumbs-up"></i>32</span> -->
+        </Operate>
     </div>
 </template>
 
@@ -16,7 +27,6 @@
     .article-operate {
         width: 100%;
         font-size: 14px;
-        
         a {
            color: rgba(0,0,0,.25); 
         }

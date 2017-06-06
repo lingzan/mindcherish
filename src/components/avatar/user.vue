@@ -9,9 +9,9 @@
         name: 'base-avatar',
         props: {
             type: '',
-            imgsize: '',
-            imgUrl: '',
-            imgClass: ''
+            avatarSize: '',
+            avatarUrl: '',
+            avatarClass: ''
         },
         computed: {
             imgUrls: function () {
@@ -19,41 +19,33 @@
             },
             imgClassObject: function () {
                 let imgClass = {}
-                switch (this.imgsize) {
+                switch (this.avatarSize) {
                 case '66':
-                    imgClass = { 'img-size-sixty-six': true }
+                    imgClass = 'img-size-sixty-six'
                     break
                 case '54':
-                    imgClass = { 'img-size-fifty-four': true }
+                    imgClass = 'img-size-fifty-four'
                     break
                 case '50':
-                    imgClass = { 'img-size-fifty': true }
+                    imgClass = 'img-size-fifty'
                     break
                 case '40':
-                    imgClass = { 'img-size-forty': true }
+                    imgClass = 'img-size-forty'
                     break
                 case '36':
-                    imgClass = { 'img-size-thridty-six': true }
+                    imgClass = 'img-size-thridty-six'
                     break
                 case '24':
-                    imgClass = {
-                        'img-size-twenty-four': true
-                    }
+                    imgClass = 'img-size-twenty-four'
+                    break
+                case '16':
+                    imgClass = 'img-size-sixteen'
                     break
                 default:
-                    imgClass = {
-                        'img-size-twenty': true
-                    }
+                    imgClass = 'img-size-twenty'
                     break
                 }
-                console.log(this.imgClass)
-                if (this.imgClass) {
-                    var currentClass = {}
-                    currentClass[this.imgClass] = true
-                    return Object.assign({}, currentClass, imgClass)
-                } else {
-                    return imgClass
-                }
+                return imgClass + ' ' + this.avatarClass
             },
             iconClassObject: function () {
                 return {
@@ -155,6 +147,16 @@
         }
 
         &-size-twenty {
+            width: 20px;
+            height: 20px;
+
+            em {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        &-size-sixteen {
             width: 20px;
             height: 20px;
 

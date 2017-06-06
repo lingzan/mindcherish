@@ -32,6 +32,7 @@
         }        
     }
     .subnav {
+        font-size: 14px;
         ul {
             display: flex;
             box-sizing: border-box;

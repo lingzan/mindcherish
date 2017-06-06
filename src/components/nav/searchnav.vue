@@ -1,7 +1,7 @@
 <template>
     <div class="nav-search">
         <router-link to="/search" class="left"><i class="iconfont icon-sousuo"></i>搜索智答、文章和用户</router-link>
-        <button class="right" @click="quiz()">提问</button>
+        <!-- <button class="right" @click="quiz()">提问</button> -->
     </div>
 </template>
 
@@ -25,7 +25,7 @@
 
         .left {
             display: block;
-            margin-right: 76px;
+            // margin-right: 76px;
             height: 36px;
 
             line-height: 36px;

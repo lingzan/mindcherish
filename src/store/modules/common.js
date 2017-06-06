@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-    getLoad: state => state.loading
+    getLoading: state => state.loading
 }
 
 const mutations = {

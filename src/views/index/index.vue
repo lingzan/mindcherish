@@ -2,8 +2,7 @@
     <div class="index">
         <Search />
         <SubNav :subnavs="subnavs"/>
-        <router-view>
-            <div>12313132131</div>
+        <router-view> 
         </router-view>
         <SubImgNav :subimg="footernavs" :subclass="subclass"/>  
     </div>
@@ -18,13 +17,14 @@
         name: 'index',
         data () {
             return {
-                subnavs: [{'name': '首页', 'url': '/'}, {'name': '问答', 'url': '/question'}, {'name': '精选', 'url': '/special'}, {'name': '文章', 'url': '/article'}],
+                subnavs: [{'name': '首页', 'url': '/'}, {'name': '问答', 'url': '/question'}, {'name': '精选', 'url': '/special'}, {'name': '文章', 'url': '/article'}, {'name': '活动', 'icon': 'icon-wode2', 'url': '/'}],
                 subclass: 'index-subimg',
                 footernavs: [
                     {'name': '首页', 'icon': 'icon-tanzi3', 'url': '/'},
                     {'name': '发现', 'icon': 'icon-faxian', 'url': ''},
                     {'name': '消息', 'icon': 'icon-xaioxi2', 'url': '/msg/notice'},
-                    {'name': '我的', 'icon': 'icon-wode2', 'url': '/user'}
+                    {'name': '我的', 'icon': 'icon-wode2', 'url': '/user'},
+                    {'name': '活动', 'icon': 'icon-wode2', 'url': '/'}
                 ]
             }
         },
