@@ -45,7 +45,6 @@
                     imgClass = 'img-size-twenty'
                     break
                 }
-                console.log(this)
                 return imgClass + ' ' + this.avatarClass
             },
             iconClassObject: function () {

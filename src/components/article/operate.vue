@@ -1,16 +1,7 @@
 <template>
     <div class="article-operate">
         <Operate>
-                <span>104 浏览</span>
-                <span> · 309 赞</span>
-                <span> · 309 赞</span>
-                <span> · #黑色金属</span>
-                <span> · #黑色金属</span>
-                <span> · #黑色金属</span>
-                <span> · #黑色金属</span>
-                
-                <!-- <router-link to='/comment' class="mr20"><i class="iconfont icon-pinglun"></i>32</router-link>
-                <span><i class="iconfont icon-thumbs-up"></i>32</span> -->
+               <slot></slot> 
         </Operate>
     </div>
 </template>

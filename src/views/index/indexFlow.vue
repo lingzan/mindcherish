@@ -1,16 +1,14 @@
 <template>
     <div class="flow">
         <div class="flow-item" v-for="item in flows" :key="item.id">
-            <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)"></QuestionModule>
-            <ArticleModule :article="item" v-if="(item.type.indexOf('article') !== -1)"></ArticleModule>
+        {{item.type}}
+            <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)" />
+            <ArticleModule :articles="item" v-if="(item.type.indexOf('article') !== -1)" />
            <!--  <div v-if="item.type.indexOf('live') !== -1">live</div>
             <div v-if="item.type.indexOf('reward') !== -1">reward</div> -->
             <RewardModule :reward="item" v-if="(item.type.indexOf('reward') !== -1)"/>
             <LiveModule :live="item" v-if="(item.type.indexOf('live') !== -1)"/>
-            
         </div>
-        <QuestionModule />
-        <ArticleModule />
     </div>
 </template>
 
@@ -43,21 +41,21 @@
                     return document.documentElement.scrollTop
                 }
             },
-            getVisibleHeight: function () {
+            getVisibleHeight: function (element) {
                 if (element) {
                     return element.offsetHeight
                 } else {
                     return document.documentElement.offsetHeight
-                } 
+                }
             }
         },
         beforeRouteEnter: function (to, from, next) {
             // transition.next()
             // alert('l')
             next(vm => {
-                console.log('vm', vm.$store.state)
+                // console.log('vm', vm.$store.state)
                 vm.$store.dispatch('getFlowList')
-                console.log('vm2', vm.$store.state)
+                // console.log('vm2', vm.$store.state)
             })
             console.log(to, from)
         },
@@ -68,5 +66,9 @@
 <style type="text/sass" lang="scss">
     .flow {
         padding-bottom: 54px;
+    }
+    * {
+        padding: 0;
+        margin: 0;
     }
 </style>

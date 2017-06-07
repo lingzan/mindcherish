@@ -1,23 +1,25 @@
 <template>
     <div class="question-module">
-        <ModuleHeader user="{'face': ''}"/>
-        <p class="title">易哥您好，昨天3405空螺被深套，您分析说有一次回踩3400调整，今天小赚平仓后又大涨回来了，现货高位回落，并且持仓主力空头没有退...</p>
+    <!-- {{question.actor}} -->
+        <ModuleHeader :actor="question"/>
+        <p class="title">{{question.content.title}}</p>
         <Operate>
-            <span>3</span><span>3</span><span>3</span><span>3</span>
+            <span>{{question.content.visiter_amount}} get</span>
+            <span>· {{question.content.good_amount}} 赞</span>
+            <a :href="question.content.id">· {{question.content.comment_amount}} 评价</a>
+            <a :href="classify.id" v-for="classify in question.content.classifys">3</a>
         </Operate>
     </div>
 </template>
 
 <script>
-    import Avatar from '../../components/avatar/user'
-    import Qa from '../../components/question/qa'
-    import QuestionOperate from '../../components/question/operate'
-    import User from '../../components/common/User'
+    import ModuleHeader from '../flow/moduleHeader'
+    import Operate from '../../components/common/operate'
 
     export default {
         name: 'question-module',
         props: {
-            subnavs: ''
+            question: ''
         },
         data () {
             return {
@@ -25,7 +27,7 @@
         },
         computed: {
         },
-        components: { Avatar, Qa, QuestionOperate, User }
+        components: { ModuleHeader, Operate }
     }
 </script>
 

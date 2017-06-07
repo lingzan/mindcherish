@@ -1,13 +1,14 @@
 <template>
     <div class="img-autofit" :class="autofitSize">
-        <img src="http://image.mindcherish.com/upload/article/170407/1491542046-w8FwjNTMu9.png?imageMogr2/thumbnail/720x360!">
+        <img :src="imgUrl">
     </div>
 </template>
 <script>
     export default {
         name: 'img-autofit',
         props: {
-            autofitSize: ''
+            autofitSize: '',
+            imgUrl: ''
         }
     }
 </script>
