@@ -21,6 +21,10 @@
         text-overflow: ellipsis;
         font-size: 13px;
         text-align: left;
-        color: #9e9e9e;        
+        color: #9e9e9e;
+
+        a {
+            color: #9e9e9e;
+        }       
     }
 </style>

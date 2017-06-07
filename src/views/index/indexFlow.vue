@@ -1,15 +1,13 @@
 <template>
     <div class="flow">
-            {{loading === false}}
         <div class="flow-item" v-for="item in flows" :key="item.id">
-            {{item.type}}
             <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)"></QuestionModule>
             <ArticleModule :article="item" v-if="(item.type.indexOf('article') !== -1)"></ArticleModule>
-            <div v-if="item.type.indexOf('live') !== -1">live</div>
-            <div v-if="item.type.indexOf('reward') !== -1">reward</div>
+           <!--  <div v-if="item.type.indexOf('live') !== -1">live</div>
+            <div v-if="item.type.indexOf('reward') !== -1">reward</div> -->
             <RewardModule :reward="item" v-if="(item.type.indexOf('reward') !== -1)"/>
             <LiveModule :live="item" v-if="(item.type.indexOf('live') !== -1)"/>
-
+            
         </div>
         <QuestionModule />
         <ArticleModule />
@@ -37,6 +35,22 @@
             loading: 'getLoading',
             flowLastId: 'flowLastId'
         }),
+        methods: {
+            getScrollTop: function (element) {
+                if (element) {
+                    return element.scrollTop
+                } else {
+                    return document.documentElement.scrollTop
+                }
+            },
+            getVisibleHeight: function () {
+                if (element) {
+                    return element.offsetHeight
+                } else {
+                    return document.documentElement.offsetHeight
+                } 
+            }
+        },
         beforeRouteEnter: function (to, from, next) {
             // transition.next()
             // alert('l')

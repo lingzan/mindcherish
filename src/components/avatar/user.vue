@@ -15,10 +15,10 @@
         },
         computed: {
             imgUrls: function () {
-                return this.imgUrl || 'http://image.mindcherish.com/upload/face/160919/14J2I0G-zTV4XRN7QR.jpeg'
+                return this.avatarUrl || 'http://image.mindcherish.com/upload/face/160919/14J2I0G-zTV4XRN7QR.jpeg'
             },
             imgClassObject: function () {
-                let imgClass = {}
+                let imgClass = ''
                 switch (this.avatarSize) {
                 case '66':
                     imgClass = 'img-size-sixty-six'
@@ -45,11 +45,12 @@
                     imgClass = 'img-size-twenty'
                     break
                 }
+                console.log(this)
                 return imgClass + ' ' + this.avatarClass
             },
             iconClassObject: function () {
                 return {
-                    'default-expert': this.type === 'expert',
+                    'default-expert': this.type === '1',
                     'default-talent': this.type === 'talent'
                 }
             }
@@ -68,7 +69,8 @@
             img {
                 width:100%;
                 height: 100%;
-                border-radius: 50%; 
+                border-radius: 50%;
+                overflow: hidden;
             }
 
             em {

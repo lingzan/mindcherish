@@ -1,5 +1,5 @@
 <template>
-    <div class="article-module">
+    <section class="article-module">
         <slot>
             <div class="clearfix article-module-header">
                 <Avatar imgsize='20'img-class="article-module-avatar"/>
@@ -14,7 +14,7 @@
             <span slot="left">提问价 500 元<em> · </em>104 人技能已get</span>
             <span slot="right"><i class="iconfont icon-thumbs-up"></i>32<i class="iconfont icon-thumbs-down"></i>32</span>
         </ArticleOperate>
-    </div>
+    </section>
 </template>
 
 <script>

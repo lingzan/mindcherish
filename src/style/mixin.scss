@@ -1,4 +1,4 @@
-@mixin text-overflow ($clomun) {
+@mixin textOverflow ($clomun) {
     display: -webkit-box;
     -webkit-line-clamp: $clomun;
     -webkit-box-orient: vertical;

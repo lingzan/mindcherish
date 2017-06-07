@@ -1,8 +1,8 @@
 <template>
-    <div class="module-header">
-        <Avatar avatar-size='20' avatar-class="module-header-avatar" />
-        <div class="module-header-title">李大钊 <span>参加了线上活动</span></div>
-        <time class="module-header-time">33分钟前</time>
+    <div class="module-header" :class="moduleHeaderClass">
+        <Avatar avatar-size='20' :avatar-url="actor.actor.face" :type="actor.actor.is_expert" avatar-class="module-header-avatar"/>
+        <div class="module-header-title">{{actor.actor.nickname}} <span>参加了线上活动</span></div>
+        <time class="module-header-time">{{actor.time_line_date}}</time>
     </div>
 </template>
 
@@ -11,7 +11,9 @@
     export default {
         name: 'module-header',
         props: {
-            user: {}
+            actor: {},
+            moduleHeaderClass: '',
+            time: ''
         },
         components: { Avatar }
     }
