@@ -108,6 +108,9 @@
                 case 'live_score':
                     _text = '赞同了 <a href="/user/' + val.content.guest_info.id + '">' + val.content.guest_info.nickname + '</a> 的Live'
                     break
+                case 'fine_recommend':
+                    _text = '来自 潮汐精选'
+                    break
                 default:
                     break
                 }
@@ -132,11 +135,13 @@
 
 
         &-avatar {
-            float: left;
+            font-size: 0;
+            position: absolute !important;
+            top: 50%;
+            transform: translate(0,-50%);
         }
 
         &-title {
-            height: 20px;
             margin: 0 78px 0 25px;
 
             overflow: hidden;

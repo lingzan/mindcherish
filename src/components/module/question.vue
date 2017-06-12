@@ -7,7 +7,7 @@
             <span>{{question.content.visiter_amount}} get</span>
             <span>· {{question.content.good_amount}} 赞</span>
             <a :href="question.content.id">· {{question.content.comment_amount}} 评价</a>
-            <a :href="classify.id" v-for="classify in question.content.classifys">3</a>
+            <a :href="classify.id" v-for="classify in question.content.classifys"> · #{{classify.name}}</a>
         </Operate>
     </div>
 </template>

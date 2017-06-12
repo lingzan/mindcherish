@@ -14,3 +14,7 @@ export const AJAX_END = 'AJAX_END'
 
 /* flow */
 export const GET_FLOW_LIST = 'GET_FLOW_LIST'
+
+/* question */
+export const GET_QUESTION_LIST = 'GET_QUESTION_LIST'
+export const GET_QUESTION_CONTENT = 'GET_QUESTION_CONTENT'

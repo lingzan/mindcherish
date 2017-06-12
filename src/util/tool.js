@@ -27,13 +27,13 @@ const tool = {
 
                 const dayAmount = _date / (3600 * 24)
                 const hoursAmount = _date / (3600)
-                const minutesAmount = _date / (3600)
+                const minutesAmount = _date / (60)
                 if (dayAmount > 1) {
-
+                    _date = Math.floor(dayAmount) + '天前'
                 } else if (hoursAmount > 1) {
-
-                } else if {
-
+                    _date = Math.floor(hoursAmount) + '小时前'
+                } else if (minutesAmount > 1) {
+                    _date = Math.floor(minutesAmount) + '分钟前'
                 }
                 return _date
             }

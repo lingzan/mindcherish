@@ -1,13 +1,11 @@
 <template>
     <div class="flow">
         <div class="flow-item" v-for="item in flows" :key="item.id">
-        {{item.type}}
             <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)" />
             <ArticleModule :articles="item" v-if="(item.type.indexOf('article') !== -1)" />
-           <!--  <div v-if="item.type.indexOf('live') !== -1">live</div>
-            <div v-if="item.type.indexOf('reward') !== -1">reward</div> -->
             <RewardModule :reward="item" v-if="(item.type.indexOf('reward') !== -1)"/>
             <LiveModule :live="item" v-if="(item.type.indexOf('live') !== -1)"/>
+            <FineModule  :fine="item" v-if="(item.type.indexOf('fine') !== -1)"/>
         </div>
     </div>
 </template>
@@ -18,6 +16,7 @@
     import ArticleModule from '../../components/module/article'
     import RewardModule from '../../components/module/reward'
     import LiveModule from '../../components/module/live'
+    import FineModule from '../../components/module/fine'
     import Focus from '../../components/common/focus'
     import {mapGetters} from 'vuex'
 
@@ -59,13 +58,17 @@
             })
             console.log(to, from)
         },
-        components: { QuestionModule, Focus, ArticleModule, LiveModule, RewardModule }
+        components: { QuestionModule, Focus, ArticleModule, LiveModule, RewardModule, FineModule }
     }
 </script>
 
 <style type="text/sass" lang="scss">
     .flow {
         padding-bottom: 54px;
+
+        &-item {
+            margin-bottom: 10px;
+        }
     }
     * {
         padding: 0;

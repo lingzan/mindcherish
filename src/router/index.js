@@ -6,7 +6,7 @@ import Center from '../views/user/center'
 
 import Index from '../views/index/index'
 import IndexFlow from '../views/index/indexFlow'
-import Question from '../views/index/question'
+import Question from '../views/question/list'
 import QuestionDetail from '../views/question/detail'
 import Special from '../views/index/special'
 import Article from '../views/index/article'
