@@ -1,12 +1,15 @@
 <template>
-    <div class="default-operate">
+    <div class="default-operate" :class="operateClass">
         <slot></slot>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'default-operate'
+        name: 'default-operate',
+        props: {
+            operateClass: ''
+        }
     }
 </script>
 

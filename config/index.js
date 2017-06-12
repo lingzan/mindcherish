@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
             '/v1': {
-                target: 'http://lz.mindcherish.com/v1',
+                target: 'http://m.mindcherish.com/v1',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/v1': ''

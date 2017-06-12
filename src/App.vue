@@ -1,13 +1,6 @@
 <template>
     <div id="app">
-        <!-- <div id="main" :style="{width:'600px',height:'400px'}"></div> -->
         <router-view></router-view>
-        <!-- <Avatar type="expert" imgsize="40" /><Avatar />
-        <Clomun text='收藏' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='活动' ></Clomun>
-        <Clomun text='收藏' iconClass="icon-xuanshang"><SwitchBtn /></Clomun>
-        <Clomun text='收藏' iconClass="icon-qianbao"></Clomun> -->
-        <!-- <SubNav subnavs=[321,321312,321312,321,545,4554] /> -->
     </div> 
 
 </template>
@@ -62,7 +55,7 @@ export default {
 </script>
 
 <style type="text/sass" lang="scss">
-    @import url('//at.alicdn.com/t/font_6ia1rt154wxhto6r.css');
+    @import url('//at.alicdn.com/t/font_p8tiawop009ysyvi.css');
     @import './style/mixin.scss';
 // @function pxTranformToRem($args) {
 //     @return ($args/16)+rem;

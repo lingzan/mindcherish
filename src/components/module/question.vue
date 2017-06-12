@@ -1,9 +1,9 @@
 <template>
     <div class="question-module">
-    <!-- {{question.actor}} -->
         <ModuleHeader :actor="question"/>
-        <p class="title">{{question.content.title}}</p>
-        <Operate>
+        <p class="question-module-title">{{question.content.title}}</p>
+        <ModuleQaBox :box="question" />
+        <Operate operate-class="question-module-operate">
             <span>{{question.content.visiter_amount}} get</span>
             <span>· {{question.content.good_amount}} 赞</span>
             <a :href="question.content.id">· {{question.content.comment_amount}} 评价</a>
@@ -14,6 +14,7 @@
 
 <script>
     import ModuleHeader from '../flow/moduleHeader'
+    import ModuleQaBox from '../flow/moduleTypeBox'
     import Operate from '../../components/common/operate'
 
     export default {
@@ -21,13 +22,9 @@
         props: {
             question: ''
         },
-        data () {
-            return {
-            }
-        },
         computed: {
         },
-        components: { ModuleHeader, Operate }
+        components: { ModuleHeader, Operate, ModuleQaBox }
     }
 </script>
 
@@ -38,11 +35,14 @@
         margin-bottom: 10px;
         background: #fff;
 
-        .title {
-            margin: 4px 0 13px;
+        &-title {
+            margin: 4px 0 10px;
             line-height: 24px;
 
             @include textOverflow(3)
+        }
+        &-operate {
+            margin-top: 20px;
         }
     }
 </style>
