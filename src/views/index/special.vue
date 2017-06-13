@@ -1,58 +1,47 @@
 <template>
-    <div class="special">
-        <Clomun v-for="i in 10" :key="i">
-            <div class="special-text">
-                <p class="title">你好，能问你个问题吗,你好，能问你个问题吗你好，能问你个问题吗事情是这... </p>
-                <p class="info">你好，能问你个问题吗,伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总伟大总 </p>
-            </div>
-            
-        </Clomun>
+    <div class="wellChosen">
+        <WellChosenModule well-chosen-class="wellChosen-item" v-for="wellChosen in wellChosens" :key="wellChosen.id" :well-chosen="wellChosenFormat(wellChosen)" />
     </div>
 </template>
 
 <script>
-    import Clomun from '../../components/special/clomun'
+    import WellChosenModule from '../../components/wellChosen/module'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'special-clomun',
-        components: { Clomun }
+        computed: mapGetters({
+            wellChosens: 'wellChosenList',
+            loading: 'getLoading'
+        }),
+        methods: {
+            wellChosenFormat: function (question) {
+                let _question = {}
+                _question = question
+                return _question
+            }
+        },
+        beforeRouteEnter: function (to, from, next) {
+            // transition.next()
+            // alert('l')
+            next(vm => {
+                console.log('vm', vm.$store)
+                vm.$store.dispatch('getWellChosenList', 1)
+                // console.log('vm2', vm.$store.state)
+            })
+            console.log(to, from)
+        },
+        components: { WellChosenModule }
     }
 </script>
 
 <style type="text/sass" lang="scss">
-   .special {
+   .wellChosen {
         background: #f2f2f2;
-
-        &-text {
-            position: relative;
-
-            .title {
-                padding-top: 7px;
-                font-size: 16px;
-                line-height: 1;
-                color: rgba(0,0,0,.87);
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .info {
-                padding-top: 12px;
-                font-size: 14px;
-                line-height: 1;
-                color: rgba(0,0,0,.87);
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                color: rgba(0,0,0,.38);
-            }
-            .right {
-                position: absolute;
-                top: 7.5px;
-                right: -65px;
-
-                font-size: 14px;
-            }
+        margin-top: 10px;
+        
+        &-item {
+            border-bottom: 1px solid #f2f2f2;
         }
 
    }

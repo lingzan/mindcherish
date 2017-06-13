@@ -1,5 +1,5 @@
 <template>
-    <div class="wellChosen-module" >
+    <div class="wellChosen-module" :class="wellChosenClass">
         <div class="left">
             <Avatar avatar-size='54' :avatar-url="wellChosen.image" />
         </div>
@@ -18,6 +18,7 @@
     export default {
         name: 'article-module',
         props: {
+            wellChosenClass: '',
             wellChosen: ''
         },
         components: { Avatar, User, ModuleHeader }
@@ -28,6 +29,7 @@
     @import '../../style/mixin.scss';
     .wellChosen-module {
         padding: 16px 16px;
+        background: #fff;
 
         .left {
             float: left

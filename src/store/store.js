@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import FlowStore from './modules/flow'
 import Article from './modules/article'
 import Question from './modules/question'
+import WellCHOSEN from './modules/wellChosen'
 import Common from './modules/common'
 
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ const store = new Vuex.Store({
         a: moduleA,
         b: FlowStore,
         c: Article,
+        wellChosen: WellCHOSEN,
         question: Question,
         d: Common
     }
