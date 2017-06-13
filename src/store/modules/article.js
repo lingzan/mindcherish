@@ -13,9 +13,9 @@ const getters = {
 }
 
 const actions = {
-    getArticleList ({ commit }) {
-        article.getArticleList(products => {
-            commit(types.GET_ARTICLE_LIST, {products})
+    getArticleList ({ commit }, page) {
+        article.getArticleList(page).then(res => {
+            commit(types.GET_ARTICLE_LIST, {res})
         })
     },
     getArticleContent ({ commit }) {
@@ -29,8 +29,8 @@ const actions = {
 }
 
 const mutations = {
-    [types.GET_ARTICLE_LIST] (state, { products }) {
-        state.article = products
+    [types.GET_ARTICLE_LIST] (state, { res }) {
+        state.article = res
     },
     [types.GET_ARTICLE_CONTENT] (state, { test }) {
         state.test = test

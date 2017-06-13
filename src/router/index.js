@@ -9,7 +9,8 @@ import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/question/list'
 import QuestionDetail from '../views/question/detail'
 import Special from '../views/index/special'
-import Article from '../views/index/article'
+
+import Article from '../views/article/list'
 
 import Msg from '../views/msg/index'
 import MsgNotice from '../components/msg/notice'

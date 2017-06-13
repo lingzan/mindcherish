@@ -22,13 +22,15 @@ const ARTICLE_API = {
 }
 
 export default {
-    getArticleList (cb) {
-        let promise = fetch(ARTICLE_API.lists, {a: 1}, 'POST')
-        promise.then((res) => {
-            cb(res)
-        }, () => {
-            alert('失败')
-        })
+    getArticleList (page) {
+        let _data = {
+            // id: '',
+            // for: 'pull-up-lastest',
+            page: page,
+            rows: 10
+        }
+        let promise = fetch(ARTICLE_API.lists, _data, 'GET')
+        return promise
     },
     getArticleContent (cb) {
         // console.log(cb, 'params')

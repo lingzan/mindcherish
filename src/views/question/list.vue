@@ -1,6 +1,6 @@
 <template>
     <div>
-        <QuestionModule v-for="question in questions" :question="questionFormat(question)"/>
+        <QuestionModule v-for="question in questions" :key="question.id" :question="questionFormat(question)"/>
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="indexFlow">
+    <div class="article">
         <ArticleModule v-for="item in article" :key="item.id"></ArticleModule>
     </div>
 </template>
