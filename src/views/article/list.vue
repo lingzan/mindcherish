@@ -1,15 +1,22 @@
 <template>
     <div class="article">
-        <ArticleModule v-for="item in articles" :key="item.id" :articles="articleFormat(item)" /></ArticleModule>
+        <div v-for="item in articles" :key="item.id" class="article-item">
+            <User user-class="article-item-header" :user="item.author">
+                <span class="article-item-time">{{dateFormat(item.date)}}</span>
+            </User>
+            <ArticleModule :article="articleFormat(item)" />
+        </div>
     </div>
 </template>
 
 <script>
-    import ArticleModule from '../../components/module/article'
+    import ArticleModule from '../../components/article/module'
+    import User from '../../components/common/user'
+    import Tool from '../../util/tool'
     import {mapGetters} from 'vuex'
 
     export default {
-        name: 'index-flow',
+        name: 'article-list',
         data () {
             return {}
         },
@@ -22,6 +29,9 @@
                 let _article = {}
                 _article.content = article
                 return _article
+            },
+            dateFormat: (date) => {
+                return Tool.dateFormat(date)
             }
         },
         created () {
@@ -49,9 +59,27 @@
             this.$store.dispatch('setScrollTop', document.body.scrollTop)
             next()
         },
-        components: { ArticleModule }
+        components: { ArticleModule, User }
     }
 </script>
 
 <style type="text/sass" lang="scss">
+    .article{
+        &-item {
+            padding: 14px 16px;
+            margin-top: 10px;
+            background: #fff;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &-header {
+                min-height: 40px;
+                margin-bottom: 12px;
+            }
+            &-time {
+                font-size: 14px;
+                color: #9e9e9e
+            }
+        }
+    }
 </style>

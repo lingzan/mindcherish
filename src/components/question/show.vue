@@ -10,7 +10,7 @@
 <script>
     import Qa from '../../components/question/qa'
     import QuestionOperate from '../../components/question/operate'
-    import User from '../../components/common/User'
+    import User from '../../components/common/user'
     export default {
         name: 'question-show',
         props: {

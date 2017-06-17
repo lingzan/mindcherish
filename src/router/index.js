@@ -12,6 +12,8 @@ import Special from '../views/index/special'
 
 import Article from '../views/article/list'
 
+import Live from '../views/live/list'
+
 import Msg from '../views/msg/index'
 import MsgNotice from '../components/msg/notice'
 import MsgChat from '../components/msg/chat'
@@ -55,6 +57,11 @@ export default new Router({
                 path: '/article',
                 name: 'Article',
                 component: Article
+            },
+            {
+                path: '/live',
+                name: 'Live',
+                component: Live
             }]
         },
         {

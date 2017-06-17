@@ -2,7 +2,7 @@
     <div class="flow">
         <div class="flow-item" v-for="item in flows" :key="item.id">
             <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)" />
-            <ArticleModule :articles="item" v-if="(item.type.indexOf('article') !== -1)" />
+            <ArticleModule :article="item" v-if="(item.type.indexOf('article') !== -1)" />
             <RewardModule :reward="item" v-if="(item.type.indexOf('reward') !== -1)"/>
             <LiveModule :live="item" v-if="(item.type.indexOf('live') !== -1)"/>
             <FineModule  :fine="item" v-if="(item.type.indexOf('fine') !== -1)"/>

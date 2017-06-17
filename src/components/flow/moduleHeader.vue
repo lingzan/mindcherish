@@ -30,7 +30,7 @@
                 case 'live':
                     _user = this.actor.content.guest_info
                 }
-
+                console.log(this.actor.content.arctype, _user)
                 return _user
             },
             timeLine: function () {

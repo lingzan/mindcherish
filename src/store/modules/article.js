@@ -30,7 +30,12 @@ const actions = {
 
 const mutations = {
     [types.GET_ARTICLE_LIST] (state, { res }) {
-        state.article = res
+        if (res.code === 0) {
+            state.article = res.data.rows
+        } else {
+            state.article = []
+        }
+        // state.article = res
     },
     [types.GET_ARTICLE_CONTENT] (state, { test }) {
         state.test = test

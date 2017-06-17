@@ -17,7 +17,7 @@
         name: 'index',
         data () {
             return {
-                subnavs: [{'name': '首页', 'url': '/'}, {'name': '问答', 'url': '/question'}, {'name': '精选', 'url': '/special'}, {'name': '文章', 'url': '/article'}, {'name': '活动', 'icon': 'icon-wode2', 'url': '/'}],
+                subnavs: [{'name': '首页', 'url': '/indexFlow'}, {'name': '问答', 'url': '/question'}, {'name': 'Live', 'icon': 'icon-live', 'url': '/live'}, {'name': '精选', 'url': '/special'}, {'name': '文章', 'url': '/article'}],
                 subclass: 'index-subimg',
                 footernavs: [
                     {'name': '首页', 'icon': 'icon-tanzi3', 'url': '/'},

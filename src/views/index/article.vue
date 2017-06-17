@@ -1,6 +1,6 @@
 <template>
     <div class="article">
-        <ArticleModule v-for="item in article" :key="item.id"></ArticleModule>
+        <ArticleModule v-for="item in articles" :key="item.id"></ArticleModule>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
             return {}
         },
         computed: mapGetters({
-            article: 'articleList',
+            articles: 'articleList',
             scrollTop: 'getScrollTop'
         }),
         created () {

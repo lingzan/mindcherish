@@ -1,11 +1,13 @@
 <template>
     <div class="default-user clearfix" :class="userClass">
-        <Avatar imgsize="36" type="expert" img-class="default-user-left"/>
-        <div class="default-user-right">
-            <p class="default-user-name">遇见了查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页</p>
-            <p class="default-user-desciption">上海期货交易所<i> · </i>高级交易员</p>
+        <Avatar avatar-size="40" type="expert" avatar-class="default-user-left"/>
+        <div class="default-user-middle">
+            <p class="default-user-name">{{user.nickname}}</p>
+            <p class="default-user-desciption">{{user.company}}<i> · </i>{{user.position}}</p>
         </div>
-        <slot><Focus focus-class="default-user-focus" ></Focus></slot>
+        <div class="default-user-right">
+            <slot><Focus focus-class="default-user-focus" ></Focus></slot>
+        </div>
     </div>
 </template>
 
@@ -14,28 +16,16 @@
     import Focus from '../../components/common/focus'
 
     export default {
-        name: 'subnav',
+        name: 'common-user',
         props: {
-            userClass: ''
+            userClass: '',
+            user: {}
         },
         data () {
             return {
-                usernav: [
-                    {
-                        icon: 'icon-yaowohuida',
-                        name: '邀我回答'
-                    }
-                ]
             }
         },
         computed: {
-            sub: function () {
-                if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
-                    return JSON.parse(this.subnavs)
-                } else {
-                    return []
-                }
-            }
         },
         components: { Avatar, Focus }
     }
@@ -43,29 +33,38 @@
 
 <style type="text/sass" lang="scss">
     .default-user {
+        position: relative;
         background-color: #fff;
             
         &-left {
            float: left;
            margin-right: 10px;
         }
-        &-right {
+        &-middle {
             position: relative;
-			height: 100%;
+            height: 100%;
+            
+        }
+        &-right {
+            position: absolute;
+            top: 0;
+            right:0;
+            height: 100%;
             
         }
         &-name {
-            height: 14px;
+            height: 15px;
             margin-right: 65px;
+            padding-top:3px;
 
-            line-height: 14px;
-            font-size: 14px;
+            line-height: 15px;
+            font-size: 15px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         &-desciption {
-            margin-top: 5px;
+            margin-top: 8px;
             margin-right: 65px;
             font-size: 14px;
             height: 14px;

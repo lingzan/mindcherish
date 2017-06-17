@@ -32,15 +32,8 @@ export default {
         let promise = fetch(ARTICLE_API.lists, _data, 'GET')
         return promise
     },
-    getArticleContent (cb) {
-        // console.log(cb, 'params')
-        let promise = fetch(ARTICLE_API.get.api)
-        console.log(promise)
-        promise.then((res) => {
-            cb(res)
-        }, () => {
-            alert('失败')
-        })
-        // cb(fetch('v1/article/lists'))
+    getArticleContent (id) {
+        let promise = fetch(ARTICLE_API.get.api, {'id': id})
+        return promise
     }
 }

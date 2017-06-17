@@ -12,7 +12,7 @@
 
 <script>
     import Avatar from '../../components/avatar/user'
-    import User from '../../components/common/User'
+    import User from '../../components/common/user'
     import ModuleHeader from '../flow/moduleHeader'
 
     export default {

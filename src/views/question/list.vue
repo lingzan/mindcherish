@@ -17,6 +17,7 @@
             questionFormat: function (question) {
                 let _question = {}
                 _question.content = question
+                _question.time_line_date = question.date
                 return _question
             }
         },

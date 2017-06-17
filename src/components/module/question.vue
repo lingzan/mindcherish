@@ -32,7 +32,7 @@
     @import '../../style/mixin.scss';
     .question-module {
         padding: 14px 16px;
-        margin-bottom: 10px;
+        margin-top: 10px;
         background: #fff;
 
         &-title {

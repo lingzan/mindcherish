@@ -1,29 +1,19 @@
 <template>
     <section class="article-module">
-        <ModuleHeader :actor="articles" />
-        <h2 class="article-module-title">{{articles.content.title}}</h2>
-        <ImgAutoFit autofit-size="article-module-img" :img-url="articles.content.cover" />
-        <p class="article-module-content">{{articles.content.summary}}</p>
-        <Operate>
-           {{articles.content.good_amount}} 赞 · <a :href="articles.content.id">{{articles.content.comment_amount}} 评价 </a><a :href="classify.id" v-for="classify in articles.content.classifys" :key="classify.id">· #{{classify.name}} </a> 
-        </Operate>
+        <ModuleHeader :actor="article" module-header-class="article-module-header" />
+        <ArticleModule :article="article" />
     </section>
 </template>
 
 <script>
-    import Avatar from '../../components/avatar/user'
-    import Qa from '../../components/question/qa'
-    import User from '../../components/common/User'
-    import ImgAutoFit from '../../components/common/imgfit'
     import ModuleHeader from '../flow/moduleHeader'
-    import Operate from '../../components/common/operate'
-
+    import ArticleModule from '../article/module'
     export default {
         name: 'article-module',
         props: {
-            articles: ''
+            article: ''
         },
-        components: { Avatar, Qa, Operate, User, ImgAutoFit, ModuleHeader }
+        components: { ModuleHeader, ArticleModule }
     }
 </script>
 
@@ -39,9 +29,9 @@
         }
         
         &-header {
-            height: 20px;
-            line-height: 20px;
-            font-size: 13px;
+            // height: 20px;
+            // line-height: 20px;
+            // font-size: 13px;
             margin-bottom: 9px;
         }
         
