@@ -1,5 +1,6 @@
 <template>
-    <div class="img-autofit" :class="autofitSize">
+    <div class="img-autofit" :class="imgFitClass">
+    {{imgFitClass + imgUrl}}
         <img :src="imgUrl">
     </div>
 </template>
@@ -7,7 +8,7 @@
     export default {
         name: 'img-autofit',
         props: {
-            autofitSize: '',
+            imgFitClass: '',
             imgUrl: ''
         }
     }

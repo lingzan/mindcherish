@@ -3,12 +3,13 @@ import article from '../../api/article'
 
 const state = {
     article: [],
-    test: '',
+    articleContent: '',
     scrollTop: 0
 }
 
 const getters = {
     articleList: state => state.article,
+    articleContent: state => state.articleContent,
     getScrollTop: state => state.scrollTop
 }
 
@@ -18,9 +19,9 @@ const actions = {
             commit(types.GET_ARTICLE_LIST, {res})
         })
     },
-    getArticleContent ({ commit }) {
-        article.getArticleContent(test => {
-            commit(types.GET_ARTICLE_CONTENT, {test})
+    getArticleContent ({ commit }, id) {
+        article.getArticleContent(id).then(res => {
+            commit(types.GET_ARTICLE_CONTENT, {res})
         })
     },
     setScrollTop ({ commit }, top) {
@@ -37,8 +38,12 @@ const mutations = {
         }
         // state.article = res
     },
-    [types.GET_ARTICLE_CONTENT] (state, { test }) {
-        state.test = test
+    [types.GET_ARTICLE_CONTENT] (state, { res }) {
+        if (res.code === 0) {
+            state.articleContent = res.data
+        } else {
+            state.articleContent = {}
+        }
     },
     [types.SET_SCROLLTOP] (state, top) {
         state.scrollTop = top

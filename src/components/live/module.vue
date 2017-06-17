@@ -1,5 +1,5 @@
 <template>
-    <section class="live-item">
+    <section class="live-item" :class="liveModuleClass">
         <div class="left">
             <Avatar avatar-size="54" :avatar-url="face"/>
         </div>
@@ -24,11 +24,12 @@
     export default {
         name: 'live-item',
         props: {
+            liveModuleClass: '',
             liveData: ''
         },
         computed: {
             face: function () {
-                return 'http://image.mindcherish.com' + this.liveData.guest_info.face
+                return this.liveData.guest_info.face
             }
         },
         components: { Avatar, Star, Operate }
@@ -38,6 +39,7 @@
 <style type="text/sass" lang="scss">
     @import '../../style/mixin.scss';
     .live-item {
+        background: #fff;
         padding: 15px 16px 17px;
 
         .left {

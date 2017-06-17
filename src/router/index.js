@@ -11,6 +11,7 @@ import QuestionDetail from '../views/question/detail'
 import Special from '../views/index/special'
 
 import Article from '../views/article/list'
+import ArticleDetail from '../views/article/detail'
 
 import Live from '../views/live/list'
 
@@ -133,6 +134,11 @@ export default new Router({
             path: '/quiz/ask',
             name: 'QuizAsk',
             component: QuizAsk
+        },
+        {
+            path: '/article/:id',
+            name: 'ArticleDetail',
+            component: ArticleDetail
         }
     ]
 })

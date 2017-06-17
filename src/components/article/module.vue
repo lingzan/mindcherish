@@ -1,8 +1,10 @@
 <template>
     <div class="article-content">
-        <ImgAutoFit autofit-size="article-content-img" :img-url="article.content.cover" />
-        <h2 class="article-content-title">{{article.content.title}}</h2>
-        <p class="article-content-content">{{article.content.summary}}</p>
+        <router-link :to="{path: '/article/' + article.content.id}">
+            <ImgAutoFit img-fit-class="article-content-img" :img-url="article.content.cover" />
+            <h2 class="article-content-title">{{article.content.title}}</h2>
+            <p class="article-content-content">{{article.content.summary}}</p>
+        </router-link>
         <Operate>
            {{article.content.good_amount}} 赞 · <a :href="article.content.id">{{article.content.comment_amount}} 评价 </a><a :href="classify.id" v-for="classify in article.content.classifys" :key="classify.id">· #{{classify.name}} </a> 
         </Operate>
