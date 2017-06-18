@@ -34,7 +34,7 @@ const mutations = {
     },
     [types.GET_LIVE_CONTENT] (state, {res}) {
         if (res.code === 0) {
-            state.liveContent = res.data.rows
+            state.liveContent = res.data
         } else {
             state.liveContent = {}
         }

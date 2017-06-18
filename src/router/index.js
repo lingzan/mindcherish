@@ -14,6 +14,7 @@ import Article from '../views/article/list'
 import ArticleDetail from '../views/article/detail'
 
 import Live from '../views/live/list'
+import LiveDetail from '../views/live/detail'
 
 import Msg from '../views/msg/index'
 import MsgNotice from '../components/msg/notice'
@@ -139,6 +140,11 @@ export default new Router({
             path: '/article/:id',
             name: 'ArticleDetail',
             component: ArticleDetail
+        },
+        {
+            path: '/live/:id',
+            name: 'LiveDetail',
+            component: LiveDetail
         }
     ]
 })
