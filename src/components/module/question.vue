@@ -1,8 +1,10 @@
 <template>
     <div class="question-module">
         <ModuleHeader :actor="question"/>
-        <p class="question-module-title">{{question.content.title}}</p>
-        <ModuleQaBox :box="question" />
+        <router-link :to="'/question/' + question.content.id">
+            <p class="question-module-title">{{question.content.title}}</p>
+            <ModuleQaBox :box="question" />
+        </router-link>
         <Operate operate-class="question-module-operate">
             <span>{{question.content.visiter_amount}} get</span>
             <span>· {{question.content.good_amount}} 赞</span>

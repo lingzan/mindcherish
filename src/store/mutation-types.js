@@ -17,7 +17,7 @@ export const GET_FLOW_LIST = 'GET_FLOW_LIST'
 
 /* question */
 export const GET_QUESTION_LIST = 'GET_QUESTION_LIST'
-export const GET_QUESTION_CONTENT = 'GET_QUESTION_CONTENT'
+export const GET_QUESTION = 'GET_QUESTION'
 
 /* wellChosen */
 export const GET_WELLCHOSEN_LIST = 'GET_WELLCHOSEN_LIST'

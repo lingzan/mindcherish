@@ -67,7 +67,7 @@ export default new Router({
             }]
         },
         {
-            path: '/question/detail',
+            path: '/question/:id',
             name: 'QuestionDetail',
             component: QuestionDetail
         },

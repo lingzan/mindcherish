@@ -2,13 +2,13 @@ import * as types from '../mutation-types'
 import QuestionApi from '../../api/question'
 
 const state = {
-    question: [],
-    content: ''
+    questions: [],
+    question: ''
 }
 
 const getters = {
-    questionList: state => state.question,
-    questionContent: state => state.content
+    questionList: state => state.questions,
+    question: state => state.question
 }
 
 const actions = {
@@ -16,14 +16,26 @@ const actions = {
         QuestionApi.getQuestionList(page).then(res => {
             commit(types.GET_QUESTION_LIST, {res})
         })
+    },
+    getQuestion ({ commit }, id) {
+        QuestionApi.getQuestion(id).then(res => {
+            commit(types.GET_QUESTION, {res})
+        })
     }
 }
 
 const mutations = {
     [types.GET_QUESTION_LIST] (state, {res}) {
+        let questions = res
+        if (questions && typeof questions === 'object' && questions.code === 0) {
+            state.questions = questions.data.rows
+        } else {
+        }
+    },
+    [types.GET_QUESTION] (state, {res}) {
         let question = res
         if (question && typeof question === 'object' && question.code === 0) {
-            state.question = question.data.rows
+            state.question = question.data
         } else {
         }
     }

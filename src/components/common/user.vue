@@ -2,7 +2,7 @@
     <div class="default-user clearfix" :class="userClass">
         <Avatar avatar-size="40" type="expert" avatar-class="default-user-left"/>
         <div class="default-user-middle">
-            <p class="default-user-name">{{user.nickname}}</p>
+            <p class="default-user-name">{{user.nickname}} <slot name="mark"></slot></p>
             <p class="default-user-desciption">{{user.company}}<i> · </i>{{user.position}}</p>
         </div>
         <div class="default-user-right">
