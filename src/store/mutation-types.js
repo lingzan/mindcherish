@@ -24,4 +24,5 @@ export const GET_WELLCHOSEN_LIST = 'GET_WELLCHOSEN_LIST'
 
 /* live */
 export const GET_LIVE_LIST = 'GET_LIVE_LIST'
-export const GET_LIVE_CONTENT = 'GET_LIVE_CONTENT'
+export const GET_LIVE = 'GET_LIVE'
+export const GET_LIVE_PAYER = 'GET_LIVE_PAYER'

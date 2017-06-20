@@ -49,16 +49,17 @@
         name: 'live-detail',
         computed: {
             ...mapGetters({
-                liveContent: 'liveContent'
+                liveContent: 'live',
+                livePayer: 'payer'
             }),
             liveDate: function () {
-                console.log(this.liveContent)
                 return Tool.dateFormat(this.liveContent.begin_time, 'mm月dd日 hh:ii')
             }
         },
         beforeRouteEnter (to, from, next) {
             next(vm => {
-                vm.$store.dispatch('getLiveContent', to.params.id)
+                vm.$store.dispatch('getLive', to.params.id)
+                // vm.$store.dispatch('getLivePayer', to.params.id)
             })
         },
         components: {User}

@@ -3,12 +3,14 @@ import LiveApi from '../../api/live'
 
 const state = {
     lives: [],
-    liveContent: {}
+    live: {},
+    payer: []
 }
 
 const getters = {
     liveList: state => state.lives,
-    liveContent: state => state.liveContent
+    live: state => state.live,
+    payer: state => state.payer
 }
 
 const actions = {
@@ -17,9 +19,14 @@ const actions = {
             commit(types.GET_LIVE_LIST, {res})
         })
     },
-    getLiveContent ({ commit }, id) {
-        LiveApi.getLiveContent(id).then(res => {
-            commit(types.GET_LIVE_CONTENT, {res})
+    getLive ({ commit }, id) {
+        LiveApi.getLive(id).then(res => {
+            commit(types.GET_LIVE, {res})
+        })
+    },
+    getLivePayer ({ commit }, archiveId) {
+        LiveApi.getLivePayer(archiveId).then(res => {
+            commit(types.GET_LIVE_PAYER, {res})
         })
     }
 }
@@ -32,11 +39,18 @@ const mutations = {
             state.lives = []
         }
     },
-    [types.GET_LIVE_CONTENT] (state, {res}) {
+    [types.GET_LIVE] (state, {res}) {
         if (res.code === 0) {
-            state.liveContent = res.data
+            state.live = res.data
         } else {
-            state.liveContent = {}
+            state.live = {}
+        }
+    },
+    [types.GET_LIVE_PAYER] (state, {res}) {
+        if (res.code === 0) {
+            state.payer = res.data.rows
+        } else {
+            state.payer = {}
         }
     }
 }
