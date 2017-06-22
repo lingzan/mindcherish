@@ -10,8 +10,8 @@ const getters = {
 }
 
 const actions = {
-    getWellChosenList ({ commit }, page) {
-        wellChosenApi.getWellChosenList(page).then(res => {
+    getWellChosenList ({ commit }, params) {
+        wellChosenApi.getWellChosenList(params).then(res => {
             commit(types.GET_WELLCHOSEN_LIST, {res})
         })
     }

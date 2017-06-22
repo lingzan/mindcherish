@@ -26,7 +26,10 @@
             // alert('l')
             next(vm => {
                 console.log('vm', vm.$store)
-                vm.$store.dispatch('getQuestionList', 1)
+                vm.$store.dispatch('getQuestionList', {
+                    page: 1,
+                    rows: 10
+                })
                 // console.log('vm2', vm.$store.state)
             })
             console.log(to, from)

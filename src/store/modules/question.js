@@ -12,8 +12,8 @@ const getters = {
 }
 
 const actions = {
-    getQuestionList ({ commit }, page) {
-        QuestionApi.getQuestionList(page).then(res => {
+    getQuestionList ({ commit }, params) {
+        QuestionApi.getQuestionList(params).then(res => {
             commit(types.GET_QUESTION_LIST, {res})
         })
     },

@@ -6,14 +6,14 @@ const QUESTION_API = {
 }
 
 export default {
-    getQuestionList (page) {
-        const _data = {
-            // id: '',
-            // for: 'pull-up-lastest',
-            page: page,
-            rows: 10
-        }
-        let promise = fetch(QUESTION_API.lists, _data, 'GET')
+    getQuestionList (params) {
+        // const _data = {
+        //     // id: '',
+        //     // for: 'pull-up-lastest',
+        //     page: page,
+        //     rows: 10
+        // }
+        let promise = fetch(QUESTION_API.lists, params, 'GET')
         return promise
     },
     getQuestion (id) {

@@ -5,14 +5,14 @@ const WELLCHOSEN_API = {
 }
 
 export default {
-    getWellChosenList (page) {
-        let _data = {
-            // id: '',
-            // for: 'pull-up-lastest',
-            page: page,
-            rows: 10
-        }
-        let promise = fetch(WELLCHOSEN_API.lists, _data, 'GET')
+    getWellChosenList (params) {
+        // let _data = {
+        //     // id: '',
+        //     // for: 'pull-up-lastest',
+        //     page: page,
+        //     rows: 10
+        // }
+        let promise = fetch(WELLCHOSEN_API.lists, params, 'GET')
         return promise
     }
 }

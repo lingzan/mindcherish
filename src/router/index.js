@@ -26,6 +26,8 @@ import CommentDetail from '../views/comment/detail'
 
 import Search from '../views/search/index'
 
+import FindIndex from '../views/find/index'
+
 import QuizWrite from '../views/quiz/write'
 import QuizDomain from '../views/quiz/domain'
 import QuizExpert from '../views/quiz/expert'
@@ -145,6 +147,11 @@ export default new Router({
             path: '/live/:id',
             name: 'LiveDetail',
             component: LiveDetail
+        },
+        {
+            path: '/find',
+            name: 'FindIndex',
+            component: FindIndex
         }
     ]
 })
