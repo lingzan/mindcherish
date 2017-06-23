@@ -3,7 +3,7 @@
         <Avatar avatar-size="40" type="expert" avatar-class="default-user-left"/>
         <div class="default-user-middle">
             <p class="default-user-name">{{user.nickname}} <slot name="mark"></slot></p>
-            <p class="default-user-desciption">{{user.company}}<i> · </i>{{user.position}}</p>
+            <p class="default-user-desciption">{{user.company}} · {{user.position}}</p>
         </div>
         <div class="default-user-right">
             <slot><Focus focus-class="default-user-focus" ></Focus></slot>
@@ -53,7 +53,7 @@
             
         }
         &-name {
-            height: 15px;
+            height: 18px;
             margin-right: 65px;
             padding-top:3px;
 
@@ -68,7 +68,7 @@
             margin-right: 65px;
             font-size: 14px;
             height: 14px;
-            line-height: 14px;
+            line-height: 1;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

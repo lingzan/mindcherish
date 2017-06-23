@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="">
         <router-view></router-view>
     </div> 
 
@@ -65,12 +65,15 @@ body,html {
     min-width: 320px;
     min-height: 100%;
     height: 100%;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family:  'Avenir', 'Consolas', 'Hybrid', Helvetica, Arial, '微软雅黑', sans-serif;
     font-size: 16px;
 }
 *{
-    margin: 0;
+    outline: 0;
+    margin:0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
 }
 .fl {
     float: left;
@@ -101,5 +104,66 @@ li {
     -moz-osx-font-smoothing: grayscale;
     color: rgba(0,0,0,.87);
     // margin-top: 60px;
+}
+
+.speakContentBox{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0 0 0;
+    overflow: auto;
+    overflow-x: hidden;
+    background: #f2f2f2;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollContentBox{
+    position: relative;
+    min-height: 105%;
+    z-index: 2;
+}
+/*flex 布局 解决移动端输入框弹出问题*/
+.flex{
+    &-body {
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: vertical;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    &-main {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    &-other {
+        -webkit-flex-shrink: 0;
+        -ms-flex: 0 0 auto;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+    }
+}
+
+.speakBox{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 </style>
