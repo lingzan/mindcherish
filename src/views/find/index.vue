@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <Swiper />
         <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
         <Question v-for="question in questions" :key="question.id" :question="dataFormat(question)"/>
     </div>
