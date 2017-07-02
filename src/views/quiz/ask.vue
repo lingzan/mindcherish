@@ -56,6 +56,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .quiz-ask {
 
         &-content {
@@ -92,7 +93,7 @@
 
         &-status {
             color: rgba(0,0,0,.38);
-            font-size: 14px;
+             font-size: pxToRem(14);
             line-height: 24px;
         }
     }

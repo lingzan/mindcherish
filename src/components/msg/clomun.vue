@@ -35,7 +35,8 @@
 </script>
 
 <style type="text/sass" lang="scss">
-   .mgs-clomun {
+    @import '../../style/func.scss';
+    .mgs-clomun {
         padding:0 16px;
         background-color: #fff;
 
@@ -59,9 +60,9 @@
             &-time {
                 height: 14px;
                 line-height: 14px;
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 color: rgba(0,0,0,.38);
             }
         }
-   }
+    }
 </style>

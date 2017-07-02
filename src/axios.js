@@ -9,7 +9,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 axios.interceptors.request.use((config) => {
     store.commit(types.AJAX_SEND)
-    console.log(store.state.d.loading)
     if (config.method === 'post') {
         config.data = qs.stringify(config.data)
     }
@@ -21,7 +20,6 @@ axios.interceptors.request.use((config) => {
 
 axios.interceptors.response.use((res) => {
     store.commit(types.AJAX_END)
-    console.log(store.state.d.loading)
     if (res.status !== 200) {
         return Promise.reject(res)
     }

@@ -22,6 +22,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .comment {
         &-text {
             position: relative;
@@ -31,7 +32,7 @@
                 margin-right: 36px;
 
                 line-height: 16px;
-                font-size: 15px;
+                 font-size: pxToRem(15);
                 font-weight: 600;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -59,7 +60,7 @@
 
         &-content {
             margin-top: 5px;
-            font-size: 15px;
+             font-size: pxToRem(15);
             line-height: 23px;
         }
 
@@ -69,7 +70,7 @@
 
             line-height: 12px;
             color: rgba(0,0,0,.38);
-            font-size: 12px;
+             font-size: pxToRem(12);
         }
     }
 </style>

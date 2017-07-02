@@ -32,6 +32,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .search {
         &-record {
             background: #fff;
@@ -42,14 +43,14 @@
 
             &-title {
                 margin-bottom: 14px;
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 font-weight: 500;
                 color: rgba(0,0,0,.54);
 
                 i {
                     position: relative;
                     top: 2px;
-                    font-size: 14px;
+                     font-size: pxToRem(14);
                     color: rgba(0,0,0,.54);
                 }
             }
@@ -67,7 +68,7 @@
                 height: 31px;
                 padding:9px 10px;
                 
-                font-size: 13px;
+                 font-size: pxToRem(13);
                 line-height: 13px;
                 border-radius: 100px;
                 background: #f2f2f2;

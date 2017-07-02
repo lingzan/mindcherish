@@ -12,9 +12,10 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .operate {
         width: 100%;
-        font-size: 13px;
+         font-size: pxToRem(13);
 
         &-left {
             text-align: left;

@@ -32,6 +32,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .default-user {
         position: relative;
         background-color: #fff;
@@ -58,7 +59,7 @@
             padding-top:3px;
 
             line-height: 15px;
-            font-size: 15px;
+             font-size: pxToRem(15);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -66,7 +67,7 @@
         &-desciption {
             margin-top: 8px;
             margin-right: 65px;
-            font-size: 14px;
+             font-size: pxToRem(14);
             height: 14px;
             line-height: 1;
             white-space: nowrap;

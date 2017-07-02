@@ -123,12 +123,13 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .module-header {
         position: relative;
         width: 100%;
         height: 20px;
 
-        font-size: 13px;
+         font-size: pxToRem(13);
         line-height: 20px;
         color: rgba(0, 0, 0, 0.38);
 

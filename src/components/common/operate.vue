@@ -14,15 +14,16 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .default-operate {
         width: 100%;
-        height: 13px;
-        line-height: 13px;
+        height: pxToRem(13);
+        line-height: pxToRem(13);
 
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        font-size: 13px;
+        font-size: pxToRem(13);
         text-align: left;
         color: #9e9e9e;
 

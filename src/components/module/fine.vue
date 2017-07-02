@@ -22,6 +22,7 @@
 
 <style type="text/sass" lang="scss">
     @import '../../style/mixin.scss';
+    @import '../../style/func.scss';
     .fine-module {
         margin-bottom: 10px;
         background: #fff;
@@ -35,7 +36,7 @@
             padding: 0 16px;
 
             line-height: 40px;
-            font-size: 13px;
+             font-size: pxToRem(13);
 
             border-bottom: 1px solid #f2f2f2;
 
@@ -43,7 +44,7 @@
         &-title {
             margin:6px 0 8px;
 
-            font-size: 18px;
+             font-size: pxToRem(18);
             line-height: 23px;
             font-weight: 500;
 

@@ -15,15 +15,16 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .article-operate {
         width: 100%;
-        font-size: 14px;
+        font-size: pxToRem(14);
         a {
            color: rgba(0,0,0,.25); 
         }
         .icon-shoucang1 {
             margin-right: 3px;
-            font-size: 14px;
+            font-size: pxToRem(14);
             color: rgba(0,0,0,.18);
         }
         .icon-pinglun {
@@ -31,7 +32,7 @@
             top: 1px;
 
             margin-right: 3px;
-            font-size: 14px;
+             font-size: pxToRem(14);
         }
 
         .icon-thumbs-up {

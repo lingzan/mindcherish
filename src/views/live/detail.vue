@@ -67,6 +67,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .live-detail {
         padding-bottom: 44px;
         background: #f2f2f2;
@@ -77,7 +78,7 @@
 
             h2 {
                 line-height: 24px;
-                font-size: 24px;
+                 font-size: pxToRem(24);
                 font-weight: 500;
                 color: #212121;
 
@@ -128,17 +129,17 @@
                 float: left;
 
                 color: rgba(0, 0, 0, 0.7);
-                font-size: 13px;
+                 font-size: pxToRem(13);
                 text-align: center;
 
                 i {
                     display: inline-block;
                     margin-top: 9px;
-                    font-size: 13px;
+                     font-size: pxToRem(13);
                 }
 
                 >p {
-                    font-size: 11px;
+                     font-size: pxToRem(11);
                     line-height: 11px;
                     margin-top: 5px;
                 }
@@ -148,7 +149,7 @@
         &-time {
             margin-top: 13px;
 
-            font-size: 14px;
+             font-size: pxToRem(14);
             line-height: 14px;
             color: #9e9e9e;
         }
@@ -156,7 +157,7 @@
         &-tags {
             margin-top: 14px;
             color: #0af;
-            font-size: 14px;
+             font-size: pxToRem(14);
             line-height: 14px;
 
             span {
@@ -171,7 +172,7 @@
             margin-top: -3px;
             margin-left: 4px;
 
-            font-size: 11px;
+             font-size: pxToRem(11);
             color: #bdbdbd;
             border: 1px solid #bdbdbd;
             border-radius: 100px;
@@ -187,7 +188,7 @@
             }
         }
         &-description {
-            font-size: 14px;
+             font-size: pxToRem(14);
             line-height: 23px;
             color: #616161;
             padding-bottom: 16px;
@@ -196,7 +197,7 @@
         &-outline {
             padding: 22px 0 18px;
 
-            font-size: 16px;
+             font-size: pxToRem(16);
             line-height: 16px;
             border-top: 1px solid #f2f2f2;
         }
@@ -204,7 +205,7 @@
 
         &-note {
             padding: 10px 16px 22px;
-            font-size: 13px;
+             font-size: pxToRem(13);
             color: rgba(0,0,0,.38);
 
             a{

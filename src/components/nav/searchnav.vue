@@ -17,9 +17,9 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .nav-search {
         // width: 100%;
-        height: 36px;
         padding:8px 16px;
         background: #0af;
 
@@ -29,7 +29,7 @@
             height: 36px;
 
             line-height: 36px;
-            font-size: 15px;
+             font-size: pxToRem(15);
             color: rgba(255,255,255,.5);
             background: #0099e6;
             border-radius: 5px;
@@ -37,7 +37,7 @@
 
             i {
                 margin: 0 3px 0 10px;
-                font-size: 14px;
+                 font-size: pxToRem(14);
             }
         }
 
@@ -49,7 +49,7 @@
             width: 54px;
             height: 34px;
 
-            font-size: 14px;
+             font-size: pxToRem(14);
             line-height: 34px;
             text-align: center;
             color: #fff;

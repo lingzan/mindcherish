@@ -76,6 +76,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .module-type {
         display: block;
         box-sizing: border-box;
@@ -96,7 +97,7 @@
                 top: 9px;
                 
                 color: #0af;
-                font-size: 20px;
+                 font-size: pxToRem(20);
 
                 &.active {
                     color: #f7766a;
@@ -110,7 +111,7 @@
             .title {
                 height: 20px;
 
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 line-height: 20px;
                 color: #000;
                 overflow: hidden;
@@ -121,7 +122,7 @@
                 height:12px;
                 margin-top: 4px;
                 line-height: 12px;
-                font-size: 12px;
+                 font-size: pxToRem(12);
                 color: rgba(0,0,0,.38);
 
                 white-space: nowrap;
@@ -136,7 +137,7 @@
             right: 10px;
 
             i {
-                font-size: 12px;
+                 font-size: pxToRem(12);
                 color: rgba(0,0,0,.87)
             }
         }

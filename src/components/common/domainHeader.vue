@@ -22,6 +22,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     @mixin text-overflow ($clomun) {
         display: -webkit-box;
         -webkit-line-clamp: $clomun;
@@ -55,7 +56,7 @@
             span {
                 padding: 3px 6px;
                 margin-right: 3px;
-                font-size: 12px;
+                 font-size: pxToRem(12);
                 color: #0af;
                 border-radius: 100px;
                 opacity: .6;

@@ -40,6 +40,7 @@
 
 <style type="text/sass" lang="scss">
     @import '../../style/mixin.scss';
+    @import '../../style/func.scss';
     .live-item {
         background: #fff;
         padding: 15px 16px 17px;
@@ -52,7 +53,7 @@
             margin-left: 64px;
             
             .title {
-                font-size: 16px;
+                 font-size: pxToRem(16);
                 font-weight: 500;
                 color: #444;
 
@@ -62,7 +63,7 @@
                 height: 20px;
                 margin-top: 5px;
 
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 color: #999;
                 line-height: 20px;
                 @include textOverflow(1)
@@ -71,7 +72,7 @@
                 height: 14px;
                 margin: 8px 0 15px; 
 
-                font-size: 13px;
+                 font-size: pxToRem(13);
                 line-height: 14px;
                 color: #999;
 

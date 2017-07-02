@@ -61,6 +61,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .user {
         padding-top: 10px;
         background-color: #f2f2f2;
@@ -89,7 +90,7 @@
                     right: 0px;
                     margin-top: -6px;
                     color: rgba(0, 0, 0, 0.38);
-                    font-size: 12px;
+                     font-size: pxToRem(12);
                 }
             }
         }
@@ -99,14 +100,14 @@
             height: 15px;
 
             line-height: 15px;
-            font-size: 15px;
+            font-size: pxToRem(15);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         &-desciption {
             margin-top: 5px;
-            font-size: 12px;
+             font-size: pxToRem(12);
             margin-right: 16px;
             white-space: nowrap;
             overflow: hidden;
@@ -136,7 +137,7 @@
             margin-top: 15px;
 
             line-height: 24px;
-            font-size: 12px;
+             font-size: pxToRem(12);
             color: rgba(0,0,0,.38);
             text-align: center;
             vertical-align: center;

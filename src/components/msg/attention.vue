@@ -36,7 +36,8 @@
 </script>
 
 <style type="text/sass" lang="scss">
-   .msg-attention {
+    @import '../../style/func.scss';
+    .msg-attention {
         background: #f2f2f2;
 
         p {
@@ -53,7 +54,7 @@
 
             .left {
                 &.content {
-                    font-size: 14px;
+                     font-size: pxToRem(14);
                     color: rgba(0,0,0,.38);
                 }
             }
@@ -62,9 +63,8 @@
                 top: 7.5px;
                 right: -65px;
 
-                font-size: 14px;
+                 font-size: pxToRem(14);
             }
         }
-
-   }
+    }
 </style>

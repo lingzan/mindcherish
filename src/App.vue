@@ -1,8 +1,8 @@
 <template>
     <div id="app" class="">
         <router-view></router-view>
+        <loading-component />
     </div> 
-
 </template>
 
 <script>
@@ -57,15 +57,12 @@ export default {
 <style type="text/sass" lang="scss">
     @import url('//at.alicdn.com/t/font_p8tiawop009ysyvi.css');
     @import './style/mixin.scss';
-// @function pxTranformToRem($args) {
-//     @return ($args/16)+rem;
-// }
 
 body,html {
     min-width: 320px;
     min-height: 100%;
     height: 100%;
-    font-family:  'Avenir', 'Consolas', 'Hybrid', Helvetica, Arial, '微软雅黑', sans-serif;
+    font-family:  -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
     font-size: 16px;
 }
 *{

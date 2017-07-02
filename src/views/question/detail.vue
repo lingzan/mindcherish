@@ -47,6 +47,7 @@
 </script>
 
 <style type="text/sass" lang="scss" scoped>
+    @import '../../style/func.scss';
     .detail {
         &-question {
             padding: 15px 16px;
@@ -56,7 +57,7 @@
                 margin-top: 8px;
 
                 line-height: 24px;
-                font-size: 16px;
+                 font-size: pxToRem(16);
                 font-weight: 500;
             }
 
@@ -70,7 +71,7 @@
         }
         &-questioner {
             line-height: 20px;
-            font-size: 13px;
+             font-size: pxToRem(13);
 
             &-avatar {
                 float: left;

@@ -22,6 +22,7 @@
     }
 </script>
 <style type="text/sass" lang="scss" scoped>
+    @import '../../style/func.scss';
     .default{
         &-clomun {
             position: relative;
@@ -31,7 +32,7 @@
             padding: 0 16px;
             
             line-height: 54px;
-            font-size: 16px;
+             font-size: pxToRem(16);
             color: rgba(0,0,0,.54);
             background-color: #fff;
             border-bottom: 1px solid #f2f2f2; 
@@ -39,10 +40,10 @@
             i {
                 color: rgba(0,0,0,.25);
                 margin-right: 8px;
-                font-size: 14px;
+                 font-size: pxToRem(14);
 
                 &.icon-jinengget, &.icon-huodong {
-                    font-size: 18px;
+                     font-size: pxToRem(18);
                 }
             }
 

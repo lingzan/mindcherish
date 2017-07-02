@@ -21,7 +21,7 @@
                 subclass: 'index-subimg',
                 footernavs: [
                     {'name': '首页', 'icon': 'icon-tanzi3', 'url': '/'},
-                    {'name': '发现', 'icon': 'icon-faxian', 'url': ''},
+                    {'name': '发现', 'icon': 'icon-faxian', 'url': '/find'},
                     {'name': '消息', 'icon': 'icon-xaioxi2', 'url': '/msg/notice'},
                     {'name': '我的', 'icon': 'icon-wode2', 'url': '/user'},
                     {'name': '活动', 'icon': 'icon-wode2', 'url': '/'}

@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
         <Question v-for="question in questions" :key="question.id" :question="dataFormat(question)"/>
     </div>
@@ -9,6 +10,7 @@
     // import SubImgNav from '/components/nav/subimgnav'
     import WellChosen from '../../components/wellChosen/module'
     import Question from '../../components/module/question'
+    import Swiper from '../../components/widget/swiper'
     import {mapGetters} from 'vuex'
     export default {
         name: 'find',
@@ -38,7 +40,7 @@
                 })
             })
         },
-        components: { WellChosen, Question }
+        components: { WellChosen, Question, Swiper }
     }
 </script>
 

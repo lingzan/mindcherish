@@ -26,6 +26,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     @import '../../style/mixin.scss';
     .wellChosen-module {
         padding: 16px 16px;
@@ -42,7 +43,7 @@
         &-title {
             padding-top: 6px;
 
-            font-size: 16px;
+             font-size: pxToRem(16);
             font-weight: 500;
             color: rgba(0,0,0,.87);
             line-height:16px;
@@ -51,7 +52,7 @@
         &-content {
             margin-top: 11px;
 
-            font-size: 14px;
+             font-size: pxToRem(14);
             color: rgba(0,0,0,.38);
             line-height:14px;
         }

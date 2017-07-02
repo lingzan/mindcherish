@@ -38,7 +38,8 @@
 </script>
 
 <style type="text/sass" lang="scss">
-   .chat {
+    @import '../../style/func.scss';
+    .chat {
         background: #f2f2f2;
 
         p {
@@ -55,7 +56,7 @@
 
             .left {
                 &.content {
-                    font-size: 14px;
+                     font-size: pxToRem(14);
                     color: rgba(0,0,0,.38);
                 }
             }
@@ -71,7 +72,7 @@
 
 
                 &.time {
-                    font-size: 14px;
+                     font-size: pxToRem(14);
                     color: rgba(0, 0, 0, 0.38);
                 }
 
@@ -79,10 +80,10 @@
                     background: #ff5252;
                     border-radius: 6px;
                     color: #fff;
-                    font-size: 12px;
+                     font-size: pxToRem(12);
                 
                 }
             }
         }
-   }
+    }
 </style>

@@ -104,6 +104,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     @mixin text-overflow ($clomun) {
         display: -webkit-box;
         -webkit-line-clamp: $clomun;
@@ -137,7 +138,7 @@
             span {
                 padding: 3px 6px;
                 margin-right: 3px;
-                font-size: 12px;
+                font-size: pxToRem(12);
                 color: #0af;
                 border-radius: 100px;
                 opacity: .6;
@@ -183,13 +184,13 @@
 
             &.level-two {
                 color: rgba(0,0,0,.87);
-                font-size: 14px;
+                font-size: pxToRem(14);
                 border-right: 1px solid #f2f2f2;
             }
 
             &.level-third {
                 color: rgba(0,0,0,.87);
-                font-size: 14px;
+                font-size: pxToRem(14);
             }
         }
     }

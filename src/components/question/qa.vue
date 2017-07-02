@@ -15,6 +15,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .qa {
         box-sizing: border-box;
         width: 240px;
@@ -30,7 +31,7 @@
             height: 100%;
         }
         i {
-            font-size: 18px;
+             font-size: pxToRem(18);
             margin-right: 3px;
         }
     }

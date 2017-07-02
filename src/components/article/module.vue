@@ -26,17 +26,18 @@
 
 <style type="text/sass" lang="scss">
     @import '../../style/mixin.scss';
+    @import '../../style/func.scss';
     .article-content {
 
         &-header {
             height: 20px;
             line-height: 20px;
-            font-size: 13px;
+            font-size: pxToRem(13);
             margin-bottom: 9px;
         }
         
         &-content {
-            font-size: 14px;
+            font-size: pxToRem(14);
             line-height: 21px;
             color: rgba(0,0,0,.54)
         }
@@ -57,7 +58,7 @@
 
         &-title {
             margin:6px 0 8px;
-            font-size: 18px;
+            font-size: pxToRem(18);
             line-height: 23px;
             font-weight: 500;
 

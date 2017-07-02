@@ -32,6 +32,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .question-show {
         padding: 14px 16px;
 
@@ -41,7 +42,7 @@
 
         &-title {
             margin-bottom: 7px;
-            font-size: 16px;
+             font-size: pxToRem(16);
             line-height: 24px;
         }
 

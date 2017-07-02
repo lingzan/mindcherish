@@ -1,5 +1,5 @@
 <template>
-    <div class="flow">
+    <div class="flow" v-infinite-scroll="'cc'">
         <div class="flow-item" v-for="item in flows" :key="item.id">
             <QuestionModule :question="item" v-if="(item.type.indexOf('expert_question') !== -1)" />
             <ArticleModule :article="item" v-if="(item.type.indexOf('article') !== -1)" />
@@ -64,10 +64,10 @@
 
 <style type="text/sass" lang="scss">
     .flow {
-        padding-bottom: 54px;
+        margin-bottom: 54px;
 
         &-item {
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
     }
     * {

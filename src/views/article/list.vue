@@ -64,6 +64,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .article{
         &-item {
             padding: 14px 16px;
@@ -77,7 +78,7 @@
                 margin-bottom: 12px;
             }
             &-time {
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 color: #9e9e9e
             }
         }

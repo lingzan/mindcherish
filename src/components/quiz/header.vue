@@ -32,6 +32,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .quiz-header {
         position: relative;
         height: 51px;
@@ -51,7 +52,7 @@
                 position: relative;
                 top: -1px;
                 margin-right: 9px;
-                font-size: 12px;
+                 font-size: pxToRem(12);
 
             }
         }

@@ -10,20 +10,13 @@ import LIVE from './modules/live'
 
 Vue.use(Vuex)
 
-const moduleA = {
-    state: {},
-    getters: {},
-    mutations: {}
-}
-
 const store = new Vuex.Store({
     modules: {
-        a: moduleA,
-        b: FlowStore,
-        c: Article,
+        flow: FlowStore,
+        article: Article,
         wellChosen: WellCHOSEN,
         question: Question,
-        d: Common,
+        common: Common,
         live: LIVE
     }
 })

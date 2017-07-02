@@ -57,6 +57,7 @@
     }
 </script>
 <style type="text/sass" lang="scss" scoped>
+    @import '../../style/func.scss';
     .default{
         &-avatar {
             position: relative;

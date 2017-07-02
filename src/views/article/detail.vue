@@ -56,6 +56,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .article-detail {
         padding-bottom: 53px;
         &-cover {
@@ -75,7 +76,7 @@
                 padding: 0px 8px;
 
                 color: #fff;
-                font-size: 14px;
+                 font-size: pxToRem(14);
                 line-height: 26px;
                 background: #000;
                 opacity: 0.7;
@@ -87,7 +88,7 @@
             padding: 16px 16px 6px;
 
             line-height: 32px;
-            font-size: 24px;
+             font-size: pxToRem(24);
             font-weight: 500;
             border-bottom: 1px solid #f2f2f2;
         }
@@ -109,7 +110,7 @@
             margin-top: 15px;
             margin-right: 16px;
             line-height: 30px;
-            font-size: 14px;
+             font-size: pxToRem(14);
             color: #0af;
             text-align: center;
             border-radius: 2px;
@@ -120,7 +121,7 @@
         &-content {
             padding: 6px 16px;
 
-            font-size: 16px;
+             font-size: pxToRem(16);
             line-height: 27px;
             color: #212121;
 
@@ -136,7 +137,7 @@
 
         &-date {
             padding: 2px 16px 22px;
-            font-size: 13px;
+             font-size: pxToRem(13);
             line-height: 14px;
             text-align: right;
             color: #9e9e9e;

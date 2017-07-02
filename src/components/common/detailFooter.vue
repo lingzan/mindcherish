@@ -31,6 +31,7 @@
     }
 </script>
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .detail-footer {
         position: fixed;
         bottom: 0;
@@ -66,8 +67,8 @@
                 height: 17px;
                 overflow: hidden;
 
-                font-size: 17px;
-                line-height: 17px;
+                font-size: pxToRem(17);
+                line-height: pxToRem(17);
                 color: rgba(0,0,0,.7);
             }
             .icon-dashang:before {
@@ -85,8 +86,8 @@
             p {
                 margin-top: 5px;
 
-                font-size: 11px;
-                line-height: 11px;
+                font-size: pxToRem(11);
+                line-height: pxToRem(11);
                 color: #333333;
             }
         }

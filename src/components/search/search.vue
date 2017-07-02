@@ -21,6 +21,7 @@
 </script>
 
 <style type="text/sass" lang="scss">
+    @import '../../style/func.scss';
     .search-header {
         // width: 100%;
         height: 36px;
@@ -35,7 +36,7 @@
             height: 36px;
 
             line-height: 36px;
-            font-size: 15px;
+             font-size: pxToRem(15);
             color: rgba(0,0,0,.38);
             background: #f3f3f3;
             border-radius: 3px;
@@ -59,7 +60,7 @@
                 left:16px;
                 margin-left: 16px;
 
-                font-size: 14px;
+                 font-size: pxToRem(14);
             }
         }
 
@@ -70,7 +71,7 @@
 
             height: 34px;
 
-            font-size: 14px;
+             font-size: pxToRem(14);
             color: rgba(0,0,0,.38);
             line-height: 34px;
             text-align: center;
