@@ -1,12 +1,7 @@
 <template>
     <div class="user">
-        <div class="user-box">
-            <Avatar imgsize="50" type="expert" img-class="user-box-left"/>
-            <div class="user-box-right">
-                <p class="user-name">笑嘻嘻</p>
-                <p class="user-desciption">查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页查看或编辑主页</p>
-                <i class="iconfont icon-dianjijinru"></i>
-            </div>
+        <div class="user-info">
+            <User />
         </div>
         <div class="user-box">
             <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
@@ -24,7 +19,7 @@
 </template>
 
 <script>
-    import Avatar from '../../components/avatar/user'
+    import User from '../../components/common/user'
     import Clomun from '../../components/user/clomun'
     import SubImgNav from '../../components/nav/subimgnav'
     export default {
@@ -56,7 +51,7 @@
                 }
             }
         },
-        components: { Avatar, Clomun, SubImgNav }
+        components: { User, Clomun, SubImgNav }
     }
 </script>
 
@@ -69,6 +64,13 @@
             p {
                 margin-top: 0.3125rem;
             }
+        }
+        &-info {
+            width: 375px;
+            height: 176px;
+            -webkit-backdrop-filter: blur(11px);
+            backdrop-filter: blur(11px);
+            background-image: url(../../assets/images/center-header.png);
         }
         &-box {
             position: relative;

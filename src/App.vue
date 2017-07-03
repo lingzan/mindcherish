@@ -100,6 +100,7 @@ li {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: rgba(0,0,0,.87);
+    height: 100%;
     // margin-top: 60px;
 }
 

@@ -26,4 +26,8 @@
     }
 </script>
 
-<style type="text/sass" lang="scss"></style>
+<style type="text/sass" lang="scss">
+    .swiper-container {
+        
+    }
+</style>

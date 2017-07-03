@@ -4,6 +4,10 @@ import Router from 'vue-router'
 import User from '../views/user/index'
 import Center from '../views/user/center'
 
+import Login from '../views/account/login'
+import Register from '../views/account/register'
+import Fwd from '../views/account/fwd'
+
 import Index from '../views/index/index'
 import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/question/list'
@@ -152,6 +156,21 @@ export default new Router({
             path: '/find',
             name: 'FindIndex',
             component: FindIndex
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login
+        },
+        {
+            path: '/register',
+            name: 'Register',
+            component: Register
+        },
+        {
+            path: '/fwd',
+            name: 'Fwd',
+            component: Fwd
         }
     ]
 })
