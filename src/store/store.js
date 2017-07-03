@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import Account from './modules/account'
 import Common from './modules/common'
 import FlowStore from './modules/flow'
 import Article from './modules/article'
@@ -12,6 +13,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
+        account: Account,
         flow: FlowStore,
         article: Article,
         wellChosen: WellCHOSEN,

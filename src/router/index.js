@@ -44,7 +44,7 @@ export default new Router({
         {
             path: '/',
             name: 'Index',
-            redirect: '/IndexFlow',
+            redirect: '/indexFlow',
             component: Index,
             children: [{
                 path: '/IndexFlow',

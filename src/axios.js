@@ -50,9 +50,9 @@ export const fetch = (url, data, method = 'GET') => {
         const _data = Object.assign({}, data, tokenArr)
         if (method === 'POST') {
             options = {
-                method: method,
-                url: url,
-                data: _data
+                method: 'post',
+                url: url + '?' + objectSerialize(tokenArr),
+                data: objectSerialize(data)
             }
         } else {
             options = {

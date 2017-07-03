@@ -1,3 +1,8 @@
+/* account */
+export const LOGIN = 'LOGIN'
+export const REGISTER = 'REGISTER'
+export const FWD = 'FWD'
+
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
 export const GET_ARTICLE_LIST = 'GET_ARTICLE_LIST'

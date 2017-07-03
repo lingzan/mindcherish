@@ -7,7 +7,6 @@
 </template>
 
 <script>
-    // import SubImgNav from '/components/nav/subimgnav'
     import WellChosen from '../../components/wellChosen/module'
     import Question from '../../components/module/question'
     import Swiper from '../../components/widget/swiper'

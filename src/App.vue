@@ -57,6 +57,7 @@ export default {
 <style type="text/sass" lang="scss">
     @import url('//at.alicdn.com/t/font_p8tiawop009ysyvi.css');
     @import './style/mixin.scss';
+    @import './assets/css/reset.css';
 
 body,html {
     min-width: 320px;
