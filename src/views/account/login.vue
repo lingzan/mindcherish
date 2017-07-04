@@ -1,46 +1,56 @@
 <template>
-    <div class="login flex-body" >
-        <div class="flex-main">
-            <header>
-                <router-link to="/">
-                    <div class="login-logo"></div>
-                </router-link>
-            </header>
-            <section>
-                <div class="login-item login-account">
-                    <label>+86<i class="iconfont icon-xiala2"></i></label>
-                    <input type="text" name="" v-model="user.username">
-                    <input type="hidden" v-model="user.areaCode" name="">
-                </div>
-                <div class="login-item login-password">
-                    <input type="password" name="" v-model="user.pwd">
-                    <div class="login-password-btn">
-                        <i class="iconfont icon-jiazaishibai"></i>
-                        <i class="icon-eye"></i>
+    <AccountBg>
+        <div class="login flex-body" >
+            <div class="flex-main">
+                <header>
+                    <router-link to="/">
+                        <div class="login-logo"></div>
+                    </router-link>
+                </header>
+                <section>
+                    <div class="account-input login-account">
+                        <label>+86<i class="iconfont icon-xiala2"></i></label>
+                        <input type="text" @input="valite()" name="" v-model="user.username" autocomplete="off">
+                        <input type="hidden" v-model="user.areaCode" name="">
                     </div>
+                    <div class="account-input login-password">
+                        <input type="password" ref="pwdType" @input="valite()" name="" v-model="user.pwd">
+                        <div class="login-password-btn">
+                            <i class="iconfont icon-jiazaishibai" @click="clearPwd()"></i>
+                            <i class="iconfont" :class="pwdIcon" @click="lookPwd()"></i>
+                        </div>
+                    </div>
+                    <div class="account-btn login-btn" @click="submits()" :class="active">
+                        立即登录
+                    </div>
+                    <div class="login-help clearfix">
+                        <router-link to="/register" class="fl">忘记密码？</router-link>
+                        <router-link to="/register" class="fr">注册账号</router-link>
+                    </div>
+                </section>
+            </div>
+            <footer class="flex-other">
+                <div class="login-third">第三方账号登录</div>
+                <div class="login-third-link">
+                    <div><i class="iconfont icon-wechats"></i></div>
+                    <div><i class="iconfont icon-unie61d"></i></div>
                 </div>
-                <div class="login-item login-btn" @click="submits()">
-                    立即登录
-                </div>
-                <div class="login-help clearfix">
-                    <router-link to="/register" class="fl">忘记密码？</router-link>
-                    <router-link to="/register" class="fr">注册账号</router-link>
-                </div>
-            </section>
+            </footer>
         </div>
-        <footer class="flex-other">
-            <div class="login-third" >第三方账号登录</div>
-        </footer>
-    </div>
+    </AccountBg>
 </template>
 
 <script>
     import {mapActions} from 'vuex'
+    import AccountBg from '../../components/account/bg'
     export default {
         name: 'login',
         data () {
             return {
+                pwdIcon: 'icon-yanjing',
+                pwdType: 'password',
                 btn: false,
+                active: '',
                 user: {
                     username: '',
                     pwd: '',
@@ -52,24 +62,51 @@
             ...mapActions(['login']),
             submits () {
                 let that = this
-                this.login({
-                    user: this.user,
-                    cb: function () {
-                        that.$router.replace('/')
-                    }
-                })
+                if (this.btn) {
+                    this.login({
+                        user: this.user,
+                        cb: function () {
+                            that.$router.replace('/')
+                        }
+                    })
+                }
+            },
+            valite () {
+                if (this.user.username && this.user.pwd) {
+                    this.btn = true
+                    this.active = 'active'
+                } else {
+                    this.btn = false
+                    this.active = ''
+                }
+            },
+            clearPwd () {
+                this.user.pwd = ''
+                this.btn = false
+                this.active = ''
+            },
+            lookPwd () {
+                this.$refs.pwdType.type = this.$refs.pwdType.type === 'password' ? 'text' : 'password'
+                if (this.$refs.pwdType.type === 'password') {
+                    this.pwdIcon = 'icon-yanjing'
+                } else {
+                    this.pwdIcon = 'icon-biyan'
+                }
+                console.log(this.$refs.pwdType.type)
             }
-        }
+        },
+        mounted: function () {
+            // document.getElementsByTagName('input').addEventListener('input', () => {
+            //     console.log(this)
+            // })
+        },
+        components: {AccountBg}
     }
 </script>
 
-<style type="text/sass" lang="scss">
+<style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
     .login {
-        width: 100%;
-        height: 100%;
-        background: url(../../assets/images/login.png) no-repeat;
-        background-size: cover;
         header {
             padding: 72px 0 51px;
         }
@@ -81,26 +118,7 @@
             background: url(../../assets/icon/icon-logo.png) no-repeat;
             background-size: 100% 100%;
         }
-        &-item {
-            position: relative;
-            margin: 0 auto;
-            width: calc(100% - 50px);
-            height: 44px;
-            padding: 0 13px;
-
-            font-size: pxToRem(16);
-            border-radius: 100px;
-            background: rgba(255,255,255,.2);
-
-            input {
-                width: 100%;
-                height: 44px;
-                line-height: 16px;
-                padding: 14px 0;
-            }
-        }
-
-        &-account {
+        .login-account {
             color: #fff;
             margin-bottom: 16px;
             label {
@@ -133,7 +151,7 @@
             }
         }
 
-        &-password {
+        .login-password {
             color: #fff;
             margin-bottom: 26px;
 
@@ -154,23 +172,23 @@
                     color: #b8b8b8;
                     font-size: pxToRem(12);
                 }
-                .icon-eye {
-                    display: inline-block;
-                    box-sizing:content;
-                    width: 14px;
-                    height: 10px;
-                    margin-left: 8px;
-                    background: url(../../assets/icon/icon-eye.png) no-repeat;
-                    background-size: 100% 100%;
+                .icon-yanjing, .icon-biyan {
+                    padding:8px;
+                    color: #b8b8b8;
+                    font-size: pxToRem(12);
                 }
             }
         }
         &-btn {
             line-height: 44px;
             text-align: center;
-            background: #f5bb42;
-            color: #212121;
+            background: #a7a7a7;
+            color: rgba(33, 33, 33, 0.4);
             cursor: pointer;
+            &.active {
+                background: #f5bb42;
+                color: #212121;
+            }
         }
         &-help {
             padding: 0 25px;
@@ -210,6 +228,31 @@
                 width: 84px;
                 height: 1px;
                 background: linear-gradient(to right, #ffffff, #222021);
+            }
+
+            &-link {
+                padding: 18px 0 34px;
+                text-align: center;
+
+                > div {
+                    display: inline-block;
+                    width: 45px;
+                    height: 45px;
+                    margin:0 12.5px;
+                    
+                    line-height: 45px;
+                    color: #b8b8b8;
+                    border: 1px solid #b8b8b8;
+                    border-radius: 50%;
+
+                    > i {
+                        font-size: 23px;
+
+                        &.icon-unie61d {
+                            font-size: 28px;
+                        }
+                    }
+                }
             }
         }
     }

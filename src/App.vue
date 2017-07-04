@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style type="text/sass" lang="scss">
-    @import url('//at.alicdn.com/t/font_p8tiawop009ysyvi.css');
+    @import url('//at.alicdn.com/t/font_0brwrq0xn56d2t9.css');
     @import './style/mixin.scss';
     @import './assets/css/reset.css';
 

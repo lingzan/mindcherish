@@ -332,3 +332,16 @@ video {
   color: #000;
   text-shadow: none;
 }
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: rgba(255, 255, 255, 0.6); 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: rgba(255, 255, 255, 0.6); 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: rgba(255, 255, 255, 0.6); 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: rgba(255, 255, 255, 0.6); 
+}
