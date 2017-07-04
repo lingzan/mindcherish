@@ -44,15 +44,19 @@
                 user: {
                     username: '',
                     pwd: '',
-                    areaCode: ''
+                    areaCode: 86
                 }
             }
         },
         methods: {
             ...mapActions(['login']),
             submits () {
-                this.login(this.user, function () {
-                    this.$router.replace('/')
+                let that = this
+                this.login({
+                    user: this.user,
+                    cb: function () {
+                        that.$router.replace('/')
+                    }
                 })
             }
         }
