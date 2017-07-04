@@ -2,6 +2,7 @@
 export const LOGIN = 'LOGIN'
 export const REGISTER = 'REGISTER'
 export const FWD = 'FWD'
+export const VERIFYCODE = 'VERIFYCODE'
 
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
