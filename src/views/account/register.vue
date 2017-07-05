@@ -7,7 +7,7 @@
         </div>
         <div class="account-input register-code">
             <input type="text" @input="valite()" placeholder="6位短信验证码" name="" v-model="registerInfo.code">
-            <button @click="getVerifyCode()">获取验证码</button>
+            <button @click="getVerifyCode()">{{codeText}}</button>
         </div>
         <div class="account-input register-pwd">
             <input type="text" @input="valite()" placeholder="6-16位登录密码" name="" v-model="registerInfo.pwd">
@@ -30,6 +30,7 @@
                 pwdType: 'password',
                 btn: false,
                 active: '',
+                codeText: '获取验证码',
                 registerInfo: {
                     account: '',
                     verify: '',
@@ -49,9 +50,15 @@
                 }
             },
             getVerifyCode () {
-                if (1 || this.btn) {
-                    this.verifyCode({registerInfo: this.registerInfo})
-                }
+                let codeTime = 60
+                let that = this
+                setInterval(() => {
+                    that.codeText = codeTime + 's后重新获取'
+                    codeTime--
+                }, 1000)
+                // if (1 || this.btn) {
+                //     this.verifyCode({registerInfo: this.registerInfo})
+                // }
             },
             valite () {
                 if (this.registerInfo.account && this.registerInfo.code && this.registerInfo.pwd) {
