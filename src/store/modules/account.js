@@ -14,20 +14,33 @@ const actions = {
         })
     },
     register ({commit}, params) {
-        let _registerInfo = {}
-        _registerInfo.account = params.registerInfo.account
-        _registerInfo.code = params.registerInfo.code
-        _registerInfo.password = md5(params.registerInfo.pwd)
-        _registerInfo.invitecode = params.registerInfo.invitecode
-        _registerInfo.area_code = params.registerInfo.areaCode
-        _registerInfo.verify = params.registerInfo.verify
-        account.register(_registerInfo).then(res => {
+        let _info = {}
+        _info.account = params.info.account
+        _info.code = params.info.code
+        _info.password = md5(params.info.pwd)
+        _info.invitecode = params.info.invitecode
+        _info.area_code = params.info.areaCode
+        _info.verify = params.info.verify
+        account.register(_info).then(res => {
             res.cb = params.cb
             commit(types.REGISTER, {res})
         })
     },
+    fwd ({commit}, params) {
+        let _info = []
+        _info.push(params.info.account)
+        _info.push(params.info.code)
+        _info.push(params.info.areaCode)
+        _info.push(params.info.pwd)
+        _info.push(params.info.pwdConfirm)
+        _info.push(params.info.verify)
+        account.fwd(..._info).then(res => {
+            res.cb = params.cb
+            commit(types.FWD, {res})
+        })
+    },
     verifyCode ({commit}, params) {
-        account.verifyCode(params.registerInfo.account, params.registerInfo.verifycode, params.registerInfo.areaCode, params.registerInfo.require).then(res => {
+        account.verifyCode(params.info.account, params.info.verifycode, params.info.areaCode, params.info.require).then(res => {
             res.cb = params.cb
             commit(types.VERIFYCODE, {res})
         })
@@ -46,11 +59,22 @@ const mutations = {
     },
     [types.REGISTER] (state, {res}) {
         if (res.code === 0) {
+            res.cb(0)
             // localStorage.setItem('userLicense', JSON.stringify(res.data))
             // state.userLicense = res.data
             // res.cb()
         } else {
-
+            res.cb(res.code)
+        }
+    },
+    [types.FWD] (state, {res}) {
+        if (res.code === 0) {
+            res.cb(0)
+            // localStorage.setItem('userLicense', JSON.stringify(res.data))
+            // state.userLicense = res.data
+            // res.cb()
+        } else {
+            res.cb(res.code)
         }
     },
     [types.VERIFYCODE] (state, {res}) {

@@ -28,14 +28,15 @@
             position: relative;
 
             // width: 100%;
-            height: 54px;
+            height: 48px;
             padding: 0 16px;
             
-            line-height: 54px;
-             font-size: pxToRem(16);
-            color: rgba(0,0,0,.54);
+            line-height: 48px;
+            font-size: pxToRem(14);
+            color: #616161;
             background-color: #fff;
-            border-bottom: 1px solid #f2f2f2; 
+            border-bottom: 1px solid #f2f2f2;
+            overflow: hidden;
 
             i {
                 color: rgba(0,0,0,.25);

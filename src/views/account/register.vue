@@ -1,21 +1,22 @@
 <template>
     <AccountBg account-bg-class="register">
-        <div class="account-input register-account">
+        <div class="account-input account-account">
             <label>+86<i class="iconfont icon-xiala2"></i></label>
-            <input type="text" @input="valite()" name="" placeholder="手机号码" v-model="registerInfo.account">
-            <input type="hidden" v-model="registerInfo.areaCode" name="">
+            <input type="text" @input="valite()" name="" placeholder="手机号码" v-model="info.account">
+            <input type="hidden" v-model="info.areaCode" name="">
         </div>
-        <div class="account-input register-code">
-            <input type="text" @input="valite()" placeholder="6位短信验证码" name="" v-model="registerInfo.code">
-            <button @click="getVerifyCode()">{{codeText}}</button>
+        <div class="account-input account-code">
+            <input type="text" @input="valite()" placeholder="6位短信验证码" name="" v-model="info.code">
+            <button @click="getVerifyCode()" :class="codeClass">{{codeText}}</button>
         </div>
         <div class="account-input register-pwd">
-            <input type="text" @input="valite()" placeholder="6-16位登录密码" name="" v-model="registerInfo.pwd">
+            <input type="text" @input="valite()" placeholder="6-16位登录密码" name="" v-model="info.pwd">
         </div>
         <div class="account-input register-invite">
-            <input type="text" placeholder="邀请码（可不填）" name="" v-model="registerInfo.invitecode">
+            <input type="text" placeholder="邀请码（可不填）" name="" v-model="info.invitecode">
         </div>
-        <div class="account-btn register-btn" :class="active" @click="submit()">确认注册</div>
+        <div class="account-btn" :class="active" @click="submit()">确认注册</div>
+        <div class="account-notice">注册即为同意<router-link to="/rule">《扑克财经用户使用协议》</router-link></div>
     </AccountBg>
 </template>
 
@@ -30,8 +31,10 @@
                 pwdType: 'password',
                 btn: false,
                 active: '',
+                codeClass: '',
                 codeText: '获取验证码',
-                registerInfo: {
+                codeBtn: false,
+                info: {
                     account: '',
                     verify: '',
                     pwd: '',
@@ -45,27 +48,53 @@
             ...mapActions(['register', 'verifyCode']),
             submit () {
                 var that = this
+                console.log(this.btn)
                 if (this.btn) {
-                    this.register({registerInfo: that.registerInfo})
+                    console.log(31)
+                    this.btn = true
+                    this.register({
+                        info: that.info,
+                        cb: function (status) {
+                            if (status === 0) {
+                                that.btn = true
+                                that.$router.replace('/login')
+                            } else {
+                                that.btn = true
+                            }
+                        }
+                    })
                 }
             },
             getVerifyCode () {
-                let codeTime = 60
+                if (this.codeBtn) {
+                    return
+                }
+                this.codeBtn = true
+                let codeTime = 59
                 let that = this
-                setInterval(() => {
+                that.codeClass = 'disable'
+                that.codeText = 60 + 's后重新获取'
+                const setIntervalId = setInterval(() => {
                     that.codeText = codeTime + 's后重新获取'
                     codeTime--
+                    if (codeTime < 0) {
+                        that.codeBtn = false
+                        that.codeClass = ''
+                        that.codeText = '重新获取'
+                        clearInterval(setIntervalId)
+                    }
                 }, 1000)
-                // if (1 || this.btn) {
-                //     this.verifyCode({registerInfo: this.registerInfo})
-                // }
+                this.verifyCode({
+                    info: this.info,
+                    cb () {}
+                })
             },
             valite () {
-                if (this.registerInfo.account && this.registerInfo.code && this.registerInfo.pwd) {
+                if (this.info.account && this.info.code && this.info.pwd) {
                     this.btn = true
                     this.active = 'active'
                 } else {
-                    this.btn = true
+                    this.btn = false
                     this.active = ''
                 }
             }
@@ -78,60 +107,5 @@
     @import '../../style/func.scss';
     .register {
         padding-top: 87px;
-        &-account {
-            label {
-                position: absolute;
-                display: block;
-                width: 60px;
-                height: 44px;
-                line-height: 44px;
-
-                i {
-                    position: absolute;
-                }
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    width: 1px;
-                    height: 16px;
-                    margin-top: -8px;
-                    background: #fff;
-                }
-            }
-
-            input {
-                padding-left: 70px;
-            }
-        }
-        &-code {
-            padding-right: 50px;
-            button {
-                position: absolute;
-                top: 7px;
-                right: 13px;
-                height: 30px;
-                padding: 0 8px;
-
-                font-size: pxToRem(12);
-                color: #212121;
-                line-height: 30px;
-                border-radius: 100px;
-                background: #f5bb42;
-
-                &.disable{
-
-                }
-            }
-        }
-        &-btn {
-            margin-top: 26px;
-            &.active {
-                background: #f5bb42;
-                color: #212121;
-            }
-        }
     }
 </style>

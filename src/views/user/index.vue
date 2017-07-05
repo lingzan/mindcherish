@@ -1,9 +1,23 @@
 <template>
     <div class="user">
         <div class="user-info">
-            <User />
+            <!-- <User /> -->
+            <div>
+                <div class="no-login">
+                    <Avatar avatar-size="54" avatar-class="left"/>
+                    <div class="right">
+                        您好，请登录
+                        <div class="fr"><i class="iconfont icon-dianjijinru"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info-wallet">
+               <i class="iconfont icon-qianbao1"></i>我的钱包
+               <div class="fr"><i class="iconfont icon-dianjijinru"></i></div>
+            </div>
         </div>
         <div class="user-box">
+            <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
             <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
         </div>
         <Clomun text='认证成为智咖' iconClass="icon-Group" msgNum="32"><div class="user-identify">认证中</div></Clomun>
@@ -19,6 +33,7 @@
 </template>
 
 <script>
+    import Avatar from '../../components/avatar/user'
     import User from '../../components/common/user'
     import Clomun from '../../components/user/clomun'
     import SubImgNav from '../../components/nav/subimgnav'
@@ -34,9 +49,9 @@
                     }
                 ],
                 subimgnavs: [
-                    {'name': '钱包', 'icon': 'user-wallet', 'url': '/center'},
-                    {'name': '优惠券', 'icon': 'user-sale', 'url': '/'},
-                    {'name': '邀请', 'icon': 'user-invite', 'url': '/'},
+                    {'name': '提问', 'icon': 'user-wallet', 'url': '/center'},
+                    {'name': '悬赏', 'icon': 'user-sale', 'url': '/'},
+                    {'name': 'Get', 'icon': 'user-invite', 'url': '/'},
                     {'name': '关注', 'icon': 'user-focus', 'url': '/'}
                 ],
                 subclass: 'user-subimg'
@@ -51,26 +66,65 @@
                 }
             }
         },
-        components: { User, Clomun, SubImgNav }
+        components: { User, Clomun, SubImgNav, Avatar }
     }
 </script>
 
-<style type="text/sass" lang="scss">
+<style type="text/sass" lang="scss" >
     @import '../../style/func.scss';
     .user {
         padding-top: 10px;
         background-color: #f2f2f2;
+
+        .no-login {
+            padding: 34px 16px 28px;
+            line-height: 54px;
+            color: rgba(255,255,255,.8);
+
+            .left {
+                float: left;
+                margin-right: 16px;
+            }
+            .right {
+                i {
+                    font-size: pxToRem(13);
+                    color: rgba(255, 255, 255, 0.65)
+                }
+            }
+        }
         &-subimg {
             p {
                 margin-top: 0.3125rem;
             }
         }
         &-info {
-            width: 375px;
+            position: relative;
+            width: 100%;
             height: 176px;
-            -webkit-backdrop-filter: blur(11px);
-            backdrop-filter: blur(11px);
             background-image: url(../../assets/images/center-header.png);
+            background-size: 100% 100%;
+
+            &-wallet {
+                position: absolute;
+                bottom: 0;
+
+                width: 100%;
+                height: 56px;
+                padding: 0 16px;
+
+                line-height: 56px;
+                font-size: pxToRem(14);
+                color: rgba(255, 255, 255, 0.9);
+                background-color: rgba(0, 0, 0, 0.16);
+
+                .icon-dianjijinru {
+                    font-size: pxToRem(13);
+                    color: rgba(255, 255, 255, 0.65)
+                }
+            }
+            .icon-qianbao1 {
+                margin-right: 14px;
+            }
         }
         &-box {
             position: relative;
