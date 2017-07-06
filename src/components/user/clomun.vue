@@ -1,6 +1,6 @@
 <template>
     <div class="default-clomun">
-        <i class="iconfont" :class="currentIconClass"></i>{{text}}
+        <i class="iconfont" v-if="iconClass" :class="iconClass"></i>{{text}}
         <div class="default-clomun-right fr"><slot><span  v-if="msgNum">{{msgNum}}<i class="iconfont icon-dianjijinru"></i></span></slot></div>
     </div>
 </template>
@@ -11,13 +11,6 @@
             iconClass: '',
             text: '',
             msgNum: ''
-        },
-        computed: {
-            currentIconClass: function () {
-                let iconClassHash = {}
-                iconClassHash[this.iconClass] = true
-                return iconClassHash
-            }
         }
     }
 </script>
@@ -39,9 +32,10 @@
             overflow: hidden;
 
             i {
-                color: rgba(0,0,0,.25);
+                color: #999;
                 margin-right: 8px;
-                 font-size: pxToRem(14);
+                font-size: pxToRem(14);
+                vertical-align: middle;
 
                 &.icon-jinengget, &.icon-huodong {
                      font-size: pxToRem(18);

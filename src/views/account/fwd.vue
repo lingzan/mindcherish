@@ -1,5 +1,5 @@
 <template>
-    <AccountBg account-bg-class="register">
+    <AccountBg account-bg-class="fwd">
         <div class="account-input account-account">
             <label>+86<i class="iconfont icon-xiala2"></i></label>
             <input type="text" @input="valite()" name="" placeholder="手机号码" v-model="info.account">
@@ -87,7 +87,15 @@
                 }, 1000)
                 this.verifyCode({
                     info: this.info,
-                    cb () {}
+                    cb (status) {
+                        if (status === 0) {
+                        } else {
+                            that.codeBtn = false
+                            that.codeClass = ''
+                            that.codeText = '重新获取'
+                            clearInterval(setIntervalId)
+                        }
+                    }
                 })
             },
             valite () {
@@ -106,7 +114,7 @@
 
 <style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
-    .register {
+    .fwd {
         padding-top: 87px;
  
     }

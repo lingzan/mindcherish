@@ -4,6 +4,8 @@ export const REGISTER = 'REGISTER'
 export const FWD = 'FWD'
 export const VERIFYCODE = 'VERIFYCODE'
 
+/* user */
+export const GET_USER = 'GET_USER'
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
 export const GET_ARTICLE_LIST = 'GET_ARTICLE_LIST'

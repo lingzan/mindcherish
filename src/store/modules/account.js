@@ -5,6 +5,9 @@ import md5 from 'md5'
 const state = {
     userLicense: JSON.parse(localStorage.getItem('userLicense')) || {}
 }
+const getters = {
+    getUserLicense: state => state.userLicense
+}
 
 const actions = {
     login ({ commit }, params) {
@@ -83,13 +86,14 @@ const mutations = {
             // state.userLicense = res.data
             // res.cb()
         } else {
-
+            res.cb(res.code)
         }
     }
 }
 
 export default {
     state,
+    getters,
     actions,
     mutations
 }

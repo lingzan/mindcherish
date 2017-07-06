@@ -1,14 +1,25 @@
 <template>
     <div class="user">
+            {{userStat}}
+            {{user}}
         <div class="user-info">
-            <!-- <User /> -->
             <div>
-                <div class="no-login">
+                <div class="no-login" v-if="userStat.user_id === undefined">
                     <Avatar avatar-size="54" avatar-class="left"/>
-                    <div class="right">
+                    <div class="right" >
                         您好，请登录
                         <div class="fr"><i class="iconfont icon-dianjijinru"></i></div>
                     </div>
+                </div>
+                <div class="user-logined" v-if="userStat.user_id !== undefined">
+                    <router-link :to="'/user/' + user.id">
+                        <Avatar avatar-size="54" avatar-class="left" :avatar-url="user.face"/>
+                        <div class="middle">
+                            <p class="title">{{user.nickname}}</p>
+                            <p class="intro">{{user.company + ' · ' + user.position}}</p>
+                            <div class="middle-right"><i class="iconfont icon-dianjijinru"></i></div>
+                        </div>
+                    </router-link>
                 </div>
             </div>
             <div class="user-info-wallet">
@@ -17,17 +28,17 @@
             </div>
         </div>
         <div class="user-box">
-            <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
+            <SubImgNav :subimg='subimgnavOne' :subclass='subclassOne' />
             <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
         </div>
-        <Clomun text='认证成为智咖' iconClass="icon-Group" msgNum="32"><div class="user-identify">认证中</div></Clomun>
-        <Clomun text='草稿' iconClass="icon-caogao" msgNum="32"></Clomun>
-        <Clomun text='收藏' iconClass="icon-wodeshoucang" msgNum="32"></Clomun>
-        <Clomun text='提问' iconClass="icon-zhiwen" msgNum="32"></Clomun>
-        <Clomun text='悬赏' iconClass="icon-xuanshang" msgNum="32"></Clomun>
-        <Clomun text='活动' iconClass="icon-huodong1" msgNum="32"></Clomun>
-        <Clomun text='技能get' iconClass="icon-jinengget" msgNum="32"></Clomun>
-        <Clomun text='意见反馈' iconClass="icon-fankui" msgNum="32"></Clomun>
+        <div class="user-apply">
+            <Clomun text='认证成为智咖' v-if="user.is_expert === '0'" iconClass="icon-renzheng" msgNum="32"><div :class="{'disabled':user.is_identify==='0'}" class="user-identify">去认证</div></Clomun>
+            <Clomun text='邀我回答' v-if="user.is_expert === '1'" iconClass="icon-xaioxi2" msgNum="32"></Clomun>
+        </div>
+        <Clomun text='邀请好友' iconClass="icon-yaoqing" msgNum="获取答案试看券"></Clomun>
+        <Clomun text='权限管理' iconClass="icon-quanxianguanli"></Clomun>
+        <Clomun text='意见反馈' iconClass="icon-fankui" msgNum="有问题反馈给我们哦"></Clomun>
+        <Clomun text='APP下载' iconClass="icon-xiazai1" msgNum="32"></Clomun>
         <Clomun text='设置' iconClass="icon-shezhi" msgNum="32"></Clomun>
     </div>
 </template>
@@ -37,6 +48,7 @@
     import User from '../../components/common/user'
     import Clomun from '../../components/user/clomun'
     import SubImgNav from '../../components/nav/subimgnav'
+    import {mapGetters} from 'vuex'
     export default {
         name: 'subnav',
         props: {},
@@ -48,16 +60,27 @@
                         name: '邀我回答'
                     }
                 ],
-                subimgnavs: [
-                    {'name': '提问', 'icon': 'user-wallet', 'url': '/center'},
-                    {'name': '悬赏', 'icon': 'user-sale', 'url': '/'},
-                    {'name': 'Get', 'icon': 'user-invite', 'url': '/'},
-                    {'name': '关注', 'icon': 'user-focus', 'url': '/'}
+                subimgnavOne: [
+                    {'name': '提问', 'icon': 'user-question', 'url': '/center'},
+                    {'name': '悬赏', 'icon': 'user-reward', 'url': '/'},
+                    {'name': 'Get', 'icon': 'user-get', 'url': '/'},
+                    {'name': 'Live', 'icon': 'user-live', 'url': '/'}
                 ],
+                subimgnavs: [
+                    {'name': '活动', 'icon': 'user-activity', 'url': '/center'},
+                    {'name': '文章', 'icon': 'user-article', 'url': '/'},
+                    {'name': '收藏', 'icon': 'user-collect', 'url': '/'},
+                    {'name': '草稿', 'icon': 'user-draft', 'url': '/'}
+                ],
+                subclassOne: 'user-subimg mb23',
                 subclass: 'user-subimg'
             }
         },
         computed: {
+            ...mapGetters({
+                userStat: 'getUserLicense',
+                user: 'user'
+            }),
             sub: function () {
                 if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
                     return JSON.parse(this.subnavs)
@@ -66,16 +89,23 @@
                 }
             }
         },
+        beforeRouteEnter (to, from, next) {
+            next(vm => {
+                const user = vm.$store.state.account.userLicense
+                vm.$store.dispatch('getUserInfo', user.user_id)
+            })
+        },
         components: { User, Clomun, SubImgNav, Avatar }
     }
 </script>
 
-<style type="text/sass" lang="scss" >
+<style type="text/sass" lang="scss">
+    @import '../../style/mixin.scss';
     @import '../../style/func.scss';
     .user {
         padding-top: 10px;
         background-color: #f2f2f2;
-
+        &-logined,
         .no-login {
             padding: 34px 16px 28px;
             line-height: 54px;
@@ -90,6 +120,53 @@
                     font-size: pxToRem(13);
                     color: rgba(255, 255, 255, 0.65)
                 }
+            }
+        }
+        &-logined {
+            position: relative;
+
+            .middle {
+                position: relative;
+                padding:0 70px 0 15px;
+                color: rgba(255, 255, 255, 0.65);
+                
+        
+                .title {
+                    height: pxToRem(18);
+                    margin: 6px 0 9px;
+
+                    font-size: pxToRem(18);
+                    line-height: 1;
+                    color: #fff;
+                    word-wrap: break-word;
+
+                    @include textOverflow(1);
+                }
+                .intro {
+                    height: pxToRem(14);
+
+                    font-size: pxToRem(14);
+                    line-height: 1;
+
+                    @include textOverflow(1);
+                }
+                &-right {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    i {
+                        font-size: pxToRem(13);
+                    }
+                }
+            }
+            
+        }
+        &-apply {
+            margin-bottom: 10px;
+            .icon-renzheng {
+                position: relative;
+                top: 1px;
             }
         }
         &-subimg {
@@ -170,37 +247,58 @@
             text-overflow: ellipsis;
         }
 
-        &-wallet {
-            background-image: url(../../assets/icon/icon-wallet.png);
+        &-question {
+            background-image: url(../../assets/icon/icon-question.png);
             background-size: contain;
         }
-        &-sale {
-            background: url(../../assets/icon/icon-sale.png);
+        &-reward {
+            background: url(../../assets/icon/icon-reward.png);
             background-size: contain;
         }
-        &-invite {
-            background: url(../../assets/icon/icon-invite.png);
+        &-get {
+            background: url(../../assets/icon/icon-get.png);
             background-size: contain;
         }
-        &-focus {
-            background: url(../../assets/icon/icon-focus.png);
+        &-live {
+            background: url(../../assets/icon/icon-live.png);
             background-size: contain;
         }
-
+        &-activity {
+            background-image: url(../../assets/icon/icon-activity.png);
+            background-size: contain;
+        }
+        &-article {
+            background: url(../../assets/icon/icon-article.png);
+            background-size: contain;
+        }
+        &-collect {
+            background: url(../../assets/icon/icon-collect.png);
+            background-size: contain;
+        }
+        &-draft {
+            background: url(../../assets/icon/icon-draft.png);
+            background-size: contain;
+        }
         &-identify {
             width: 59px;
             height: 24px;
             margin-top: 15px;
 
             line-height: 24px;
-             font-size: pxToRem(12);
-            color: rgba(0,0,0,.38);
+            font-size: pxToRem(12);
             text-align: center;
-            vertical-align: center;
-
             border-radius: 2px;
-            background-color: rgba(0,0,0, .05);
             cursor: pointer;
+            color: #fff;
+            background-color: #ffa42f;
+
+            &.disabled {
+                background-color: rgba(0,0,0, .05);
+                color: rgba(0,0,0,.38);
+            }
+        }
+        .mb23 {
+            margin-bottom: 23px;
         }
     }
 </style>

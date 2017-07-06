@@ -31,7 +31,7 @@
     }
 </script>
 
-<style type="text/sass" lang="scss">
+<style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
     .default-user {
         position: relative;

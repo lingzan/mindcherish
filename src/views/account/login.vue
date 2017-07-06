@@ -24,7 +24,7 @@
                         立即登录
                     </div>
                     <div class="login-help clearfix">
-                        <router-link to="/register" class="fl">忘记密码？</router-link>
+                        <router-link to="/fwd" class="fl">忘记密码？</router-link>
                         <router-link to="/register" class="fr">注册账号</router-link>
                     </div>
                 </section>

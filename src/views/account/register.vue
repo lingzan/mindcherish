@@ -40,7 +40,8 @@
                     pwd: '',
                     areaCode: 86,
                     code: '',
-                    invitecode: ''
+                    invitecode: '',
+                    require: 'not_exist'
                 }
             }
         },
@@ -86,7 +87,15 @@
                 }, 1000)
                 this.verifyCode({
                     info: this.info,
-                    cb () {}
+                    cb (status) {
+                        if (status === 0) {
+                        } else {
+                            that.codeBtn = false
+                            that.codeClass = ''
+                            that.codeText = '重新获取'
+                            clearInterval(setIntervalId)
+                        }
+                    }
                 })
             },
             valite () {

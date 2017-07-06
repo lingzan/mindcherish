@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import Account from './modules/account'
+import User from './modules/user'
 import Common from './modules/common'
 import FlowStore from './modules/flow'
 import Article from './modules/article'
@@ -19,7 +20,8 @@ const store = new Vuex.Store({
         wellChosen: WellCHOSEN,
         question: Question,
         common: Common,
-        live: LIVE
+        live: LIVE,
+        user: User
     }
 })
 
