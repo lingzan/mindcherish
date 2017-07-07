@@ -1,7 +1,8 @@
-<template>
+<template>      
     <div class="user">
-            {{userStat}}
-            {{user}}
+            <!-- {{userStat}} -->
+            <!-- {{user}} -->
+            <!-- {{wallet}} -->
         <div class="user-info">
             <div>
                 <div class="no-login" v-if="userStat.user_id === undefined">
@@ -23,8 +24,11 @@
                 </div>
             </div>
             <div class="user-info-wallet">
-               <i class="iconfont icon-qianbao1"></i>我的钱包
-               <div class="fr"><i class="iconfont icon-dianjijinru"></i></div>
+                <i class="iconfont icon-qianbao1"></i>我的钱包
+                <div class="fr">
+                    <span class="user-balance">{{wallet.wallet_balance}} </span>元
+                    <i class="iconfont icon-dianjijinru"></i>
+                </div>
             </div>
         </div>
         <div class="user-box">
@@ -61,16 +65,16 @@
                     }
                 ],
                 subimgnavOne: [
-                    {'name': '提问', 'icon': 'user-question', 'url': '/center'},
-                    {'name': '悬赏', 'icon': 'user-reward', 'url': '/'},
-                    {'name': 'Get', 'icon': 'user-get', 'url': '/'},
-                    {'name': 'Live', 'icon': 'user-live', 'url': '/'}
+                    {'name': '提问', 'icon': 'user-question', 'url': '/user/question'},
+                    {'name': '悬赏', 'icon': 'user-reward', 'url': '/user/reward'},
+                    {'name': 'Get', 'icon': 'user-get', 'url': '/user/get'},
+                    {'name': 'Live', 'icon': 'user-live', 'url': '/user/live'}
                 ],
                 subimgnavs: [
-                    {'name': '活动', 'icon': 'user-activity', 'url': '/center'},
-                    {'name': '文章', 'icon': 'user-article', 'url': '/'},
-                    {'name': '收藏', 'icon': 'user-collect', 'url': '/'},
-                    {'name': '草稿', 'icon': 'user-draft', 'url': '/'}
+                    {'name': '活动', 'icon': 'user-activity', 'url': '/user/activity'},
+                    {'name': '文章', 'icon': 'user-article', 'url': '/user/article'},
+                    {'name': '收藏', 'icon': 'user-collect', 'url': '/user/collect'},
+                    {'name': '草稿', 'icon': 'user-draft', 'url': '/user/draft'}
                 ],
                 subclassOne: 'user-subimg mb23',
                 subclass: 'user-subimg'
@@ -79,7 +83,8 @@
         computed: {
             ...mapGetters({
                 userStat: 'getUserLicense',
-                user: 'user'
+                user: 'user',
+                wallet: 'wallet'
             }),
             sub: function () {
                 if (typeof this.subnavs !== 'undefined' && this.subnavs !== '') {
@@ -92,7 +97,9 @@
         beforeRouteEnter (to, from, next) {
             next(vm => {
                 const user = vm.$store.state.account.userLicense
+                console.log(user)
                 vm.$store.dispatch('getUserInfo', user.user_id)
+                vm.$store.dispatch('wallet', {userid: user.user_id, userToken: user.user_token})
             })
         },
         components: { User, Clomun, SubImgNav, Avatar }
@@ -162,6 +169,9 @@
             }
             
         }
+        &-balance {
+            color: #ffa42f;
+        }
         &-apply {
             margin-bottom: 10px;
             .icon-renzheng {
@@ -195,6 +205,7 @@
                 background-color: rgba(0, 0, 0, 0.16);
 
                 .icon-dianjijinru {
+                    margin-left: 10px;
                     font-size: pxToRem(13);
                     color: rgba(255, 255, 255, 0.65)
                 }

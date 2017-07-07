@@ -6,6 +6,15 @@ export const VERIFYCODE = 'VERIFYCODE'
 
 /* user */
 export const GET_USER = 'GET_USER'
+export const GET_WALLET = 'GET_WALLET'
+export const GET_USER_QUESTION = 'GET_USER_QUESTION'
+export const GET_USER_REWARD = 'GET_USER_REWARD'
+export const GET_USER_GET = 'GET_USER_GET'
+export const GET_USER_LIVE = 'GET_USER_LIVE'
+export const GET_USER_ACTIVITY = 'GET_USER_ACTIVITY'
+export const GET_USER_ARTICLE = 'GET_USER_ARTICLE'
+export const GET_USER_COLLECT = 'GET_USER_COLLECT'
+export const GET_USER_DRAFT = 'GET_USER_DRAFT'
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
 export const GET_ARTICLE_LIST = 'GET_ARTICLE_LIST'

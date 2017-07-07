@@ -2,6 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import User from '../views/user/index'
+import UserQuestion from '../views/user/question'
+import UserReward from '../views/user/reward'
+import UserGet from '../views/user/get'
+import UserLive from '../views/user/live'
+import UserActivity from '../views/user/activity'
+import UserArticle from '../views/user/article'
+import UserCollect from '../views/user/collect'
+import UserDraft from '../views/user/draft'
 import Center from '../views/user/center'
 
 import Login from '../views/account/login'
@@ -86,6 +94,46 @@ export default new Router({
             path: '/user',
             name: 'User',
             component: User
+        },
+        {
+            path: '/user/question/',
+            name: 'UserQuestion',
+            component: UserQuestion
+        },
+        {
+            path: '/user/reward',
+            name: 'UserReward',
+            component: UserReward
+        },
+        {
+            path: '/user/get',
+            name: 'UserGet',
+            component: UserGet
+        },
+        {
+            path: '/user/live',
+            name: 'UserLive',
+            component: UserLive
+        },
+        {
+            path: '/user/activity',
+            name: 'UserActivity',
+            component: UserActivity
+        },
+        {
+            path: '/user/article',
+            name: 'UserArticle',
+            component: UserArticle
+        },
+        {
+            path: '/user/collect',
+            name: 'UserCollect',
+            component: UserCollect
+        },
+        {
+            path: '/user/draft',
+            name: 'UserDraft',
+            component: UserDraft
         },
         {
             path: '/msg',
