@@ -98,56 +98,56 @@ const mutations = {
     },
     [types.GET_USER_LIVE] (state, {res}) {
         if (res.code === 0) {
-            state.userLive = res.data
+            state.userLive = res.data.rows
         } else {
             state.userLive = {}
         }
     },
     [types.GET_USER_QUESTION] (state, {res}) {
         if (res.code === 0) {
-            state.userQuestion = res.data
+            state.userQuestion = res.data.rows
         } else {
             state.userQuestion = {}
         }
     },
     [types.GET_USER_GET] (state, {res}) {
         if (res.code === 0) {
-            state.userGet = res.data
+            state.userGet = res.data.rows
         } else {
             state.userGet = {}
         }
     },
     [types.GET_USER_REWARD] (state, {res}) {
         if (res.code === 0) {
-            state.userReward = res.data
+            state.userReward = res.data.rows
         } else {
             state.userReward = {}
         }
     },
     [types.GET_USER_ACTIVITY] (state, {res}) {
         if (res.code === 0) {
-            state.userActivity = res.data
+            state.userActivity = res.data.rows
         } else {
             state.userActivity = {}
         }
     },
     [types.GET_USER_ARTICLE] (state, {res}) {
         if (res.code === 0) {
-            state.userArticle = res.data
+            state.userArticle = res.data.rows
         } else {
             state.userArticle = {}
         }
     },
     [types.GET_USER_COLLECT] (state, {res}) {
         if (res.code === 0) {
-            state.userCollect = res.data
+            state.userCollect = res.data.rows
         } else {
             state.userCollect = {}
         }
     },
     [types.GET_USER_DRAFT] (state, {res}) {
         if (res.code === 0) {
-            state.userDraft = res.data
+            state.userDraft = res.data.rows
         } else {
             state.userDraft = {}
         }

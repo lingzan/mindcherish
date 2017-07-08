@@ -13,7 +13,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    console.log('mapStates', mapGetters(['loading']))
+
     export default {
         name: 'loading',
         computed: {

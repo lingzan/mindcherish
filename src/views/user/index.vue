@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="user-box">
-            <SubImgNav :subimg='subimgnavOne' :subclass='subclassOne' />
-            <SubImgNav :subimg='subimgnavs' :subclass='subclass' />
+            <SubImgNav :subimg='subimgnavOne' :subclass='subclassOne' :subid="user.id" />
+            <SubImgNav :subimg='subimgnavs' :subclass='subclass' :subid="user.id" />
         </div>
         <div class="user-apply">
             <Clomun text='认证成为智咖' v-if="user.is_expert === '0'" iconClass="icon-renzheng" msgNum="32"><div :class="{'disabled':user.is_identify==='0'}" class="user-identify">去认证</div></Clomun>
@@ -64,18 +64,6 @@
                         name: '邀我回答'
                     }
                 ],
-                subimgnavOne: [
-                    {'name': '提问', 'icon': 'user-question', 'url': '/user/question'},
-                    {'name': '悬赏', 'icon': 'user-reward', 'url': '/user/reward'},
-                    {'name': 'Get', 'icon': 'user-get', 'url': '/user/get'},
-                    {'name': 'Live', 'icon': 'user-live', 'url': '/user/live'}
-                ],
-                subimgnavs: [
-                    {'name': '活动', 'icon': 'user-activity', 'url': '/user/activity'},
-                    {'name': '文章', 'icon': 'user-article', 'url': '/user/article'},
-                    {'name': '收藏', 'icon': 'user-collect', 'url': '/user/collect'},
-                    {'name': '草稿', 'icon': 'user-draft', 'url': '/user/draft'}
-                ],
                 subclassOne: 'user-subimg mb23',
                 subclass: 'user-subimg'
             }
@@ -92,14 +80,30 @@
                 } else {
                     return []
                 }
+            },
+            subimgnavOne: function () {
+                return [
+                    {'name': '提问', 'icon': 'user-question', 'url': '/user/question/' + this.user.id},
+                    {'name': '悬赏', 'icon': 'user-reward', 'url': '/user/reward/' + this.user.id},
+                    {'name': 'Get', 'icon': 'user-get', 'url': '/user/get/' + this.user.id},
+                    {'name': 'Live', 'icon': 'user-live', 'url': '/user/live/' + this.user.id}
+                ]
+            },
+            subimgnavs: function () {
+                return [
+                    {'name': '活动', 'icon': 'user-activity', 'url': '/user/activity/' + this.user.id},
+                    {'name': '文章', 'icon': 'user-article', 'url': '/user/article/' + this.user.id},
+                    {'name': '收藏', 'icon': 'user-collect', 'url': '/user/collect/' + this.user.id},
+                    {'name': '草稿', 'icon': 'user-draft', 'url': '/user/draft/' + this.user.id}
+                ]
             }
         },
         beforeRouteEnter (to, from, next) {
             next(vm => {
                 const user = vm.$store.state.account.userLicense
-                console.log(user)
-                vm.$store.dispatch('getUserInfo', user.user_id)
-                vm.$store.dispatch('wallet', {userid: user.user_id, userToken: user.user_token})
+                const userId = to.params.id ? to.params.id : user.user_id
+                vm.$store.dispatch('getUserInfo', userId)
+                vm.$store.dispatch('wallet', {userid: userId, userToken: user.user_token})
             })
         },
         components: { User, Clomun, SubImgNav, Avatar }

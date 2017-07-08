@@ -71,7 +71,7 @@ export default {
             @orderby id
             @var visiter_userid get的id
          */
-        let promise = fetch(USER_API.userLive, param, 'GET')
+        let promise = fetch(USER_API.userGet, param, 'GET')
         return promise
     },
     userActivity (param) {

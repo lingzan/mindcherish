@@ -12,7 +12,8 @@
         name: 'subimgnav',
         props: {
             subimg: '',
-            subclass: ''
+            subclass: '',
+            subid: ''
         },
         computed: {
             sub: function () {

@@ -47,7 +47,6 @@ export const fetch = (url, data, method = 'GET') => {
             client_key: '2567a5ec9705eb7ac2c984033e06189d',
             client_token: token()
         }
-        console.log('data', data)
         const _data = Object.assign({}, data, tokenArr)
         if (method === 'POST') {
             options = {

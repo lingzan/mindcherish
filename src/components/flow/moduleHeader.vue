@@ -9,7 +9,7 @@
 <script>
     import Avatar from '../avatar/user'
     import Tool from '../../util/tool'
-    console.log(Tool)
+
     export default {
         name: 'module-header',
         props: {
@@ -30,7 +30,6 @@
                 case 'live':
                     _user = this.actor.content.guest_info
                 }
-                console.log(this.actor.content.arctype, _user)
                 return _user
             },
             timeLine: function () {

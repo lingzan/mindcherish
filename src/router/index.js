@@ -96,42 +96,42 @@ export default new Router({
             component: User
         },
         {
-            path: '/user/question/',
+            path: '/user/question/:id',
             name: 'UserQuestion',
             component: UserQuestion
         },
         {
-            path: '/user/reward',
+            path: '/user/reward/:id',
             name: 'UserReward',
             component: UserReward
         },
         {
-            path: '/user/get',
+            path: '/user/get/:id',
             name: 'UserGet',
             component: UserGet
         },
         {
-            path: '/user/live',
+            path: '/user/live/:id',
             name: 'UserLive',
             component: UserLive
         },
         {
-            path: '/user/activity',
+            path: '/user/activity/:id',
             name: 'UserActivity',
             component: UserActivity
         },
         {
-            path: '/user/article',
+            path: '/user/article/:id',
             name: 'UserArticle',
             component: UserArticle
         },
         {
-            path: '/user/collect',
+            path: '/user/collect/:id',
             name: 'UserCollect',
             component: UserCollect
         },
         {
-            path: '/user/draft',
+            path: '/user/draft/:id',
             name: 'UserDraft',
             component: UserDraft
         },

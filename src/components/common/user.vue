@@ -34,28 +34,25 @@
 <style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
     .default-user {
+        display: flex;
         position: relative;
         background-color: #fff;
             
         &-left {
-           float: left;
+           flex-shrink: 0;
            margin-right: 10px;
         }
         &-middle {
             position: relative;
             height: 100%;
+            flex: 1;
             
         }
         &-right {
-            position: absolute;
-            top: 0;
-            right:0;
-            height: 100%;
-            
+            flex-shrink: 0;
         }
         &-name {
             height: 18px;
-            margin-right: 65px;
             padding-top:3px;
 
             line-height: 15px;
@@ -66,8 +63,7 @@
         }
         &-desciption {
             margin-top: 8px;
-            margin-right: 65px;
-             font-size: pxToRem(14);
+            font-size: pxToRem(14);
             height: 14px;
             line-height: 1;
             white-space: nowrap;
