@@ -1,7 +1,7 @@
 <template>
     <div class="default-clomun">
         <i class="iconfont" v-if="iconClass" :class="iconClass"></i>{{text}}
-        <div class="default-clomun-right fr"><slot><span  v-if="msgNum">{{msgNum}}<i class="iconfont icon-dianjijinru"></i></span></slot></div>
+        <div class="default-clomun-right fr"><slot><span v-if="msgNum">{{msgNum}}<i class="iconfont icon-dianjijinru"></i></span></slot></div>
     </div>
 </template>
 <script>

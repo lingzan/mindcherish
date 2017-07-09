@@ -1,7 +1,7 @@
 <template>
     <section class="article-module">
         <ModuleHeader :actor="article" module-header-class="article-module-header" />
-        <ArticleModule :article="article" />
+        <ArticleModule :article="article.content" />
     </section>
 </template>
 

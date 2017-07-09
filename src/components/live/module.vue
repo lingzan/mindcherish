@@ -31,6 +31,7 @@
         },
         computed: {
             face: function () {
+                console.log(this.liveData)
                 return this.liveData.guest_info.face
             }
         },

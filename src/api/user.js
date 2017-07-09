@@ -10,7 +10,9 @@ const USER_API = {
     userActivity: 'v1/activity/lists',
     userArticle: 'v1/article/lists',
     userCollect: 'v1/favorite/lists',
-    userDraft: 'v1/draft/lists'
+    userDraft: 'v1/draft/lists',
+    userAnswer: 'v1/expertquestion/lists',
+    orderDetail: 'v1/bill/lists'
 }
 
 export default {
@@ -118,6 +120,27 @@ export default {
             @var type expert_question|article|reward_answer
          */
         let promise = fetch(USER_API.userDraft, param, 'GET')
+        return promise
+    },
+    userAnswer (param) {
+        /*
+            @param
+            @var page
+            @var rows
+            @var invite_status 问题状态 wait_answer|invite_status:has_answer|invite_status:has_refuse|has_expire
+            @var expert_userid  id
+         */
+        let promise = fetch(USER_API.userAnswer, param, 'GET')
+        return promise
+    },
+    orderDetail (param) {
+        /*
+            @param
+            @var id
+            @var for
+            @var rows
+         */
+        let promise = fetch(USER_API.orderDetail, param, 'GET')
         return promise
     }
 }

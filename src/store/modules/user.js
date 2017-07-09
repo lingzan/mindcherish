@@ -12,7 +12,9 @@ const state = {
     userActivity: '',
     userArticle: '',
     userCollect: '',
-    userDraft: ''
+    userDraft: '',
+    userAnswer: '',
+    userBill: ''
 }
 
 const getters = {
@@ -25,7 +27,9 @@ const getters = {
     userActivity: state => state.userActivity,
     userArticle: state => state.userArticle,
     userCollect: state => state.userCollect,
-    userDraft: state => state.userDraft
+    userDraft: state => state.userDraft,
+    userAnswer: state => state.userAnswer,
+    userBill: state => state.userBill
 }
 
 const actions = {
@@ -77,6 +81,16 @@ const actions = {
     userDraft ({commit}, params) {
         user.userDraft(params).then(res => {
             commit(types.GET_USER_DRAFT, {res})
+        })
+    },
+    userAnswer ({commit}, params) {
+        user.userAnswer(params).then(res => {
+            commit(types.GET_USER_ANSWER, {res})
+        })
+    },
+    userBill ({commit}, params) {
+        user.orderDetail(params).then(res => {
+            commit(types.GET_USER_BILL, {res})
         })
     }
 }
@@ -150,6 +164,20 @@ const mutations = {
             state.userDraft = res.data.rows
         } else {
             state.userDraft = {}
+        }
+    },
+    [types.GET_USER_ANSWER] (state, {res}) {
+        if (res.code === 0) {
+            state.userAnswer = res.data.rows
+        } else {
+            state.userAnswer = {}
+        }
+    },
+    [types.GET_USER_BILL] (state, {res}) {
+        if (res.code === 0) {
+            state.userBill = res.data.rows
+        } else {
+            state.userBill = {}
         }
     }
 }

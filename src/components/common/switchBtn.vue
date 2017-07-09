@@ -1,16 +1,19 @@
 <template>
-    <input type="checkbox" class="default-switch-btn" :class="switchClass" @change="switchBtnStatus()" />
+    <input type="checkbox" class="default-switch-btn" :class="switchBtnClass" @change="switchBtnStatus()" />
 </template>
 <script>
     export default {
         name: 'default-switch-btn',
         props: {
-            currentStatus: '',
-            switchClass: ''
+            current: '',
+            switchBtnClass: '',
+            switchBtnClick: ''
         },
         methods: {
             switchBtnStatus () {
-                console.log(1)
+                if (typeof switchBtnClick === 'function') {
+                    this.switchBtnClick()
+                }
             }
         }
     }
@@ -49,7 +52,7 @@
                 left: 16px 
             }
 
-            background: #0af;
+            background: #29cc57;
         }
     }
 </style>

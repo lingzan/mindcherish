@@ -10,6 +10,12 @@ import UserActivity from '../views/user/activity'
 import UserArticle from '../views/user/article'
 import UserCollect from '../views/user/collect'
 import UserDraft from '../views/user/draft'
+import UserAnswer from '../views/user/answer'
+import UserRole from '../views/user/role'
+import UserSet from '../views/user/set'
+import UserWallet from '../views/user/wallet'
+import UserRecharge from '../views/user/recharge'
+import UserSettlement from '../views/user/settlement'
 import Center from '../views/user/center'
 
 import Login from '../views/account/login'
@@ -134,6 +140,36 @@ export default new Router({
             path: '/user/draft/:id',
             name: 'UserDraft',
             component: UserDraft
+        },
+        {
+            path: '/user/answer/:id',
+            name: 'UserAnswer',
+            component: UserAnswer
+        },
+        {
+            path: '/user/role/:id',
+            name: 'UserRole',
+            component: UserRole
+        },
+        {
+            path: '/user/set',
+            name: 'UserSet',
+            component: UserSet
+        },
+        {
+            path: '/user/wallet',
+            name: 'UserWallet',
+            component: UserWallet
+        },
+        {
+            path: '/user/recharge',
+            name: 'UserRecharge',
+            component: UserRecharge
+        },
+        {
+            path: '/user/settlement',
+            name: 'UserSettlement',
+            component: UserSettlement
         },
         {
             path: '/msg',

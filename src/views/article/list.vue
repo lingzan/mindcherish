@@ -4,7 +4,7 @@
             <User user-class="article-item-header" :user="item.author">
                 <span class="article-item-time">{{dateFormat(item.date)}}</span>
             </User>
-            <ArticleModule :article="articleFormat(item)" />
+            <ArticleModule :article="item" />
         </div>
     </div>
 </template>

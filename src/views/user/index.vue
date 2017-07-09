@@ -23,13 +23,15 @@
                     </router-link>
                 </div>
             </div>
-            <div class="user-info-wallet">
-                <i class="iconfont icon-qianbao1"></i>我的钱包
-                <div class="fr">
-                    <span class="user-balance">{{wallet.wallet_balance}} </span>元
-                    <i class="iconfont icon-dianjijinru"></i>
+            <router-link to="/user/wallet" >
+                <div class="user-info-wallet">
+                    <i class="iconfont icon-qianbao1"></i>我的钱包
+                    <div class="fr">
+                        <span class="user-balance">{{wallet.wallet_balance}} </span>元
+                        <i class="iconfont icon-dianjijinru"></i>
+                    </div>
                 </div>
-            </div>
+            </router-link>
         </div>
         <div class="user-box">
             <SubImgNav :subimg='subimgnavOne' :subclass='subclassOne' :subid="user.id" />
@@ -37,13 +39,13 @@
         </div>
         <div class="user-apply">
             <Clomun text='认证成为智咖' v-if="user.is_expert === '0'" iconClass="icon-renzheng" msgNum="32"><div :class="{'disabled':user.is_identify==='0'}" class="user-identify">去认证</div></Clomun>
-            <Clomun text='邀我回答' v-if="user.is_expert === '1'" iconClass="icon-xaioxi2" msgNum="32"></Clomun>
+            <router-link :to="'/user/answer/' + user.id"><Clomun text='邀我回答' v-if="user.is_expert === '1'" iconClass="icon-xaioxi2" msgNum="32"></Clomun></router-link>
         </div>
         <Clomun text='邀请好友' iconClass="icon-yaoqing" msgNum="获取答案试看券"></Clomun>
-        <Clomun text='权限管理' iconClass="icon-quanxianguanli"></Clomun>
+        <router-link :to="'/user/role/' + user.id"><Clomun text='权限管理' iconClass="icon-quanxianguanli"></Clomun></router-link>
         <Clomun text='意见反馈' iconClass="icon-fankui" msgNum="有问题反馈给我们哦"></Clomun>
         <Clomun text='APP下载' iconClass="icon-xiazai1" msgNum="32"></Clomun>
-        <Clomun text='设置' iconClass="icon-shezhi" msgNum="32"></Clomun>
+        <router-link :to="'/user/set/'"><Clomun text='设置' iconClass="icon-shezhi" msgNum="32"></Clomun></router-link>
     </div>
 </template>
 
