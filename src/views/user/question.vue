@@ -101,6 +101,7 @@
         &-title {
             margin: 6px 0;
             line-height: 21px;
+            word-wrap: break-word;
         }
         &-reason {
             margin-bottom: 15px;
