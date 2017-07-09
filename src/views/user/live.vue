@@ -9,6 +9,7 @@
 
 <script>
     import LiveModule from '../../components/live/module'
+    import Tab from '../../components/common/tab'
     import {mapGetters} from 'vuex'
     export default {
         name: 'my-live',
@@ -26,7 +27,7 @@
                 })
             })
         },
-        components: {LiveModule}
+        components: {LiveModule, Tab}
     }
 </script>
 

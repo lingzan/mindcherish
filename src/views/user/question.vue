@@ -31,7 +31,7 @@
     import ModuleHeader from '../../components/flow/moduleHeader'
     import ModuleQaBox from '../../components/flow/moduleTypeBox'
     import Operate from '../../components/common/operate'
-    import Tab from '../../components/common/tabHeader'
+    import Tab from '../../components/common/tab'
     import {mapGetters, mapActions} from 'vuex'
     export default {
         name: 'my-question',
