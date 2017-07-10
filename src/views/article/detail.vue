@@ -88,7 +88,8 @@
             padding: 16px 16px 6px;
 
             line-height: 32px;
-             font-size: pxToRem(24);
+            font-size: pxToRem(24);
+            word-wrap: break-word;
             font-weight: 500;
             border-bottom: 1px solid #f2f2f2;
         }

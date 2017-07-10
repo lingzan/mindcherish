@@ -40,6 +40,8 @@ export const GET_QUESTION = 'GET_QUESTION'
 
 /* wellChosen */
 export const GET_WELLCHOSEN_LIST = 'GET_WELLCHOSEN_LIST'
+export const GET_WELLCHOSEN_DETAIL = 'GET_WELLCHOSEN_DETAIL'
+export const GET_WELLCHOSEN = 'GET_WELLCHOSEN'
 
 /* live */
 export const GET_LIVE_LIST = 'GET_LIVE_LIST'

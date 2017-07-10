@@ -46,7 +46,9 @@
             position: relative;
             height: 100%;
             flex: 1;
-            
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         &-right {
             flex-shrink: 0;

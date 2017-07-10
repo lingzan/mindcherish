@@ -2,11 +2,15 @@ import * as types from '../mutation-types'
 import wellChosenApi from '../../api/wellChosen'
 
 const state = {
-    wellChosen: []
+    wellChosen: [],
+    wellChosenDetail: [],
+    wellChosenGet: ''
 }
 
 const getters = {
-    wellChosenList: state => state.wellChosen
+    wellChosenList: state => state.wellChosen,
+    wellChosenDetail: state => state.wellChosenDetail,
+    wellChosenGet: sttate => state.wellChosenGet
 }
 
 const actions = {
@@ -14,7 +18,18 @@ const actions = {
         wellChosenApi.getWellChosenList(params).then(res => {
             commit(types.GET_WELLCHOSEN_LIST, {res})
         })
+    },
+    getWellChosenDetail ({ commit }, params) {
+        wellChosenApi.getWellChosenDetail(params).then(res => {
+            commit(types.GET_WELLCHOSEN_DETAIL, {res})
+        })
+    },
+    getWellChosen ({ commit }, params) {
+        wellChosenApi.getWellChosen(params).then(res => {
+            commit(types.GET_WELLCHOSEN, {res})
+        })
     }
+
 }
 
 const mutations = {
@@ -22,6 +37,20 @@ const mutations = {
         let wellChosen = res
         if (wellChosen && typeof wellChosen === 'object' && wellChosen.code === 0) {
             state.wellChosen = wellChosen.data.rows
+        } else {
+        }
+    },
+    [types.GET_WELLCHOSEN_DETAIL] (state, {res}) {
+        let wellChosen = res
+        if (wellChosen && typeof wellChosen === 'object' && wellChosen.code === 0) {
+            state.wellChosenDetail = wellChosen.data.rows
+        } else {
+        }
+    },
+    [types.GET_WELLCHOSEN] (state, {res}) {
+        let wellChosen = res
+        if (wellChosen && typeof wellChosen === 'object' && wellChosen.code === 0) {
+            state.wellChosenGet = wellChosen.data
         } else {
         }
     }

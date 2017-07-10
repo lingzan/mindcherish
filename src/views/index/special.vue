@@ -1,6 +1,8 @@
 <template>
     <div class="wellChosen">
-        <WellChosenModule well-chosen-class="wellChosen-item" v-for="wellChosen in wellChosens" :key="wellChosen.id" :well-chosen="wellChosenFormat(wellChosen)" />
+        <router-link :to="'/special/' + wellChosen.id" v-for="wellChosen in wellChosens" :key="wellChosen.id">
+            <WellChosenModule well-chosen-class="wellChosen-item"  :well-chosen="wellChosen" />
+        </router-link>
     </div>
 </template>
 

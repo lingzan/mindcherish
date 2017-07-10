@@ -27,6 +27,7 @@ import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/question/list'
 import QuestionDetail from '../views/question/detail'
 import Special from '../views/index/special'
+import SpecialDetail from '../views/special/detail'
 
 import Article from '../views/article/list'
 import ArticleDetail from '../views/article/detail'
@@ -255,6 +256,11 @@ export default new Router({
             path: '/fwd',
             name: 'Fwd',
             component: Fwd
+        },
+        {
+            path: '/special/:id',
+            name: 'SpecialDetail',
+            component: SpecialDetail
         }
     ]
 })
