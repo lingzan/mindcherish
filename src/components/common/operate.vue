@@ -11,7 +11,7 @@
             operateClass: ''
         }
     }
-</script>
+</script> 
 
 <style type="text/sass" lang="scss">
     @import '../../style/func.scss';

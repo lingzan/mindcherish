@@ -5,3 +5,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@mixin imgBg ($w, $h, $url) {
+    width: $w;
+    height: $h;
+    background: url(#{$url}) no-repeat;
+    background-size: 100%;
+}
