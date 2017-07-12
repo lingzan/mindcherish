@@ -5,6 +5,7 @@
                 <span class="article-item-time">{{dateFormat(item.date)}}</span>
             </User>
             <ArticleModule :article="item" />
+            
         </div>
     </div>
 </template>

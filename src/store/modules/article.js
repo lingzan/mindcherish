@@ -14,8 +14,8 @@ const getters = {
 }
 
 const actions = {
-    getArticleList ({ commit }, page) {
-        article.getArticleList(page).then(res => {
+    getArticleList ({ commit }, params) {
+        article.getArticleList(params).then(res => {
             commit(types.GET_ARTICLE_LIST, {res})
         })
     },

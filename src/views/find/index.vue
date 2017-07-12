@@ -24,15 +24,36 @@
        
             <li>大宗</li>
         </ul>
-        <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
-        <Question v-for="question in questions" :key="question.id" :question="dataFormat(question)"/>
+        <div class="find-column">
+            <FindHeader title="智咖" instr="值得信赖的大咖与精英" url="/expert/more"/>
+            <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
+        </div>
+        <div class="find-column">
+            <FindHeader title="精选" instr="精彩问答集中看" url="/expert/more"/>
+            <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
+        </div>
+        <div class="find-column">
+            <FindHeader title="问答" instr="最稀缺、最独到的见解" url="/expert/more"/>
+            <Question question-class="find-question" v-for="question in questions" :key="question.id" :question="dataFormat(question)"/>
+        </div>
+        <div class="find-column">
+            <FindHeader title="文章" instr="研究成果的汇聚地" url="/expert/more"/>
+            <ArticleModule question-class="find-question" v-for="article in articles" :key="article.id" :article="article"/>
+        </div>
+        <div class="find-column">
+            <FindHeader title="Live" instr="为每个人提供与智咖的实时互动" url="/expert/more"/>
+            <Live  v-for="live in lives" :key="live.id" :live="dataFormat(live)"/>
+        </div>
     </div>
 </template>
 
 <script>
     import Search from '../../components/nav/searchnav'
     import WellChosen from '../../components/wellChosen/module'
-    import Question from '../../components/module/question'
+    import Question from '../../components/question/module'
+    import ArticleModule from '../../components/article/module'
+    import Live from '../../components/live/module'
+    import FindHeader from '../../components/find/findHeader'
     import Swiper from '../../components/widget/swiper'
     import {mapGetters} from 'vuex'
     export default {
@@ -40,7 +61,9 @@
         computed: {
             ...mapGetters({
                 questions: 'questionList',
-                wellChosens: 'wellChosenList'
+                wellChosens: 'wellChosenList',
+                articles: 'articleList',
+                lives: 'liveList'
             })
         },
         methods: {
@@ -61,9 +84,17 @@
                     flag: 'i',
                     rows: 3
                 })
+                vm.$store.dispatch('getArticleList', {
+                    flag: 'i',
+                    rows: 3
+                })
+                vm.$store.dispatch('getLiveList', {
+                    flag: 'i',
+                    rows: 3
+                })
             })
         },
-        components: { Search, WellChosen, Question, Swiper }
+        components: { Search, WellChosen, Question, ArticleModule, Live, Swiper, FindHeader }
     }
 </script>
 
@@ -99,6 +130,9 @@
                 font-size: pxToRem(14);
             }
         }
+        &-column {
+            margin-top: 10px;
+        }
         &-topline {
             &-icon {
                 margin:  0 auto 12px;
@@ -133,7 +167,9 @@
                 border: 0.5px solid #f2f2f2;
             }
         }
-
+        &-question {
+            margin-top: 1px;
+        }
 
     }
 </style>

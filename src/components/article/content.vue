@@ -1,43 +1,43 @@
 <template>
-    <section class="article-module">
-        <ModuleHeader :actor="article" module-header-class="article-module-header" />
-        <ArticleContent :article="article.content" />
-    </section>
+    <div class="article-content">
+        <router-link :to="{path: '/article/' + article.id}">
+            <ImgAutoFit img-fit-class="article-content-img" :img-url="article.cover" />
+            <h2 class="article-content-title">{{article.title}}</h2>
+            <p class="article-content-content">{{article.summary}}</p>
+        </router-link>
+        <Operate>
+           {{article.good_amount}} 赞 · <a :href="article.id">{{article.comment_amount}} 评价 </a><a :href="classify.id" v-for="classify in article.classifys" :key="classify.id">· #{{classify.name}} </a> 
+        </Operate>
+    </div>
 </template>
 
 <script>
-    import ModuleHeader from '../flow/moduleHeader'
-    import ArticleContent from '../article/content'
+    import ImgAutoFit from '../common/imgfit'
+    import Operate from '../../components/common/operate'
+
     export default {
-        name: 'article-module',
+        name: 'article-content',
         props: {
             article: ''
         },
-        components: { ModuleHeader, ArticleContent }
+        components: { ImgAutoFit, Operate }
     }
 </script>
 
 <style type="text/sass" lang="scss">
     @import '../../style/mixin.scss';
     @import '../../style/func.scss';
-    .article-module {
-        padding: 14px 16px;
-        margin-bottom: 10px;
-        background: #fff;
+    .article-content {
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-        
         &-header {
-            // height: 20px;
-            // line-height: 20px;
-            //  font-size: pxToRem(13);
+            height: 20px;
+            line-height: 20px;
+            font-size: pxToRem(13);
             margin-bottom: 9px;
         }
         
         &-content {
-             font-size: pxToRem(14);
+            font-size: pxToRem(14);
             line-height: 21px;
             color: rgba(0,0,0,.54)
         }
@@ -58,7 +58,7 @@
 
         &-title {
             margin:6px 0 8px;
-             font-size: pxToRem(18);
+            font-size: pxToRem(18);
             line-height: 23px;
             font-weight: 500;
 

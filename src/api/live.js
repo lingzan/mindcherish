@@ -7,14 +7,8 @@ const LIVE_API = {
 }
 
 export default {
-    getLiveList (page) {
-        let _data = {
-            // id: '',
-            // for: 'pull-up-lastest',
-            page: page,
-            rows: 10
-        }
-        let promise = fetch(LIVE_API.lists, _data, 'GET')
+    getLiveList (params) {
+        let promise = fetch(LIVE_API.lists, params, 'GET')
         return promise
     },
     getLive (id) {

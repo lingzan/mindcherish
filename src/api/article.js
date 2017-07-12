@@ -22,14 +22,8 @@ const ARTICLE_API = {
 }
 
 export default {
-    getArticleList (page) {
-        let _data = {
-            // id: '',
-            // for: 'pull-up-lastest',
-            page: page,
-            rows: 10
-        }
-        let promise = fetch(ARTICLE_API.lists, _data, 'GET')
+    getArticleList (pramas) {
+        let promise = fetch(ARTICLE_API.lists, pramas, 'GET')
         return promise
     },
     getArticleContent (id) {

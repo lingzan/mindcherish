@@ -14,8 +14,8 @@ const getters = {
 }
 
 const actions = {
-    getLiveList ({ commit }, page) {
-        LiveApi.getLiveList(page).then(res => {
+    getLiveList ({ commit }, params) {
+        LiveApi.getLiveList(params).then(res => {
             commit(types.GET_LIVE_LIST, {res})
         })
     },

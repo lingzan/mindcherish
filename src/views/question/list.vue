@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import QuestionModule from '../../components/module/question'
+    import QuestionModule from '../../components/question/module'
     import {mapGetters} from 'vuex'
     export default {
         name: 'question-list',

@@ -1,5 +1,5 @@
 <template>
-    <div class="question-module">
+    <div class="question-module" :class="questionClass">
         <ModuleHeader :actor="question"/>
         <router-link :to="'/question/' + question.content.id">
             <p class="question-module-title">{{question.content.title}}</p>
@@ -22,7 +22,8 @@
     export default {
         name: 'question-module',
         props: {
-            question: ''
+            question: '',
+            questionClass: ''
         },
         computed: {
         },
