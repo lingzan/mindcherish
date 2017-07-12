@@ -1,6 +1,6 @@
 <template>
     <div class="live">
-        <LiveModule v-for="live in lives" :key="live.id" liveModuleClass="live-module-item" :liveData="formatLive(live)" />
+        <LiveModule v-for="live in lives" :key="live.id" liveModuleClass="live-module-item" :live="formatLive(live)" />
     </div>
 </template>
 

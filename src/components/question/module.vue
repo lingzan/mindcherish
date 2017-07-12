@@ -8,8 +8,8 @@
         <Operate operate-class="question-item-operate">
             <span>{{question.content.visiter_amount}} get</span>
             <span>· {{question.content.good_amount}} 赞</span>
-            <a :href="question.content.id">· {{question.content.comment_amount}} 评价</a>
-            <a :href="classify.id" v-for="classify in question.content.classifys"> · #{{classify.name}}</a>
+            <router-link :to="'/comment/list/' + question.content.id">· {{question.content.comment_amount}} 评价</router-link>
+            <router-link :to="'/classify/' + classify.id" v-for="classify in question.content.classifys"> · #{{classify.name}}</router-link>
         </Operate>
     </router-link>
 </template>

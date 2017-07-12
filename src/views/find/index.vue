@@ -38,11 +38,12 @@
         </div>
         <div class="find-column">
             <FindHeader title="文章" instr="研究成果的汇聚地" url="/expert/more"/>
-            <ArticleModule question-class="find-question" v-for="article in articles" :key="article.id" :article="article"/>
+            <ArticleModule article-class="find-article" v-for="article in articles" :key="article.id" :article="article"/>
         </div>
         <div class="find-column">
+        <!-- {{lives}} -->
             <FindHeader title="Live" instr="为每个人提供与智咖的实时互动" url="/expert/more"/>
-            <Live  v-for="live in lives" :key="live.id" :live="dataFormat(live)"/>
+            <Live  v-for="live in lives" :key="live.id" :live="live"/>
         </div>
     </div>
 </template>
@@ -167,7 +168,8 @@
                 border: 0.5px solid #f2f2f2;
             }
         }
-        &-question {
+        &-question,
+        &-article {
             margin-top: 1px;
         }
 

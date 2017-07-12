@@ -1,5 +1,5 @@
 <template>
-    <article class="article-item">
+    <article class="article-item" :class="articleClass">
         <User user-class="article-item-header" :user="article.author">
             <span class="article-item-time">{{dateFormat(article.date)}}</span>
         </User>
@@ -15,7 +15,8 @@
     export default {
         name: 'article-item',
         props: {
-            article: ''
+            article: '',
+            articleClass: ''
         },
         methods: {
             articleFormat: (article) => {
