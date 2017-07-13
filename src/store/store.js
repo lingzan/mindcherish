@@ -9,7 +9,7 @@ import Article from './modules/article'
 import Question from './modules/question'
 import WellCHOSEN from './modules/wellChosen'
 import LIVE from './modules/live'
-
+import MSG from './modules/msg'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -21,7 +21,8 @@ const store = new Vuex.Store({
         question: Question,
         common: Common,
         live: LIVE,
-        user: User
+        user: User,
+        msg: MSG
     }
 })
 

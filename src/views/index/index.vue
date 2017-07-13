@@ -1,6 +1,6 @@
 <template>
     <div class="index">
-        <Search />
+        <Search search-class="index-search"/>
         <SubNav :subnavs="subnavs"/>
         <router-view> 
         </router-view>
@@ -35,7 +35,15 @@
 <style type="text/sass" lang="scss">
    .index {
         background: #f2f2f2;
-        
+        &-search {
+            padding: 8px 16px !important;
+            background: #fff;
+            border-bottom: 1px solid #f2f2f2;
+
+            a {
+                background: #f2f2f2;
+            }
+        }
         &-subimg {
             position: fixed;
             left: 0;

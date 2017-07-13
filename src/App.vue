@@ -165,4 +165,7 @@ li {
     height: 100%;
     overflow: hidden;
 }
+.mb10 {
+    margin-bottom: 10px;
+}
 </style>

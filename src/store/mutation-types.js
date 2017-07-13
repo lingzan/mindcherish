@@ -17,6 +17,10 @@ export const GET_USER_COLLECT = 'GET_USER_COLLECT'
 export const GET_USER_DRAFT = 'GET_USER_DRAFT'
 export const GET_USER_ANSWER = 'GET_USER_ANSWER'
 export const GET_USER_BILL = 'GET_USER_BILL'
+
+/* msg */
+export const GET_NEW_MSG = 'GET_NEW_MSG'
+
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
 export const GET_ARTICLE_LIST = 'GET_ARTICLE_LIST'
