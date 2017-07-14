@@ -7,7 +7,7 @@
         <router-link :to="'/user/set/'"><Clomun text='帮助中心'><i class="iconfont icon-dianjijinru"></i></Clomun></router-link>
         <router-link :to="'/user/set/'"><Clomun text='关于我们'><i class="iconfont icon-dianjijinru"></i></Clomun></router-link>
         <router-link :to="'/user/set/'"><Clomun text='意见反馈'><i class="iconfont icon-dianjijinru"></i></Clomun></router-link>
-        <div class="login-out">退出登录</div>
+        <router-link to="/login"><div class="login-out">退出登录</div></router-link>
     </div>
 </template>
 
@@ -15,7 +15,7 @@
     import Clomun from '../../components/user/clomun'
     export default {
         name: 'user-set',
-        components: {Clomun}
+        components: { Clomun }
     }
 </script>
 

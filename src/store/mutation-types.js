@@ -20,6 +20,10 @@ export const GET_USER_BILL = 'GET_USER_BILL'
 
 /* msg */
 export const GET_NEW_MSG = 'GET_NEW_MSG'
+export const GET_MSG_FANS = 'GET_MSG_FANS'
+export const GET_MSG_FOCUS = 'GET_MSG_FOCUS'
+export const GET_MSG_DOMAIN = 'GET_MSG_DOMAIN'
+export const GET_MSG_INSTR = 'GET_MSG_INSTR'
 
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'

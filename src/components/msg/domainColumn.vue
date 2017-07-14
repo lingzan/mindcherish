@@ -1,22 +1,20 @@
 <template>
-    <div class="default-user clearfix" :class="userClass">
-        <Avatar avatar-size="40" type="expert" avatar-class="default-user-left"/>
-        <div class="default-user-middle">
-            <p class="default-user-name">{{user.nickname}} <slot name="mark"></slot></p>
-            <p class="default-user-desciption">{{user.company}} · {{user.position}}</p>
+    <div class="default-msg-domain clearfix" :class="userClass">
+        <div class="default-msg-domain-left">
+            <p class="default-msg-domain-name">{{user.nickname}} <slot name="mark"></slot></p>
+            <p class="default-msg-domain-desciption">{{user.company}} · {{user.position}}</p>
         </div>
-        <div class="default-user-right">
-            <slot><Focus focus-class="default-user-focus" ></Focus></slot>
+        <div class="default-msg-domain-right">
+            <slot><Focus focus-class="default-msg-domain-focus" ></Focus></slot>
         </div>
     </div>
 </template>
 
 <script>
-    import Avatar from '../../components/avatar/user'
     import Focus from '../../components/common/focus'
 
     export default {
-        name: 'common-user',
+        name: 'default-msg-domain',
         props: {
             userClass: '',
             user: {}
@@ -27,22 +25,19 @@
         },
         computed: {
         },
-        components: { Avatar, Focus }
+        components: { Focus }
     }
 </script>
 
 <style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
-    .default-user {
+    .default-msg-domain {
         display: flex;
         position: relative;
         background-color: #fff;
             
+
         &-left {
-           flex-shrink: 0;
-           margin-right: 10px;
-        }
-        &-middle {
             position: relative;
             height: 100%;
             flex: 1;

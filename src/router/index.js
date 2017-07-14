@@ -37,8 +37,8 @@ import LiveDetail from '../views/live/detail'
 
 import Msg from '../views/msg/index'
 import MsgNotice from '../components/msg/notice'
-import MsgChat from '../components/msg/chat'
-import MsgAttention from '../components/msg/attention'
+import MsgFans from '../views/msg/fans'
+import MsgAttention from '../views/msg/attention'
 
 import Comment from '../views/comment/index'
 import CommentDetail from '../views/comment/detail'
@@ -175,22 +175,22 @@ export default new Router({
         {
             path: '/msg',
             name: 'Msg',
-            component: Msg,
-            children: [{
-                path: '/msg/notice',
-                name: 'MsgNotice',
-                component: MsgNotice
-            },
-            {
-                path: '/msg/chat',
-                name: 'MsgChat',
-                component: MsgChat
-            },
-            {
-                path: '/msg/attention',
-                name: 'MsgAttention',
-                component: MsgAttention
-            }]
+            component: Msg
+        },
+        {
+            path: '/msg/notice',
+            name: 'MsgNotice',
+            component: MsgNotice
+        },
+        {
+            path: '/msg/fans',
+            name: 'MsgFans',
+            component: MsgFans
+        },
+        {
+            path: '/msg/attention',
+            name: 'MsgAttention',
+            component: MsgAttention
         },
         {
             path: '/comment',

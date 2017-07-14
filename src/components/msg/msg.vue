@@ -1,10 +1,9 @@
 <template>
-    <div class="default-msg clearfix" :class="userClass">
-        <!-- <div class="default-avatar" :class="imgClassObject" >
-        <img :src="imgUrls">
-        <em :class="iconClassObject"></em>
-    </div> -->
-        <Avatar avatar-size="40" type="expert" avatar-class="default-msg-left"/>
+    <div class="default-msg clearfix" >
+        <div class="default-msg-left">
+            <img :src="msgFormat.chater.face">
+            <!-- <em :class="{'default-msg-expert': msgFormat.chater.is_expert === '1'}"></em> -->
+        </div>
         <div class="default-msg-middle">
             <p class="default-msg-name">{{msgFormat.content}}</p>
             <p class="default-msg-desciption">{{msgFormat.chater.nickname}}</p>
@@ -21,7 +20,6 @@
     export default {
         name: 'common-user',
         props: {
-            userClass: '',
             msg: {}
         },
         computed: {
@@ -57,11 +55,24 @@
     .default-msg {
         display: flex;
         position: relative;
+        padding: 10px 16px;
         background-color: #fff;
+        border-bottom: 1px solid #f2f2f2;
             
         &-left {
-           flex-shrink: 0;
-           margin-right: 10px;
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 0;
+            em {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            img {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+            }
         }
         &-middle {
             position: relative;
@@ -77,8 +88,8 @@
             color: #9e9e9e;
         }
         &-name {
-            height: 18px;
-            padding-top:3px;
+            height: 15px;
+            margin-top:4px;
 
             line-height: 15px;
              font-size: pxToRem(15);
@@ -102,6 +113,15 @@
             right: 0;
 
             transform: translateY(-50%);
+        }
+        &-talent {
+            background: url(../../assets/icon/icon-talent.png) no-repeat;
+            background-size: cover;
+        }
+
+        &-expert {
+            background: url(../../assets/icon/icon-expert.png) no-repeat;
+            background-size: cover;
         }
     }
 </style>

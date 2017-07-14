@@ -1,26 +1,26 @@
 <template>
     <div class="msg">
-        <SubNav :subnavs="subnavs" />
+        <!-- <SubNav :subnavs="subnavs" /> -->
         <router-view></router-view>
         <MsgItem msg-item-icon="msg-fans"
                  msg-item-name="我的粉丝"
-                 msg-item-url="/system"/>
+                 msg-item-url="/msg/fans"/>
 
         <MsgItem msg-item-icon="msg-focus"
                  msg-item-class="mb10"
                  msg-item-name="我的关注"
-                 msg-item-url="/system"/>
+                 msg-item-url="/msg/attention"/>
 
         <MsgItem msg-item-icon="msg-notice" 
                  msg-item-name="系统通知"
-                 msg-item-url="/system"/>
+                 msg-item-url="/msg/notice"/>
 
-        <MsgItem msg-item-icon="msg-notice" 
-                 msg-item-name="系统通知"
+        <MsgItem msg-item-icon="msg-notice"
+                 msg-item-class="mb10"
+                 msg-item-name="扑克小助手"
                  msg-item-url="/system">
                  <span>在线客服</span>
         </MsgItem>
-        <!-- {{newMsg}} -->
         <div>
             <Msg v-for="msg in newMsg" :msg="msg" />
         </div>
