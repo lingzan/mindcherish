@@ -8,8 +8,10 @@ import FlowStore from './modules/flow'
 import Article from './modules/article'
 import Question from './modules/question'
 import WellCHOSEN from './modules/wellChosen'
-import LIVE from './modules/live'
-import MSG from './modules/msg'
+import Live from './modules/live'
+import Msg from './modules/msg'
+import Classify from './modules/classify'
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -20,9 +22,10 @@ const store = new Vuex.Store({
         wellChosen: WellCHOSEN,
         question: Question,
         common: Common,
-        live: LIVE,
+        live: Live,
         user: User,
-        msg: MSG
+        msg: Msg,
+        classify: Classify
     }
 })
 

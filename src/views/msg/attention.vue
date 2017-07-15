@@ -2,10 +2,11 @@
     <div class="msg-focus-list">
         <Tab :tab='tab'
              :tab-current='tabCurrent'
-             :tab-click='switchTab'/>   
-        <User v-for="fan in msgData" :user="userFormat(fan)" :key="fan.id" user-class="msg-focus-list-avatar"/>
-        <DomainColumn v-for="fan in msgData" :user="userFormat(fan)" :key="fan.id" user-class="msg-focus-list-avatar"/>
-        <User v-for="fan in msgData" :user="userFormat(fan)" :key="fan.id" user-class="msg-focus-list-avatar"/>
+             :tab-click='switchTab'
+             tab-class="msg-focus-tab"/>   
+        <User v-if="tabCurrent === 'user'" v-for="fan in msgFocus" :user="userFormat(fan)" :key="fan.id" user-class="msg-focus-list-avatar"/>
+        <DomainColumn v-if="tabCurrent === 'domain'" v-for="fan in msgDomain" :domain="fan" :key="fan.id" domain-class="msg-focus-list-avatar"/>
+        <Instruct v-if="tabCurrent === 'instruct'" v-for="fan in msgInstr" :instruct="userFormat(fan)" :key="fan.id" instruct-class="msg-focus-list-avatar"/>
     </div>
 </template>
 
@@ -13,6 +14,7 @@
     import User from '../../components/common/user'
     import Tab from '../../components/common/tab'
     import DomainColumn from '../../components/msg/domainColumn'
+    import Instruct from '../../components/msg/instruct'
     import {mapGetters, mapActions} from 'vuex'
     export default {
         name: 'msg-focus',
@@ -82,16 +84,23 @@
                 })
             })
         },
-        components: { User, Tab, DomainColumn }
+        components: { User, Tab, DomainColumn, Instruct }
     }
 </script>
 
 <style type="text/sass" lang="scss">
-    .msg-focus-list {
+    .msg-focus {
 
-        &-avatar {
-            padding: 16px;
-            border-bottom: 1px solid #f2f2f2;
+        &-tab {
+            margin-bottom: 10px;
         }
+        &-list {
+            background: #f2f2f2;
+            &-avatar {
+                padding: 16px;
+                border-bottom: 1px solid #f2f2f2;
+            }
+        }
+        
     }
 </style>

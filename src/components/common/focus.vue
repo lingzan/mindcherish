@@ -20,16 +20,15 @@
         width: 60px;
         height: 25px;
 
-        color: #0af;
+        color: #ffa42f;
 
         line-height: 25px;
         text-align: center;
-        border: 1px solid #0af;
+        border: 1px solid #ffa42f;
         border-radius: 2px; 
-        background-color: #fff;
 
         i {
-            color: #0af;
+            color: #ffa42f;
         }
    }
 </style>

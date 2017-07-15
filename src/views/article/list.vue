@@ -1,12 +1,6 @@
 <template>
     <div class="article">
-        <div v-for="item in articles" :key="item.id" class="article-item">
-            <User user-class="article-item-header" :user="item.author">
-                <span class="article-item-time">{{dateFormat(item.date)}}</span>
-            </User>
-            <ArticleModule :article="item" />
-            
-        </div>
+        <ArticleModule  v-for="item in articles" :key="item.id" :article="item" />
     </div>
 </template>
 

@@ -55,7 +55,9 @@
         }
     }
     .tab {
-         font-size: pxToRem(14);
+        background: #fff;
+        font-size: pxToRem(14);
+        
         ul {
             display: flex;
             box-sizing: border-box;
@@ -63,7 +65,6 @@
             height: 40px;
 
             line-height: 40px;
-            background: #fff;
 
             flex-direction: row;
             flex-wrap: wrap;

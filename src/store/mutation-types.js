@@ -17,6 +17,7 @@ export const GET_USER_COLLECT = 'GET_USER_COLLECT'
 export const GET_USER_DRAFT = 'GET_USER_DRAFT'
 export const GET_USER_ANSWER = 'GET_USER_ANSWER'
 export const GET_USER_BILL = 'GET_USER_BILL'
+export const GET_EXPERT_LIST = 'GET_EXPERT_LIST'
 
 /* msg */
 export const GET_NEW_MSG = 'GET_NEW_MSG'
@@ -24,6 +25,7 @@ export const GET_MSG_FANS = 'GET_MSG_FANS'
 export const GET_MSG_FOCUS = 'GET_MSG_FOCUS'
 export const GET_MSG_DOMAIN = 'GET_MSG_DOMAIN'
 export const GET_MSG_INSTR = 'GET_MSG_INSTR'
+export const GET_MSG_NOTICE = 'GET_MSG_NOTICE'
 
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
@@ -55,3 +57,10 @@ export const GET_WELLCHOSEN = 'GET_WELLCHOSEN'
 export const GET_LIVE_LIST = 'GET_LIVE_LIST'
 export const GET_LIVE = 'GET_LIVE'
 export const GET_LIVE_PAYER = 'GET_LIVE_PAYER'
+
+/* classify */
+export const GET_CLASSIFY = 'GET_CLASSIFY'
+export const GET_CLASSIFY_QUESTION = 'GET_CLASSIFY_QUESTION'
+export const GET_CLASSIFY_EXPERT = 'GET_CLASSIFY_EXPERT'
+export const GET_CLASSIFY_ARTICLE = 'GET_CLASSIFY_ARTICLE'
+export const GET_CLASSIFY_LIVE = 'GET_CLASSIFY_LIVE'

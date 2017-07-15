@@ -2,27 +2,27 @@
     <div class="msg">
         <!-- <SubNav :subnavs="subnavs" /> -->
         <router-view></router-view>
-        <MsgItem msg-item-icon="msg-fans"
+        <MsgItem msg-item-icon="msg-fans-column"
                  msg-item-name="我的粉丝"
                  msg-item-url="/msg/fans"/>
 
-        <MsgItem msg-item-icon="msg-focus"
+        <MsgItem msg-item-icon="msg-focus-column"
                  msg-item-class="mb10"
                  msg-item-name="我的关注"
                  msg-item-url="/msg/attention"/>
 
-        <MsgItem msg-item-icon="msg-notice" 
+        <MsgItem msg-item-icon="msg-notice-column" 
                  msg-item-name="系统通知"
                  msg-item-url="/msg/notice"/>
 
-        <MsgItem msg-item-icon="msg-notice"
+        <MsgItem msg-item-icon="msg-notice-column"
                  msg-item-class="mb10"
                  msg-item-name="扑克小助手"
                  msg-item-url="/system">
                  <span>在线客服</span>
         </MsgItem>
         <div>
-            <Msg v-for="msg in newMsg" :msg="msg" />
+            <Msg v-for="msg in newMsg" :msg="msg" :key="msg.id"/>
         </div>
     </div>
 
@@ -69,13 +69,13 @@
     @import '../../style/func.scss';
     .msg {
         background: #f2f2f2;
-        &-fans {
+        &-fans-column {
             @include imgBg(46px, 46px, '../../assets/icon/icon-msgfans.png')
         }
-        &-focus {
+        &-focus-column {
             @include imgBg(46px, 46px, '../../assets/icon/icon-msgfocus.png')
         }
-        &-notice {
+        &-notice-column {
             @include imgBg(46px, 46px, '../../assets/icon/icon-msgnotice.png')
         }
     }

@@ -26,11 +26,11 @@
         </ul>
         <div class="find-column">
             <FindHeader title="智咖" instr="值得信赖的大咖与精英" url="/expert/more"/>
-            <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
+            <WellChosen v-for="wellChosen in wellChosens" :key="wellChosen.id" :wellChosen="wellChosen"/>
         </div>
         <div class="find-column">
             <FindHeader title="精选" instr="精彩问答集中看" url="/expert/more"/>
-            <WellChosen v-for="wellChosen in wellChosens" :wellChosen="wellChosen"/>
+            <WellChosen v-for="wellChosen in wellChosens" :key="wellChosen.id" :wellChosen="wellChosen"/>
         </div>
         <div class="find-column">
             <FindHeader title="问答" instr="最稀缺、最独到的见解" url="/expert/more"/>

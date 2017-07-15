@@ -1,8 +1,8 @@
 <template>
-    <div class="default-msg-domain clearfix" :class="userClass">
+    <div class="default-msg-domain clearfix" :class="domainClass">
         <div class="default-msg-domain-left">
-            <p class="default-msg-domain-name">{{user.nickname}} <slot name="mark"></slot></p>
-            <p class="default-msg-domain-desciption">{{user.company}} · {{user.position}}</p>
+            <p class="default-msg-domain-name">{{domain.name}} <slot name="mark"></slot></p>
+            <p class="default-msg-domain-desciption">{{domain.content}}</p>
         </div>
         <div class="default-msg-domain-right">
             <slot><Focus focus-class="default-msg-domain-focus" ></Focus></slot>
@@ -16,8 +16,8 @@
     export default {
         name: 'default-msg-domain',
         props: {
-            userClass: '',
-            user: {}
+            domainClass: '',
+            domain: {}
         },
         data () {
             return {

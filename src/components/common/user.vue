@@ -1,6 +1,6 @@
 <template>
     <div class="default-user clearfix" :class="userClass">
-        <Avatar avatar-size="40" type="expert" avatar-class="default-user-left"/>
+        <Avatar avatar-size="40" :type="user.is_expert" avatar-class="default-user-left" :avatar-url="user.face"/>
         <div class="default-user-middle">
             <p class="default-user-name">{{user.nickname}} <slot name="mark"></slot></p>
             <p class="default-user-desciption">{{user.company}} · {{user.position}}</p>

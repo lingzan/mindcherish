@@ -1,5 +1,5 @@
 <template>
-    <section class="live-item" :class="liveModuleClass">
+    <section class="live-item" :class="liveClass">
         <div class="left">
             <Avatar avatar-size="54" :avatar-url="face"/>
         </div>
@@ -26,7 +26,7 @@
     export default {
         name: 'live-item',
         props: {
-            liveModuleClass: '',
+            liveClass: '',
             live: ''
         },
         computed: {

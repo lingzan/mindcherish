@@ -6,7 +6,8 @@ const state = {
     msgFans: '',
     msgFocus: '',
     msgDomain: '',
-    msgInstr: ''
+    msgInstr: '',
+    msgNotice: ''
 }
 
 const getters = {
@@ -14,7 +15,8 @@ const getters = {
     msgFans: state => state.msgFans,
     msgFocus: state => state.msgFocus,
     msgDomain: state => state.msgDomain,
-    msgInstr: state => state.msgInstr
+    msgInstr: state => state.msgInstr,
+    msgNotice: state => state.msgNotice
 }
 
 const actions = {
@@ -42,8 +44,12 @@ const actions = {
         msg.msgInstr(params).then(res => {
             commit(types.GET_MSG_INSTR, {res})
         })
+    },
+    getMsgNotice ({ commit }, params) {
+        msg.msgNotice(params).then(res => {
+            commit(types.GET_MSG_NOTICE, {res})
+        })
     }
-
 }
 
 const mutations = {
@@ -80,6 +86,13 @@ const mutations = {
             state.msgInstr = res.data.rows
         } else {
             state.msgInstr = []
+        }
+    },
+    [types.GET_MSG_NOTICE] (state, { res }) {
+        if (res.code === 0) {
+            state.msgNotice = res.data.rows
+        } else {
+            state.msgNotice = []
         }
     }
 

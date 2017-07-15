@@ -12,7 +12,8 @@ const USER_API = {
     userCollect: 'v1/favorite/lists',
     userDraft: 'v1/draft/lists',
     userAnswer: 'v1/expertquestion/lists',
-    orderDetail: 'v1/bill/lists'
+    orderDetail: 'v1/bill/lists',
+    expertList: 'v1/expert/lists'
 }
 
 export default {
@@ -141,6 +142,17 @@ export default {
             @var rows
          */
         let promise = fetch(USER_API.orderDetail, param, 'GET')
+        return promise
+    },
+    expertList (param) {
+        /*
+           @param
+           @var get_userstat 1
+           @var orderby hot|new
+           @var page
+           @var rows
+        */
+        let promise = fetch(USER_API.expertList, param, 'GET')
         return promise
     }
 }

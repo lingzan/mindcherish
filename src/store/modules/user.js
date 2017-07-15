@@ -14,7 +14,8 @@ const state = {
     userCollect: '',
     userDraft: '',
     userAnswer: '',
-    userBill: ''
+    userBill: '',
+    experts: ''
 }
 
 const getters = {
@@ -29,7 +30,8 @@ const getters = {
     userCollect: state => state.userCollect,
     userDraft: state => state.userDraft,
     userAnswer: state => state.userAnswer,
-    userBill: state => state.userBill
+    userBill: state => state.userBill,
+    experts: state => state.experts
 }
 
 const actions = {
@@ -91,6 +93,11 @@ const actions = {
     userBill ({commit}, params) {
         user.orderDetail(params).then(res => {
             commit(types.GET_USER_BILL, {res})
+        })
+    },
+    getExperts ({commit}, params) {
+        user.expertList(params).then(res => {
+            commit(types.GET_EXPERT_LIST, {res})
         })
     }
 }
@@ -178,6 +185,13 @@ const mutations = {
             state.userBill = res.data.rows
         } else {
             state.userBill = {}
+        }
+    },
+    [types.GET_EXPERT_LIST] (state, {res}) {
+        if (res.code === 0) {
+            state.experts = res.data.rows
+        } else {
+            state.experts = {}
         }
     }
 }

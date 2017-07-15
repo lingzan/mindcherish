@@ -4,7 +4,8 @@ const MSG_API = {
     newMsg: 'v1/message_last/lists',
     msgFans: 'v1/friend/lists',
     msgDomain: 'v1/expertclassify/lists',
-    msgInstr: 'v1/enterprise/lists'
+    msgInstr: 'v1/enterprise/lists',
+    msgNotice: 'v1/notification/lists'
 }
 export default {
     newMsg (params) {
@@ -48,6 +49,14 @@ export default {
             http://test.mindcherish.com/v1/enterprise/lists?attention_userid=10684&rows=10&page=1
          */
         let promise = fetch(MSG_API.msgInstr, params, 'GET')
+        return promise
+    },
+    msgNotice (params) {
+        /*
+            @param
+            @var page
+        */
+        let promise = fetch(MSG_API.msgNotice, params, 'GET')
         return promise
     }
 }

@@ -18,6 +18,8 @@ import UserRecharge from '../views/user/recharge'
 import UserSettlement from '../views/user/settlement'
 import Center from '../views/user/center'
 
+import ExpertMore from '../views/expert/more'
+
 import Login from '../views/account/login'
 import Register from '../views/account/register'
 import Fwd from '../views/account/fwd'
@@ -26,8 +28,12 @@ import Index from '../views/index/index'
 import IndexFlow from '../views/index/indexFlow'
 import Question from '../views/question/list'
 import QuestionDetail from '../views/question/detail'
+
 import Special from '../views/index/special'
 import SpecialDetail from '../views/special/detail'
+
+import Classify from '../views/classify/detail'
+// import ClassifyDetail from '../views/classify/detail/:id'
 
 import Article from '../views/article/list'
 import ArticleDetail from '../views/article/detail'
@@ -36,7 +42,7 @@ import Live from '../views/live/list'
 import LiveDetail from '../views/live/detail'
 
 import Msg from '../views/msg/index'
-import MsgNotice from '../components/msg/notice'
+import MsgNotice from '../views/msg/notice'
 import MsgFans from '../views/msg/fans'
 import MsgAttention from '../views/msg/attention'
 
@@ -261,6 +267,16 @@ export default new Router({
             path: '/special/:id',
             name: 'SpecialDetail',
             component: SpecialDetail
+        },
+        {
+            path: '/Classify/:id',
+            name: 'Classify',
+            component: Classify
+        },
+        {
+            path: '/expert/more',
+            name: 'ExpertMore',
+            component: ExpertMore
         }
     ]
 })
