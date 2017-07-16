@@ -1,7 +1,7 @@
 <template>
     <div class="article-content">
         <router-link :to="{path: '/article/' + article.id}">
-            <ImgAutoFit img-fit-class="article-content-img" :img-url="article.cover" />
+            <ImgAutoFit v-if="article.cover" img-fit-class="article-content-img" :img-url="article.cover" />
             <h2 class="article-content-title">{{article.title}}</h2>
             <p class="article-content-content">{{article.summary}}</p>
         </router-link>

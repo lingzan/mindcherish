@@ -334,14 +334,15 @@ video {
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-color: rgba(255, 255, 255, 0.6); 
+font-size: 14px;
+color: rgba(0, 0, 0, 0.3); 
 } 
 input:-moz-placeholder, textarea:-moz-placeholder { 
-color: rgba(255, 255, 255, 0.6); 
+color: rgba(0, 0, 0, 0.3); 
 } 
 input::-moz-placeholder, textarea::-moz-placeholder { 
-color: rgba(255, 255, 255, 0.6); 
+color: rgba(0, 0, 0, 0.3); 
 } 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-color: rgba(255, 255, 255, 0.6); 
+color: rgba(0, 0, 0, 0.3); 
 }

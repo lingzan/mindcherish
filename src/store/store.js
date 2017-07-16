@@ -11,7 +11,8 @@ import WellCHOSEN from './modules/wellChosen'
 import Live from './modules/live'
 import Msg from './modules/msg'
 import Classify from './modules/classify'
-
+import Archive from './modules/archive'
+import Search from './modules/search'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -25,7 +26,9 @@ const store = new Vuex.Store({
         live: Live,
         user: User,
         msg: Msg,
-        classify: Classify
+        classify: Classify,
+        archive: Archive,
+        search: Search
     }
 })
 

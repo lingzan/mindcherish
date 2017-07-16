@@ -2,8 +2,8 @@
     <div class="default-user clearfix" :class="userClass">
         <Avatar avatar-size="40" :type="user.is_expert" avatar-class="default-user-left" :avatar-url="user.face"/>
         <div class="default-user-middle">
-            <p class="default-user-name">{{user.nickname}} <slot name="mark"></slot></p>
-            <p class="default-user-desciption">{{user.company}} · {{user.position}}</p>
+            <p class="default-user-name"><span v-html="user.nickname"></span> <slot name="mark"></slot></p>
+            <p class="default-user-desciption"><span v-html="user.company"></span> · <span v-html="user.position"></span></p>
         </div>
         <div class="default-user-right">
             <slot><Focus focus-class="default-user-focus" ></Focus></slot>

@@ -52,7 +52,6 @@
 
             line-height: 40px;
             background: #fff;
-            border-bottom: solid 1px #f2f2f2;
 
             flex-direction: row;
             flex-wrap: wrap;

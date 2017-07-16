@@ -3,15 +3,15 @@
         <Search search-class="find-search"/>
         <Swiper />
         <div class="find-nav">
-            <router-link class="find-nav-item" to="f">
+            <router-link class="find-nav-item" to="/top">
                 <div class="find-topline-icon"></div>
                 <div>潮汐头条</div>
             </router-link>
-            <router-link class="find-nav-item" to="ff">
+            <router-link class="find-nav-item" to="/market">
                 <div class="find-dynamic-icon"></div>
                 市场动态
             </router-link>
-            <router-link class="find-nav-item" to="ff">
+            <router-link class="find-nav-item" to="/knowledge">
                 <div class="find-knowledge-icon"></div>
                 产业知识
             </router-link>

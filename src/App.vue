@@ -97,6 +97,9 @@ a {
 li {
     list-style: none;
 }
+input::placeholder{
+    color: rgba(0, 0, 0, 0.3)
+}
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

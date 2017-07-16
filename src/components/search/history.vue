@@ -3,23 +3,13 @@
         <div class="search-history">
             <h3 class="search-history-title">历史搜索 <i class="fr iconfont icon-lajitong"></i></h3>
             <ul class="search-history-box">
-                <li class="search-history-item">黑色金属</li>
-                <li class="search-history-item">黑色金属</li>
-                <li class="search-history-item">黑色金属</li>
-                <li class="search-history-item">黑色金属</li>
-                <li class="search-history-item">黑色金属</li>
-                <li class="search-history-item">黑色金属</li>
+                <li class="search-history-item" @click="searchClick(item)" v-for="item in history" :key="item">黑色金属</li>
             </ul>
         </div>
-        <div class="search-hot">
+        <div class="search-hot" v-if="hot">
             <h3 class="search-hot-title">热门搜索</h3>
             <ul class="search-hot-box">
-                <li class="search-hot-item">黑色金属</li>
-                <li class="search-hot-item">黑色金属</li>
-                <li class="search-hot-item">黑色金属</li>
-                <li class="search-hot-item">黑色金属</li>
-                <li class="search-hot-item">黑色金属</li>
-                <li class="search-hot-item">黑色金属</li>
+                <li class="search-hot-item" @click="searchClick(item)" v-for="item in hot" :key="item">{{item}}</li>
             </ul>
         </div>
     </div>    
@@ -27,7 +17,16 @@
 
 <script>
     export default {
-        name: 'search-record'
+        name: 'search-record',
+        props: {
+            hot: '',
+            searchClick: ''
+        },
+        computed: {
+            history () {
+                return [1231, 321, 321]
+            }
+        }
     }
 </script>
 
@@ -43,14 +42,14 @@
 
             &-title {
                 margin-bottom: 14px;
-                 font-size: pxToRem(14);
+                font-size: pxToRem(14);
                 font-weight: 500;
                 color: rgba(0,0,0,.54);
 
                 i {
                     position: relative;
                     top: 2px;
-                     font-size: pxToRem(14);
+                    font-size: pxToRem(14);
                     color: rgba(0,0,0,.54);
                 }
             }
@@ -68,10 +67,11 @@
                 height: 31px;
                 padding:9px 10px;
                 
-                 font-size: pxToRem(13);
+                font-size: pxToRem(13);
                 line-height: 13px;
                 border-radius: 100px;
                 background: #f2f2f2;
+                cursor: pointer;
             }
         }
     }

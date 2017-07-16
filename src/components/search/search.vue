@@ -1,34 +1,54 @@
 <template>
     <div class="search-header">
         <div class="left">
-            <i class="iconfont icon-sousuo"></i><input placeholder="搜索智答、文章和用户"/>
+            <i class="iconfont icon-sousuo"></i><input @input="search" v-model="searchKey" placeholder="搜索智答、文章和用户"/>
         </div>
-        
-        <button class="right" @click="cancle()">取消</button>
+        <button class="right" @click="cancle()">{{btnText}}</button>
     </div>
 </template>
 
 <script>
     export default {
         name: 'search-header',
+        data () {
+            return {
+                btnText: '取消'
+            }
+        },
+        props: {
+            searchInput: '',
+            searchClick: '',
+            searchKey: ''
+        },
         methods: {
-            cancle: function () {
-                console.log(this)
-                window.history.go(-1)
+            cancle () {
+                if (this.keys) {
+                    this.searchClick(this.keys.trim())
+                } else {
+                    window.history.go(-1)
+                }
+            },
+            search () {
+                if (this.keys) {
+                    this.btnText = '搜索'
+                    this.searchInput(this.keys.trim())
+                } else {
+                    this.btnText = '取消'
+                    // window.history.go(-1)
+                }
             }
         }
     }
 </script>
 
-<style type="text/sass" lang="scss">
+<style type="text/sass" lang="scss" scoped>
     @import '../../style/func.scss';
     .search-header {
         // width: 100%;
-        height: 36px;
+        height: 52px;
         padding:8px 16px;
         margin-bottom: 10px;
         background: #fff;
-
 
         .left {
             display: block;
@@ -36,7 +56,7 @@
             height: 36px;
 
             line-height: 36px;
-             font-size: pxToRem(15);
+            font-size: pxToRem(15);
             color: rgba(0,0,0,.38);
             background: #f3f3f3;
             border-radius: 3px;
@@ -71,7 +91,7 @@
 
             height: 34px;
 
-             font-size: pxToRem(14);
+            font-size: pxToRem(14);
             color: rgba(0,0,0,.38);
             line-height: 34px;
             text-align: center;

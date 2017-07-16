@@ -19,6 +19,9 @@ import UserSettlement from '../views/user/settlement'
 import Center from '../views/user/center'
 
 import ExpertMore from '../views/expert/more'
+import Top from '../views/expert/top'
+import Market from '../views/expert/market'
+import Knowledge from '../views/expert/knowledge'
 
 import Login from '../views/account/login'
 import Register from '../views/account/register'
@@ -277,6 +280,21 @@ export default new Router({
             path: '/expert/more',
             name: 'ExpertMore',
             component: ExpertMore
+        },
+        {
+            path: '/top',
+            name: 'Top',
+            component: Top
+        },
+        {
+            path: '/market',
+            name: 'Market',
+            component: Market
+        },
+        {
+            path: '/knowledge',
+            name: 'Knowledge',
+            component: Knowledge
         }
     ]
 })
