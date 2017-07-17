@@ -113,7 +113,6 @@
                 default:
                     break
                 }
-                console.log(_text)
                 return _text
             }
         },

@@ -3,7 +3,10 @@ import QuestionApi from '../../api/question'
 
 const state = {
     questions: [],
-    question: ''
+    question: '',
+    page: 1,
+    isOver: false,
+    isEmpty: false
 }
 
 const getters = {
@@ -28,8 +31,11 @@ const mutations = {
     [types.GET_QUESTION_LIST] (state, {res}) {
         let questions = res
         if (questions && typeof questions === 'object' && questions.code === 0) {
-            state.questions = questions.data.rows
+            state.page++
+            state.questions = state.questions.concat(questions.data.rows)
         } else {
+            state.isEmpty = state.questions.length === 0 ? true : 0
+            state.isOver = true
         }
     },
     [types.GET_QUESTION] (state, {res}) {

@@ -35,6 +35,7 @@
 <style type="text/sass" lang="scss">
    .index {
         background: #f2f2f2;
+        margin-bottom: 53px;
         &-search {
             padding: 8px 16px !important;
             background: #fff;

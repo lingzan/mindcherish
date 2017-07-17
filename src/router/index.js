@@ -48,6 +48,7 @@ import Msg from '../views/msg/index'
 import MsgNotice from '../views/msg/notice'
 import MsgFans from '../views/msg/fans'
 import MsgAttention from '../views/msg/attention'
+import MsgChat from '../views/msg/chat'
 
 import Comment from '../views/comment/index'
 import CommentDetail from '../views/comment/detail'
@@ -63,7 +64,7 @@ import QuizAsk from '../views/quiz/ask'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/',
@@ -202,6 +203,11 @@ export default new Router({
             component: MsgAttention
         },
         {
+            path: '/msg/chat/:id',
+            name: 'MsgChat',
+            component: MsgChat
+        },
+        {
             path: '/comment',
             name: 'Comment',
             component: Comment
@@ -298,3 +304,7 @@ export default new Router({
         }
     ]
 })
+// router.beforeEach((to, from, next) => {
+//     window.removeEventListener('scroll', loadMore)
+// })
+export default router

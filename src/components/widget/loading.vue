@@ -25,7 +25,7 @@
 <style type="text/sass" lang="scss">
     /*圆点loading*/
     .fading {
-        position: absolute;
+        position: fixed;
         left: 50%;
         top: 50%;
         margin-top: -50px;

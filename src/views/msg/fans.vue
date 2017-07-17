@@ -1,16 +1,39 @@
 <template>
-    <div class="msg-fans-list">
+    <div class="msg-fans-list" v-infinite-scroll="loadMore">
         <User v-for="fan in msgFans" :user="fan.fan_userinfo" :key="fan.id" user-class="msg-fans-list-avatar"/>
+        <loading-notice-component :is-over="isOver" :is-empty="isEmpty" overText="已加载全部" emptyText="空状态"/>
     </div>
 </template>
 
 <script>
     import User from '../../components/common/user'
-    import {mapGetters} from 'vuex'
+    import {mapState, mapGetters, mapActions} from 'vuex'
     export default {
         name: 'msg-fans',
         computed: {
-            ...mapGetters(['msgFans'])
+            ...mapGetters(['msgFans', 'getUserLicense']),
+            ...mapState({
+                loading: state => state.common.loading,
+                page: state => state.msg.msgFansPage,
+                isOver: state => state.msg.msgFansIsOver,
+                isEmpty: state => state.msg.msgFansIsEmpty
+            })
+        },
+        methods: {
+            ...mapActions(['getMsgFans']),
+            loadMore () {
+                let that = this
+                if (that.loading || that.isOver || that.isEmpty || that.page === 1) {
+                    return
+                }
+                that.getMsgFans({
+                    page: that.page,
+                    action: 'fan',
+                    attention_userid: that.getUserLicense.user_id,
+                    user_id: that.getUserLicense.user_id,
+                    user_token: that.getUserLicense.user_token
+                })
+            }
         },
         beforeRouteEnter (to, from, next) {
             next(vm => {

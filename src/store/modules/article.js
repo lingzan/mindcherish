@@ -4,7 +4,10 @@ import article from '../../api/article'
 const state = {
     article: [],
     articleContent: '',
-    scrollTop: 0
+    scrollTop: 0,
+    page: 1,
+    isOver: false,
+    isEmpty: false
 }
 
 const getters = {
@@ -32,9 +35,11 @@ const actions = {
 const mutations = {
     [types.GET_ARTICLE_LIST] (state, { res }) {
         if (res.code === 0) {
-            state.article = res.data.rows
+            state.page++
+            state.article = state.article.concat(res.data.rows)
         } else {
-            state.article = []
+            state.isEmpty = state.article.length === 0 ? true : 0
+            state.isOver = true
         }
         // state.article = res
     },

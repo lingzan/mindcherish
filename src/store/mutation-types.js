@@ -26,7 +26,8 @@ export const GET_MSG_FOCUS = 'GET_MSG_FOCUS'
 export const GET_MSG_DOMAIN = 'GET_MSG_DOMAIN'
 export const GET_MSG_INSTR = 'GET_MSG_INSTR'
 export const GET_MSG_NOTICE = 'GET_MSG_NOTICE'
-
+export const GET_MSG_CHAT = 'GET_MSG_CHAT'
+export const GET_ADD_MSG = 'GET_ADD_MSG'
 /* article */
 export const GET_ARTICLE_CONTENT = 'GET_ARTICLE_CONTENT'
 export const GET_ARTICLE_LIST = 'GET_ARTICLE_LIST'

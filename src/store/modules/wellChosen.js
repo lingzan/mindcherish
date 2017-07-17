@@ -4,7 +4,10 @@ import wellChosenApi from '../../api/wellChosen'
 const state = {
     wellChosen: [],
     wellChosenDetail: [],
-    wellChosenGet: ''
+    wellChosenGet: '',
+    page: 1,
+    isOver: false,
+    isEmpty: false
 }
 
 const getters = {
@@ -36,8 +39,11 @@ const mutations = {
     [types.GET_WELLCHOSEN_LIST] (state, {res}) {
         let wellChosen = res
         if (wellChosen && typeof wellChosen === 'object' && wellChosen.code === 0) {
-            state.wellChosen = wellChosen.data.rows
+            state.page++
+            state.wellChosen = state.wellChosen.concat(wellChosen.data.rows)
         } else {
+            state.isEmpty = state.wellChosen.length === 0 ? true : 0
+            state.isOver = true
         }
     },
     [types.GET_WELLCHOSEN_DETAIL] (state, {res}) {

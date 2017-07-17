@@ -7,7 +7,7 @@ const FLOW_API = {
 export default {
     getFlowList (id) {
         let _data = {
-            id: '',
+            id: id,
             for: 'pull-up-lastest',
             rows: 10,
             data_type: '',

@@ -2,9 +2,18 @@ import * as types from '../mutation-types'
 import archive from '../../api/archive'
 
 const state = {
-    topline: '',
-    market: '',
-    knowledge: ''
+    topline: [],
+    market: [],
+    knowledge: [],
+    toplinePage: 1,
+    toplineIsOver: false,
+    toplineIsEmpty: false,
+    marketPage: 1,
+    marketIsOver: false,
+    marketIsEmpty: false,
+    knowledgePage: 1,
+    knowledgeIsOver: false,
+    knowledgeIsEmpty: false
 }
 
 const getters = {
@@ -33,26 +42,32 @@ const actions = {
 
 const mutations = {
     [types.GET_ARCHIVE_TOP] (state, { res }) {
-        console.log(res)
+        console.log(state.toplinePage)
         if (res.code === 0) {
-            state.topline = res.data.rows
+            state.toplinePage++
+            state.topline = state.topline.concat(res.data.rows)
         } else {
-            state.topline = []
+            state.toplineIsEmpty = state.topline.length === 0 ? true : 0
+            state.toplineIsOver = true
         }
         // state.archive = res
     },
     [types.GET_ARCHIVE_MARKET] (state, { res }) {
         if (res.code === 0) {
-            state.market = res.data.rows
+            state.marketPage++
+            state.market = state.market.concat(res.data.rows)
         } else {
-            state.market = []
+            state.marketIsEmpty = state.market.length === 0 ? true : 0
+            state.marketIsOver = true
         }
     },
     [types.GET_ARCHIVE_KNOWLEDGE] (state, { res }) {
         if (res.code === 0) {
-            state.knowledge = res.data.rows
+            state.knowledgePage++
+            state.knowledge = state.knowledge.concat(res.data.rows)
         } else {
-            state.knowledge = []
+            state.knowledgeIsEmpty = state.knowledge.length === 0 ? true : 0
+            state.knowledgeIsOver = true
         }
     }
 }

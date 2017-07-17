@@ -5,7 +5,9 @@ const MSG_API = {
     msgFans: 'v1/friend/lists',
     msgDomain: 'v1/expertclassify/lists',
     msgInstr: 'v1/enterprise/lists',
-    msgNotice: 'v1/notification/lists'
+    msgNotice: 'v1/notification/lists',
+    msgChat: 'v1/message/lists',
+    addMsg: 'v1/message/add'
 }
 export default {
     newMsg (params) {
@@ -57,6 +59,15 @@ export default {
             @var page
         */
         let promise = fetch(MSG_API.msgNotice, params, 'GET')
+        return promise
+    },
+    msgChat (params) {
+        // ?chat_userid=10002&page=1&rows=6&sort=desc
+        let promise = fetch(MSG_API.msgChat, params, 'GET')
+        return promise
+    },
+    addMsg (params) {
+        let promise = fetch(MSG_API.addMsg, params, 'POST')
         return promise
     }
 }

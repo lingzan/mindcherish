@@ -1,7 +1,6 @@
 <template>
-    <div class="msg">
+    <div class="msg" v-infinite-scroll="loadMore">
         <!-- <SubNav :subnavs="subnavs" /> -->
-        <router-view></router-view>
         <MsgItem msg-item-icon="msg-fans-column"
                  msg-item-name="我的粉丝"
                  msg-item-url="/msg/fans"/>
@@ -18,12 +17,13 @@
         <MsgItem msg-item-icon="msg-notice-column"
                  msg-item-class="mb10"
                  msg-item-name="扑克小助手"
-                 msg-item-url="/system">
+                 msg-item-url="/msg/chat/10002">
                  <span>在线客服</span>
         </MsgItem>
         <div>
             <Msg v-for="msg in newMsg" :msg="msg" :key="msg.id"/>
         </div>
+        <loading-notice-component :is-over="isOver" :is-empty="isEmpty" overText="已加载全部" emptyText="空状态"/>
     </div>
 
 </template>
@@ -32,20 +32,35 @@
     import SubNav from '../../components/nav/subnav'
     import MsgItem from '../../components/msg/column'
     import Msg from '../../components/msg/msg'
-    import {mapGetters} from 'vuex'
+    import {mapState, mapGetters, mapActions} from 'vuex'
     export default {
         name: 'msg',
         data () {
-            return {
-                subnavs: [
-                    {'name': '通知', 'url': '/msg/notice'},
-                    {'name': '私信', 'url': '/msg/chat'},
-                    {'name': '关注', 'url': '/msg/attention'}
-                ]
-            }
         },
         computed: {
-            ...mapGetters(['newMsg'])
+            ...mapGetters(['newMsg', 'getUserLicense']),
+            ...mapState({
+                loading: state => state.common.loading,
+                page: state => state.msg.page,
+                isOver: state => state.msg.isOver,
+                isEmpty: state => state.msg.isEmpty
+            })
+        },
+        methods: {
+            ...mapActions(['getNewMsg']),
+            loadMore () {
+                let that = this
+                if (that.loading || that.isOver || that.isEmpty || that.page === 1) {
+                    return
+                }
+                that.getNewMsg({
+                    page: that.page,
+                    get_livemsg: 1,
+                    orderby: 'msgtime',
+                    user_id: that.getUserLicense.user_id,
+                    user_token: that.getUserLicense.user_token
+                })
+            }
         },
         beforeRouteEnter (to, from, next) {
             next(vm => {

@@ -1,12 +1,13 @@
 <template>
-    <div class="msg-notice">
+    <div class="msg-notice" v-infinite-scroll="loadMore">
         <Notice v-for="notice in msgNotice" :notice="notice" :key="notice"/>
+        <loading-notice-component :is-over="isOver" :is-empty="isEmpty" overText="已加载全部" emptyText="空状态"/>
     </div>
 </template>
 
 <script>
     import Notice from '../../components/msg/notice'
-    import {mapGetters} from 'vuex'
+    import {mapState, mapGetters, mapActions} from 'vuex'
     export default {
         name: 'msg-notice',
         data () {
@@ -14,7 +15,27 @@
             }
         },
         computed: {
-            ...mapGetters(['msgNotice'])
+            ...mapGetters(['msgNotice', 'getUserLicense']),
+            ...mapState({
+                loading: state => state.common.loading,
+                page: state => state.msg.msgNoticePage,
+                isOver: state => state.msg.msgNoticeIsOver,
+                isEmpty: state => state.msg.msgNoticeIsEmpty
+            })
+        },
+        methods: {
+            ...mapActions(['getMsgNotice']),
+            loadMore () {
+                let that = this
+                if (that.loading || that.isOver || that.isEmpty || that.page === 1) {
+                    return
+                }
+                that.getMsgNotice({
+                    page: that.page,
+                    user_id: that.getUserLicense.user_id,
+                    user_token: that.getUserLicense.user_token
+                })
+            }
         },
         beforeRouteEnter (to, from, next) {
             next(vm => {

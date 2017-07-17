@@ -25,6 +25,7 @@ axios.interceptors.response.use((res) => {
     }
     return Promise.resolve(res)
 }, (error) => {
+    store.commit(types.AJAX_END)
     // alert('网络异常')
     return Promise.reject(error)
 })
