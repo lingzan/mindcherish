@@ -1,6 +1,7 @@
-# cc
+# mindcherish
 
 > just do something
+> mindcherish vue重构
 
 ## Build Setup
 
