@@ -15,6 +15,15 @@ module.exports = {
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
+    proxyTable: {
+            '/v1': {
+                target: 'http://test.mindcherish.com/v1',
+                changeOrigin: true,
+                pathRewrite: {
+                  '^/v1': ''
+            }
+        }
+    },
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
